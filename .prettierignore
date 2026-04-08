@@ -1,5 +1,7 @@
 **/dist/**/*
 web/templates/**/*
+playwright-report
+test-results
 .venv
 .notes
 .vscode
