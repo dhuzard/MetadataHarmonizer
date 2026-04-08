@@ -62,10 +62,40 @@ $(dhRoot).append(`
     </div>
 `);
 
+const renderGridEngineStatus = (context) => {
+  $('#grid-engine-status').remove();
+
+  const { requestedGridEngine, gridEngine, gridEngineImplemented } =
+    context.appConfig;
+  window.__DATAHARMONIZER_GRID_ENGINE__ = {
+    requested: requestedGridEngine,
+    active: gridEngine,
+    implemented: gridEngineImplemented,
+    mode:
+      requestedGridEngine === gridEngine && gridEngineImplemented
+        ? 'runtime'
+        : 'selection-only',
+  };
+
+  if (requestedGridEngine === gridEngine && gridEngineImplemented) {
+    return;
+  }
+
+  $(dhToolbarRoot).before(`
+    <div id="grid-engine-status" class="alert alert-warning mb-3" role="alert">
+      Grid spike mode requested <strong>${requestedGridEngine}</strong>, but the active engine is
+      <strong>${gridEngine}</strong>. This repo currently has engine-selection infrastructure only; no
+      candidate adapter is active in the default runtime yet.
+    </div>
+  `);
+};
+
 // Make the top function asynchronous to allow for a data-loading/IO step
 const main = async function () {
   const context = new AppContext();
   context.reload(context.appConfig.template_path).then(async (context) => {
+    renderGridEngineStatus(context);
+
     // FUTURE: possibly connect to locale of browser!
     // Takes `lang` as argument (unused)
     initI18n((/* lang */) => {

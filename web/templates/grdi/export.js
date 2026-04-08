@@ -83,7 +83,7 @@ export default {
       // Copy headers to 1st row of new export table
       const outputMatrix = [[...ExportHeaders.keys()]];
 
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = [];
         for (const [headerName, sources] of ExportHeaders) {
           // Otherwise apply source (many to one) to target field transform:
@@ -380,7 +380,7 @@ export default {
       // Copy headers to 1st row of new export table
       const outputMatrix = [[...ExportHeaders.keys()]];
 
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = [];
         for (const [headerName, sources] of ExportHeaders) {
           let value;
@@ -569,7 +569,7 @@ export default {
       // Copy headers to 1st row of new export table
       const outputMatrix = [[...ExportHeaders.keys()]];
 
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = Array(ExportHeaders.size);
         const primaryKey = dh.getFirstNonNullField(
           ['isolate_id', 'sample_collector_sample_id'],
@@ -648,7 +648,7 @@ export default {
       const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       dh.getHeaderMap(exportHeaders, sourceFields, 'NCBI_SRA');
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = [];
         let value;
         for (const [headerName, sources] of exportHeaders) {

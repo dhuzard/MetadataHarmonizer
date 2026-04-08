@@ -93,7 +93,7 @@ export default {
         'xsd:decimal',
       ]);
 
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = [];
         var skip = false;
         for (const [headerName, sources] of ExportHeaders) {
@@ -250,7 +250,7 @@ export default {
       // Copy headers to 1st row of new export table
       const outputMatrix = [[...ExportHeaders.keys()]];
 
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = [];
         for (const [headerName, sources] of ExportHeaders) {
           // Otherwise apply source (many to one) to target field transform:
@@ -360,7 +360,7 @@ export default {
 
       // Create an export table with target format's headers and remaining rows of data
       const outputMatrix = [Array.from(ExportHeaders, (x) => x[0])];
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = [];
         for (const [headerIndex] of ExportHeaders.entries()) {
           const headerName = ExportHeaders[headerIndex][0];
@@ -429,7 +429,7 @@ export default {
   /**
    * Download grid mapped to NML_LIMS format.
    * @param {String} baseName Basename of downloaded file.
-   * @param {Object} dh.hot Handonstable grid instance.
+   * @param {Object} dh DataHarmonizer instance.
    * @param {Object} data See `data.js`.
    * @param {Object} xlsx SheetJS variable.
    */
@@ -572,7 +572,7 @@ export default {
         'Restricted Access',
       ]);
 
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = [];
 
         for (const [headerName, sources] of ExportHeaders) {

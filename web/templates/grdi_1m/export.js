@@ -83,7 +83,7 @@ export default {
       // Copy headers to 1st row of new export table
       const outputMatrix = [[...ExportHeaders.keys()]];
 
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = [];
         for (const [headerName, sources] of ExportHeaders) {
           // Otherwise apply source (many to one) to target field transform:

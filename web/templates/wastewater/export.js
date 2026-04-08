@@ -39,7 +39,7 @@ export default {
       const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       dh.getHeaderMap(exportHeaders, sourceFields, 'NCBI_SRAGenomeTrakr');
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = [];
         let value;
         for (const [headerName, sources] of exportHeaders) {
@@ -86,7 +86,7 @@ export default {
       const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       dh.getHeaderMap(exportHeaders, sourceFields, 'NCBI_SRA');
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = [];
         let value;
         for (const [headerName, sources] of exportHeaders) {
@@ -169,7 +169,7 @@ export default {
       const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       dh.getHeaderMap(exportHeaders, sourceFields, 'NCBI_BIOSAMPLE_SARS_COV_2_WWS');
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
       const outputRow = [];
       let value;
       for (const [headerName, sources] of exportHeaders) {
@@ -264,7 +264,7 @@ export default {
       const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       dh.getHeaderMap(exportHeaders, sourceFields, 'NCBI_BIOSAMPLE_GenomeTrakr');
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = [];
         let value;
         for (const [headerName, sources] of exportHeaders) {
@@ -382,7 +382,7 @@ export default {
       const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       dh.getHeaderMap(exportHeaders, sourceFields, 'ENA_GSC_MIxS_WW_ERC00023');
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = [];
         let value;
         for (const [headerName, sources] of exportHeaders) {
@@ -445,7 +445,7 @@ export default {
       const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       dh.getHeaderMap(exportHeaders, sourceFields, 'ENA_SEWAGE_ERC00036');
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = [];
         let value;
         for (const [headerName, sources] of exportHeaders) {
@@ -549,7 +549,7 @@ export default {
         'xsd:decimal',
       ]);
 
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = [];
         var skip = false;
         for (const [headerName, sources] of ExportHeaders) {
@@ -717,7 +717,7 @@ export default {
 
       // Create an export table with target format's headers and remaining rows of data
       const outputMatrix = [Array.from(ExportHeaders, (x) => x[0])];
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = [];
         for (const [headerIndex] of ExportHeaders.entries()) {
           const headerName = ExportHeaders[headerIndex][0];

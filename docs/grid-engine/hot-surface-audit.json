@@ -1,0 +1,1046 @@
+{
+  "summary": {
+    "directHotCallsites": 79,
+    "methods": 28,
+    "buckets": 4,
+    "exporterGetTrimmedDataCalls": 24
+  },
+  "buckets": [
+    {
+      "bucket": "read-only data access",
+      "count": 28
+    },
+    {
+      "bucket": "plugin/state features",
+      "count": 18
+    },
+    {
+      "bucket": "selection/navigation/render lifecycle",
+      "count": 18
+    },
+    {
+      "bucket": "mutation/editing",
+      "count": 15
+    }
+  ],
+  "methods": [
+    {
+      "method": "getDataAtCell",
+      "count": 9,
+      "locations": [
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 1836
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 213
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 2525
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 2526
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 2534
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 2544
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 2557
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 2875
+        },
+        {
+          "file": "lib/utils/1m.js",
+          "line": 470
+        }
+      ]
+    },
+    {
+      "method": "getPlugin",
+      "count": 7,
+      "locations": [
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 1008
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 1023
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 1269
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 249
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 922
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 929
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 982
+        }
+      ]
+    },
+    {
+      "method": "alter",
+      "count": 5,
+      "locations": [
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 245
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 442
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 459
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 876
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 891
+        }
+      ]
+    },
+    {
+      "method": "addHook",
+      "count": 4,
+      "locations": [
+        {
+          "file": "lib/utils/1m.js",
+          "line": 333
+        },
+        {
+          "file": "lib/utils/1m.js",
+          "line": 701
+        },
+        {
+          "file": "lib/utils/1m.js",
+          "line": 794
+        },
+        {
+          "file": "lib/utils/1m.js",
+          "line": 835
+        }
+      ]
+    },
+    {
+      "method": "countRows",
+      "count": 4,
+      "locations": [
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 1832
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 2037
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 225
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 326
+        }
+      ]
+    },
+    {
+      "method": "getData",
+      "count": 4,
+      "locations": [
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 2040
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 2076
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 209
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 329
+        }
+      ]
+    },
+    {
+      "method": "getSelected",
+      "count": 4,
+      "locations": [
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 217
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 437
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 470
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 481
+        }
+      ]
+    },
+    {
+      "method": "loadData",
+      "count": 4,
+      "locations": [
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 1410
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 205
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 310
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 315
+        }
+      ]
+    },
+    {
+      "method": "countCols",
+      "count": 3,
+      "locations": [
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 2039
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 237
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 328
+        }
+      ]
+    },
+    {
+      "method": "countSourceRows",
+      "count": 3,
+      "locations": [
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 241
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 870
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 987
+        }
+      ]
+    },
+    {
+      "method": "rootDocument",
+      "count": 3,
+      "locations": [
+        {
+          "file": "lib/editors/FlatpickrEditor.js",
+          "line": 35
+        },
+        {
+          "file": "lib/editors/FlatpickrEditor.js",
+          "line": 44
+        },
+        {
+          "file": "lib/editors/FlatpickrEditor.js",
+          "line": 51
+        }
+      ]
+    },
+    {
+      "method": "scrollViewportTo",
+      "count": 3,
+      "locations": [
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 1284
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 928
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 979
+        }
+      ]
+    },
+    {
+      "method": "setDataAtCell",
+      "count": 3,
+      "locations": [
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 1842
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 2843
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 901
+        }
+      ]
+    },
+    {
+      "method": "updateSettings",
+      "count": 3,
+      "locations": [
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 1724
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 814
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 857
+        }
+      ]
+    },
+    {
+      "method": "countEmptyRows",
+      "count": 2,
+      "locations": [
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 230
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 233
+        }
+      ]
+    },
+    {
+      "method": "getSettings",
+      "count": 2,
+      "locations": [
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 852
+        },
+        {
+          "file": "lib/utils/1m.js",
+          "line": 469
+        }
+      ]
+    },
+    {
+      "method": "isEmptyRow",
+      "count": 2,
+      "locations": [
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 1834
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 988
+        }
+      ]
+    },
+    {
+      "method": "render",
+      "count": 2,
+      "locations": [
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 194
+        },
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 336
+        }
+      ]
+    },
+    {
+      "method": "rootWindow",
+      "count": 2,
+      "locations": [
+        {
+          "file": "lib/editors/FlatpickrEditor.js",
+          "line": 208
+        },
+        {
+          "file": "lib/editors/FlatpickrEditor.js",
+          "line": 213
+        }
+      ]
+    },
+    {
+      "method": "setSourceDataAtCell",
+      "count": 2,
+      "locations": [
+        {
+          "file": "lib/utils/1m.js",
+          "line": 551
+        },
+        {
+          "file": "lib/utils/1m.js",
+          "line": 819
+        }
+      ]
+    },
+    {
+      "method": "addHookOnce",
+      "count": 1,
+      "locations": [
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 2842
+        }
+      ]
+    },
+    {
+      "method": "batchRender",
+      "count": 1,
+      "locations": [
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 897
+        }
+      ]
+    },
+    {
+      "method": "destroy",
+      "count": 1,
+      "locations": [
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 356
+        }
+      ]
+    },
+    {
+      "method": "getDataAtRow",
+      "count": 1,
+      "locations": [
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 1030
+        }
+      ]
+    },
+    {
+      "method": "runHooks",
+      "count": 1,
+      "locations": [
+        {
+          "file": "lib/utils/1m.js",
+          "line": 828
+        }
+      ]
+    },
+    {
+      "method": "selectCell",
+      "count": 1,
+      "locations": [
+        {
+          "file": "lib/DataHarmonizer.js",
+          "line": 1276
+        }
+      ]
+    },
+    {
+      "method": "undo",
+      "count": 1,
+      "locations": [
+        {
+          "file": "lib/utils/1m.js",
+          "line": 353
+        }
+      ]
+    },
+    {
+      "method": "view",
+      "count": 1,
+      "locations": [
+        {
+          "file": "lib/editors/FlatpickrEditor.js",
+          "line": 150
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "file": "lib/DataHarmonizer.js",
+      "callsites": [
+        {
+          "line": 194,
+          "method": "render",
+          "source": "this.hot.render();"
+        },
+        {
+          "line": 205,
+          "method": "loadData",
+          "source": "this.hot.loadData(data);"
+        },
+        {
+          "line": 209,
+          "method": "getData",
+          "source": "return this.hot.getData(...args);"
+        },
+        {
+          "line": 213,
+          "method": "getDataAtCell",
+          "source": "return this.hot.getDataAtCell(row, col);"
+        },
+        {
+          "line": 217,
+          "method": "getSelected",
+          "source": "return this.hot.getSelected();"
+        },
+        {
+          "line": 225,
+          "method": "countRows",
+          "source": "return this.hot.countRows();"
+        },
+        {
+          "line": 230,
+          "method": "countEmptyRows",
+          "source": "return this.hot.countEmptyRows();"
+        },
+        {
+          "line": 233,
+          "method": "countEmptyRows",
+          "source": "return this.hot.countEmptyRows(ending);"
+        },
+        {
+          "line": 237,
+          "method": "countCols",
+          "source": "return this.hot.countCols();"
+        },
+        {
+          "line": 241,
+          "method": "countSourceRows",
+          "source": "return this.hot.countSourceRows();"
+        },
+        {
+          "line": 245,
+          "method": "alter",
+          "source": "this.hot.alter('remove_row', rows);"
+        },
+        {
+          "line": 249,
+          "method": "getPlugin",
+          "source": "const hiddenRowsPlugin = this.hot.getPlugin('hiddenRows');"
+        },
+        {
+          "line": 310,
+          "method": "loadData",
+          "source": "this.hot.loadData(list_data);"
+        },
+        {
+          "line": 315,
+          "method": "loadData",
+          "source": "this.hot.loadData(list_data);"
+        },
+        {
+          "line": 326,
+          "method": "countRows",
+          "source": "const rowEnd = this.hot.countRows() - this.hot.countEmptyRows(true) - 1;"
+        },
+        {
+          "line": 328,
+          "method": "countCols",
+          "source": "const colEnd = this.hot.countCols() - 1;"
+        },
+        {
+          "line": 329,
+          "method": "getData",
+          "source": "const data = this.hot.getData(rowStart, colStart, rowEnd, colEnd);"
+        },
+        {
+          "line": 336,
+          "method": "render",
+          "source": "this.hot.render();"
+        },
+        {
+          "line": 356,
+          "method": "destroy",
+          "source": "this.hot.destroy(); // handles already existing data"
+        },
+        {
+          "line": 437,
+          "method": "getSelected",
+          "source": "let selection = self.hot.getSelected()[0][0];"
+        },
+        {
+          "line": 442,
+          "method": "alter",
+          "source": "self.hot.alter('remove_row', selection);"
+        },
+        {
+          "line": 459,
+          "method": "alter",
+          "source": "self.hot.alter('remove_row', selection);"
+        },
+        {
+          "line": 470,
+          "method": "getSelected",
+          "source": "self.addRows('insert_row_above', 1, self.hot.getSelected()[0][0]);"
+        },
+        {
+          "line": 481,
+          "method": "getSelected",
+          "source": "parseInt(self.hot.getSelected()[0][0]) + 1"
+        },
+        {
+          "line": 814,
+          "method": "updateSettings",
+          "source": "this.hot.updateSettings(hot_settings);"
+        },
+        {
+          "line": 852,
+          "method": "getSettings",
+          "source": "const currentColumns = this.hot.getSettings().columns || [];"
+        },
+        {
+          "line": 857,
+          "method": "updateSettings",
+          "source": "this.hot.updateSettings({ columns: currentColumns });"
+        },
+        {
+          "line": 870,
+          "method": "countSourceRows",
+          "source": "if (startRowIndex === false) startRowIndex = this.hot.countSourceRows();"
+        },
+        {
+          "line": 876,
+          "method": "alter",
+          "source": "this.hot.alter(row_where, startRowIndex, numRows);"
+        },
+        {
+          "line": 891,
+          "method": "alter",
+          "source": "this.hot.alter(row_where, startRowIndex, numRows);"
+        },
+        {
+          "line": 897,
+          "method": "batchRender",
+          "source": "this.hot.batchRender(() => {"
+        },
+        {
+          "line": 901,
+          "method": "setDataAtCell",
+          "source": "this.hot.setDataAtCell(row, col, value.value, 'add_row');"
+        },
+        {
+          "line": 922,
+          "method": "getPlugin",
+          "source": "const hiddenColsPlugin = this.hot.getPlugin('hiddenColumns');"
+        },
+        {
+          "line": 928,
+          "method": "scrollViewportTo",
+          "source": "this.hot.scrollViewportTo(0, 1);"
+        },
+        {
+          "line": 929,
+          "method": "getPlugin",
+          "source": "const hiddenColsPlugin = this.hot.getPlugin('hiddenColumns');"
+        },
+        {
+          "line": 979,
+          "method": "scrollViewportTo",
+          "source": "this.hot.scrollViewportTo(0, 1);"
+        },
+        {
+          "line": 982,
+          "method": "getPlugin",
+          "source": "const hiddenRowsPlugin = this.hot.getPlugin('hiddenRows');"
+        },
+        {
+          "line": 987,
+          "method": "countSourceRows",
+          "source": "const rows = [...Array(this.hot.countSourceRows()).keys()];"
+        },
+        {
+          "line": 988,
+          "method": "isEmptyRow",
+          "source": "const emptyRows = rows.filter((row) => this.hot.isEmptyRow(row));"
+        },
+        {
+          "line": 1008,
+          "method": "getPlugin",
+          "source": "const filtersPlugin = dh.hot.getPlugin('filters');"
+        },
+        {
+          "line": 1023,
+          "method": "getPlugin",
+          "source": "const filtersPlugin = dh.hot.getPlugin('filters');"
+        },
+        {
+          "line": 1030,
+          "method": "getDataAtRow",
+          "source": "return !dh.hot.getDataAtRow(row).every(isEmptyUnitVal);"
+        },
+        {
+          "line": 1269,
+          "method": "getPlugin",
+          "source": "const hiddenColsPlugin = this.hot.getPlugin('hiddenColumns');"
+        },
+        {
+          "line": 1276,
+          "method": "selectCell",
+          "source": "this.hot.selectCell("
+        },
+        {
+          "line": 1284,
+          "method": "scrollViewportTo",
+          "source": "this.hot.scrollViewportTo(row, column);"
+        },
+        {
+          "line": 1410,
+          "method": "loadData",
+          "source": "self.hot.loadData("
+        },
+        {
+          "line": 1724,
+          "method": "updateSettings",
+          "source": "this.hot.updateSettings({"
+        },
+        {
+          "line": 1832,
+          "method": "countRows",
+          "source": "for (let row = 0; row < this.hot.countRows(); row++) {"
+        },
+        {
+          "line": 1834,
+          "method": "isEmptyRow",
+          "source": "if (!this.hot.isEmptyRow(row)) {"
+        },
+        {
+          "line": 1836,
+          "method": "getDataAtCell",
+          "source": "if (this.hot.getDataAtCell(row, col) !== value) {"
+        },
+        {
+          "line": 1842,
+          "method": "setDataAtCell",
+          "source": "this.hot.setDataAtCell(changes);"
+        },
+        {
+          "line": 2037,
+          "method": "countRows",
+          "source": "const rowEnd = this.hot.countRows() - this.hot.countEmptyRows(true) - 1;"
+        },
+        {
+          "line": 2039,
+          "method": "countCols",
+          "source": "const colEnd = this.hot.countCols() - 1;"
+        },
+        {
+          "line": 2040,
+          "method": "getData",
+          "source": "return this.hot.getData(rowStart, colStart, rowEnd, colEnd);"
+        },
+        {
+          "line": 2076,
+          "method": "getData",
+          "source": "const listData = this.hot.getData();"
+        },
+        {
+          "line": 2525,
+          "method": "getDataAtCell",
+          "source": "matrixRow[col + 1] = this.hot.getDataAtCell(row, col + 1); //prime unit"
+        },
+        {
+          "line": 2526,
+          "method": "getDataAtCell",
+          "source": "matrixRow[col + 2] = this.hot.getDataAtCell(row, col + 2); //prime bin"
+        },
+        {
+          "line": 2534,
+          "method": "getDataAtCell",
+          "source": "matrixRow[col + 1] = this.hot.getDataAtCell(row, col + 1); //prime bin"
+        },
+        {
+          "line": 2544,
+          "method": "getDataAtCell",
+          "source": "matrixRow[col - 1] = this.hot.getDataAtCell(row, col - 1);"
+        },
+        {
+          "line": 2557,
+          "method": "getDataAtCell",
+          "source": "let dateString = this.hot.getDataAtCell(row, col - 1);"
+        },
+        {
+          "line": 2842,
+          "method": "addHookOnce",
+          "source": "this.hot.addHookOnce('afterChange', resolve);"
+        },
+        {
+          "line": 2843,
+          "method": "setDataAtCell",
+          "source": "this.hot.setDataAtCell(cellChanges, 'validation');"
+        },
+        {
+          "line": 2875,
+          "method": "getDataAtCell",
+          "source": "let lookup_item = self.hot.getDataAtCell(row, col);"
+        }
+      ]
+    },
+    {
+      "file": "lib/editors/FlatpickrEditor.js",
+      "callsites": [
+        {
+          "line": 35,
+          "method": "rootDocument",
+          "source": "this.TEXTAREA = this.hot.rootDocument.createElement('input');"
+        },
+        {
+          "line": 44,
+          "method": "rootDocument",
+          "source": "this.datePicker = this.hot.rootDocument.createElement('DIV');"
+        },
+        {
+          "line": 51,
+          "method": "rootDocument",
+          "source": "this.hot.rootDocument.body.appendChild(this.datePicker);"
+        },
+        {
+          "line": 150,
+          "method": "view",
+          "source": "const isMouseDown = this.hot.view.isMouseDown();"
+        },
+        {
+          "line": 208,
+          "method": "rootWindow",
+          "source": "this.hot.rootWindow.scrollY +"
+        },
+        {
+          "line": 213,
+          "method": "rootWindow",
+          "source": "this.hot.rootWindow.scrollX + offset.left"
+        }
+      ]
+    },
+    {
+      "file": "lib/utils/1m.js",
+      "callsites": [
+        {
+          "line": 333,
+          "method": "addHook",
+          "source": "dh.hot.addHook('afterChange', (changes, source) => {"
+        },
+        {
+          "line": 353,
+          "method": "undo",
+          "source": "dh.hot.undo();"
+        },
+        {
+          "line": 469,
+          "method": "getSettings",
+          "source": "const key_name = dh.hot.getSettings().columns[column].name;"
+        },
+        {
+          "line": 470,
+          "method": "getDataAtCell",
+          "source": "const maybeValueToMatch = dh.hot.getDataAtCell(row, column);"
+        },
+        {
+          "line": 551,
+          "method": "setSourceDataAtCell",
+          "source": "dh.hot.setSourceDataAtCell("
+        },
+        {
+          "line": 701,
+          "method": "addHook",
+          "source": "dh.hot.addHook('afterSelection', (row, column, row2, column2) => {"
+        },
+        {
+          "line": 794,
+          "method": "addHook",
+          "source": "dh.hot.addHook('beforeChange', (changes, source) => {"
+        },
+        {
+          "line": 819,
+          "method": "setSourceDataAtCell",
+          "source": "dh.hot.setSourceDataAtCell(row, col, newValue);"
+        },
+        {
+          "line": 828,
+          "method": "runHooks",
+          "source": "dh.hot.runHooks('afterChange', changes, 'edit');"
+        },
+        {
+          "line": 835,
+          "method": "addHook",
+          "source": "dh.hot.addHook('afterChange', (changes, source) => {"
+        }
+      ]
+    }
+  ],
+  "exporterGetTrimmedDataCalls": [
+    {
+      "file": "web/templates/pha4ge/export.js",
+      "line": 109,
+      "source": "for (const inputRow of dh.getTrimmedData()) {"
+    },
+    {
+      "file": "web/templates/pha4ge/export.js",
+      "line": 221,
+      "source": "for (const inputRow of dh.getTrimmedData()) {"
+    },
+    {
+      "file": "web/templates/pha4ge/export.js",
+      "line": 266,
+      "source": "for (const inputRow of dh.getTrimmedData()) {"
+    },
+    {
+      "file": "web/templates/pha4ge/export.js",
+      "line": 315,
+      "source": "for (const inputRow of dh.getTrimmedData()) {"
+    },
+    {
+      "file": "web/templates/pha4ge/export.js",
+      "line": 423,
+      "source": "for (const inputRow of dh.getTrimmedData()) {"
+    },
+    {
+      "file": "web/templates/wastewater/export.js",
+      "line": 42,
+      "source": "for (const inputRow of dh.getTrimmedData()) {"
+    },
+    {
+      "file": "web/templates/wastewater/export.js",
+      "line": 89,
+      "source": "for (const inputRow of dh.getTrimmedData()) {"
+    },
+    {
+      "file": "web/templates/wastewater/export.js",
+      "line": 172,
+      "source": "for (const inputRow of dh.getTrimmedData()) {"
+    },
+    {
+      "file": "web/templates/wastewater/export.js",
+      "line": 267,
+      "source": "for (const inputRow of dh.getTrimmedData()) {"
+    },
+    {
+      "file": "web/templates/wastewater/export.js",
+      "line": 385,
+      "source": "for (const inputRow of dh.getTrimmedData()) {"
+    },
+    {
+      "file": "web/templates/wastewater/export.js",
+      "line": 448,
+      "source": "for (const inputRow of dh.getTrimmedData()) {"
+    },
+    {
+      "file": "web/templates/wastewater/export.js",
+      "line": 552,
+      "source": "for (const inputRow of dh.getTrimmedData()) {"
+    },
+    {
+      "file": "web/templates/wastewater/export.js",
+      "line": 720,
+      "source": "for (const inputRow of dh.getTrimmedData()) {"
+    },
+    {
+      "file": "web/templates/grdi_1m/export.js",
+      "line": 86,
+      "source": "for (const inputRow of dh.getTrimmedData()) {"
+    },
+    {
+      "file": "web/templates/grdi/export.js",
+      "line": 86,
+      "source": "for (const inputRow of dh.getTrimmedData()) {"
+    },
+    {
+      "file": "web/templates/grdi/export.js",
+      "line": 383,
+      "source": "for (const inputRow of dh.getTrimmedData()) {"
+    },
+    {
+      "file": "web/templates/grdi/export.js",
+      "line": 572,
+      "source": "for (const inputRow of dh.getTrimmedData()) {"
+    },
+    {
+      "file": "web/templates/grdi/export.js",
+      "line": 651,
+      "source": "for (const inputRow of dh.getTrimmedData()) {"
+    },
+    {
+      "file": "web/templates/test/export.js",
+      "line": 88,
+      "source": "for (const inputRow of dh.getTrimmedData()) {"
+    },
+    {
+      "file": "web/templates/canada_covid19/export.js",
+      "line": 96,
+      "source": "for (const inputRow of dh.getTrimmedData()) {"
+    },
+    {
+      "file": "web/templates/canada_covid19/export.js",
+      "line": 253,
+      "source": "for (const inputRow of dh.getTrimmedData()) {"
+    },
+    {
+      "file": "web/templates/canada_covid19/export.js",
+      "line": 363,
+      "source": "for (const inputRow of dh.getTrimmedData()) {"
+    },
+    {
+      "file": "web/templates/canada_covid19/export.js",
+      "line": 575,
+      "source": "for (const inputRow of dh.getTrimmedData()) {"
+    },
+    {
+      "file": "web/templates/phac_dexa/export.js",
+      "line": 128,
+      "source": "const inputMatrix = dh.getTrimmedData();"
+    }
+  ]
+}

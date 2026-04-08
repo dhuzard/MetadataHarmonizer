@@ -55,7 +55,7 @@ export default {
       // Copy headers to 1st row of new export table
       const outputMatrix = [[...ExportHeaders.keys()]];
 
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = [];
         for (const [headerName, sources] of ExportHeaders) {
           let value;
@@ -110,7 +110,7 @@ export default {
       const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       dh.getHeaderMap(exportHeaders, sourceFields, 'NCBI_SRA');
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = [];
         let value;
         for (const [headerName, sources] of exportHeaders) {
@@ -212,7 +212,7 @@ export default {
       const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       dh.getHeaderMap(exportHeaders, sourceFields, 'Pathoplexus_Mpox');
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = [];
         let value;
         for (const [headerName, sources] of exportHeaders) {
@@ -285,7 +285,7 @@ export default {
       // Copy headers to 1st row of new export table
       const outputMatrix = [[...ExportHeaders.keys()]];
 
-for (const inputRow of dh.getTrimmedData(dh.hot)) {
+for (const inputRow of dh.getTrimmedData()) {
   const outputRow = [];
   for (const [headerName, sources] of ExportHeaders) {
     let value;
@@ -426,7 +426,7 @@ for (const inputRow of dh.getTrimmedData(dh.hot)) {
 
       // Create an export table with target format's headers and remaining rows of data
       const outputMatrix = [Array.from(ExportHeaders, (x) => x[0])];
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = [];
         for (const [headerIndex] of ExportHeaders.entries()) {
           const headerName = ExportHeaders[headerIndex][0];
@@ -500,7 +500,7 @@ for (const inputRow of dh.getTrimmedData(dh.hot)) {
   /**
    * Download grid mapped to NML_LIMS format.
    * @param {String} baseName Basename of downloaded file.
-   * @param {Object} dh.hot Handonstable grid instance.
+   * @param {Object} dh DataHarmonizer instance.
    * @param {Object} data See `data.js`.
    * @param {Object} xlsx SheetJS variable.
    */
@@ -663,7 +663,7 @@ for (const inputRow of dh.getTrimmedData(dh.hot)) {
         'Restricted Access',
       ]);
 
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = [];
 
         for (const [headerName, sources] of ExportHeaders) {

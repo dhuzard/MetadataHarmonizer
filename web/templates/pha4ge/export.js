@@ -106,7 +106,7 @@ export default {
       // Copy headers to 1st row of new export table
       const outputMatrix = [[...ExportHeaders.keys()]];
 
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = [];
         for (const [headerName, sources] of ExportHeaders) {
           /* Removed May 12, 2021
@@ -218,7 +218,7 @@ export default {
       // Copy headers to 1st row of new export table
       const outputMatrix = [[...ExportHeaders.keys()]];
 
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = [];
         for (const [headerName, sources] of ExportHeaders) {
           // Otherwise apply source (many to one) to target field transform:
@@ -263,7 +263,7 @@ export default {
       // Copy headers to 1st row of new export table
       const outputMatrix = [[...ExportHeaders.keys()]];
 
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = [];
         for (const [headerName, sources] of ExportHeaders) {
           // Otherwise apply source (many to one) to target field transform:
@@ -312,7 +312,7 @@ export default {
       // Copy headers to 1st row of new export table
       const outputMatrix = [[...ExportHeaders.keys()]];
 
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = [];
         for (const [headerName, sources] of ExportHeaders) {
           // Otherwise apply source (many to one) to target field transform:
@@ -420,7 +420,7 @@ export default {
 
       // Create an export table with target format's headers and remaining rows of data
       const outputMatrix = [Array.from(ExportHeaders, (x) => x[0])];
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      for (const inputRow of dh.getTrimmedData()) {
         const outputRow = [];
         for (const [headerIndex] of ExportHeaders.entries()) {
           const headerName = ExportHeaders[headerIndex][0];

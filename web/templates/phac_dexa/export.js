@@ -125,7 +125,7 @@ export default {
 
       let normalize = self.initLookup();
 
-      const inputMatrix = dh.getTrimmedData(dh.hot);
+      const inputMatrix = dh.getTrimmedData();
       for (const inputRow of inputMatrix) {
         // Does all
         let RuleDB = self.setRuleDB(

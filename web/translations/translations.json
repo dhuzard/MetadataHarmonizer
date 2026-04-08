@@ -291,7 +291,7 @@
     "en": "More than one selection is allowed.",
     "fr": "Plus d'une sélection est autorisée."
   },
-    "carousel-caption-text-0": {
+  "carousel-caption-text-0": {
     "en": "The DataHarmonizer contextual data collection template and validator application enables users to enter data as in an excel spreadsheet - type and pick values from dropdowns, copy/paste, add rows, etc. You can edit the cells manually, or upload .xlsx, .xls, .tsv, .csv and .json files via **File** > **Open**.",
     "fr": "Le modèle de collecte de données contextuelles et l’application de validation DataHarmonizer permettent aux utilisateurs d’entrer des données comme dans une feuille de calcul Excel - taper et choisir des valeurs dans des menus déroulants, copier/coller, ajouter des lignes, etc. Vous pouvez modifier les cellules manuellement, ou télécharger des fichiers .xlsx, .xls, .tsv, .csv et .json dans **Fichier** > **Ouvrir**."
   },
