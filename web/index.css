@@ -83,3 +83,16 @@ td.hide {
 .selectDepth_5 {
   padding-left: 100px !important;
 }
+
+#grid-engine-spike .grid-engine-spike-table {
+  min-height: 360px;
+}
+
+#grid-engine-spike .table td,
+#grid-engine-spike .table th {
+  vertical-align: top;
+}
+
+.grid-spike-invalid-cell {
+  background-color: #ffcccb !important;
+}

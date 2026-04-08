@@ -1369,6 +1369,11 @@
   dependencies:
     playwright "1.59.1"
 
+"@revolist/revogrid@4.21.3":
+  version "4.21.3"
+  resolved "https://registry.yarnpkg.com/@revolist/revogrid/-/revogrid-4.21.3.tgz#fd4896e955af2bb3475dbca74eea9098babb80d0"
+  integrity sha512-2Z32jiY2mZ+DS+NG9kPOTXXP2mBgtVM+TaFRqmtoSlIpdnunhhXdy0NJ9WUeJxvHIzJC4V14jweYn6HQ+ZNAlg==
+
 "@rollup/plugin-alias@^5.0.1":
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-alias/-/plugin-alias-5.1.1.tgz#53601d88cda8b1577aa130b4a6e452283605bf26"
@@ -7239,6 +7244,11 @@ svgo@^3.3.2:
     css-what "^6.1.0"
     csso "^5.0.5"
     picocolors "^1.0.0"
+
+tabulator-tables@6.4.0:
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/tabulator-tables/-/tabulator-tables-6.4.0.tgz#5efa1f0059a0ccd4ed2c9952c5befbf19d1a96a0"
+  integrity sha512-Lxh+leFNoBo/Yyr4USs6gxqbfo8anYUaUMmoT91pfVLtoUgl/dE+qV7ahnFrKVMCYYqGG33aIMPR7FzpPBaNYA==
 
 tapable@^2.0.0, tapable@^2.1.1, tapable@^2.2.0:
   version "2.2.1"

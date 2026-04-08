@@ -30,3 +30,8 @@ node script/audit-grid-usage.mjs
 - 1:m fixture: `grdi_1m`
 
 If later audit evidence shows `grdi_1m` no longer exercises dependent tabs meaningfully, replace it with the first still-valid dependent-table template and record that substitution in the ADR before proceeding.
+
+## Spike Outputs
+
+- `grid-engine-scorecard.md` records the 8 hard-behavior verdicts for Tabulator and RevoGrid.
+- `spike-findings.md` summarizes the go/no-go decision and the recommended next migration step.

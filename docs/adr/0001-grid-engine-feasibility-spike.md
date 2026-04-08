@@ -60,6 +60,15 @@ Before extracting a generic adapter or changing the default runtime engine, perf
 | `grdi_1m`        | 7. Change hook semantics     | Pending            | Pending           |       |
 | `grdi_1m`        | 8. Validation repaint        | Pending            | Pending           |       |
 
+## Spike Addendum: April 8, 2026
+
+- `grdi_1m` remains on disk in the repository, but it is not currently loadable through the bundled template menu.
+- A local scan across the loadable bundled templates showed single-tab runtime behavior for every menu entry.
+- To avoid claiming bundled dependent-tab coverage that the current app no longer exposes, the feasibility spike used the isolated 1:m child-grid fixture under `web/spikes/grid-engine/` for the dependent-filtering and hidden-row behaviors.
+- The resulting candidate evidence is recorded in:
+  - `docs/grid-engine/grid-engine-scorecard.md`
+  - `docs/grid-engine/spike-findings.md`
+
 ## Consequences
 
 - The adapter remains internal and behavior-scoped until the spike selects a winner.

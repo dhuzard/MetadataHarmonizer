@@ -8,6 +8,7 @@ import { initI18n } from '../lib/utils/i18n';
 import { Template } from '../lib/utils/templates';
 import { getGettingStartedMarkup } from '../lib/toolbarGettingStarted';
 import { Footer, Toolbar, AppContext } from '../lib';
+import { maybeMountGridEngineSpike } from './spikes/grid-engine';
 
 // Order matters: place this at bottom of imports for CSS overrides
 import './index.css';
@@ -95,6 +96,7 @@ const main = async function () {
   const context = new AppContext();
   context.reload(context.appConfig.template_path).then(async (context) => {
     renderGridEngineStatus(context);
+    await maybeMountGridEngineSpike(context, dhNavTabs.parentElement);
 
     // FUTURE: possibly connect to locale of browser!
     // Takes `lang` as argument (unused)
