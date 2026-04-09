@@ -42,6 +42,16 @@ describe('grid engine utilities', () => {
 
     expect(
       resolveGridEngine('revogrid', {
+        templatePath: 'phac_dexa/PHACDexa',
+      })
+    ).toEqual({
+      requested: 'revogrid',
+      active: 'revogrid',
+      implemented: true,
+    });
+
+    expect(
+      resolveGridEngine('revogrid', {
         templatePath: 'grdi/GRDI',
       })
     ).toEqual({

@@ -4,8 +4,9 @@
 
 - Current migration phase: first runtime adapter seam is implemented, but the repository is still not dual-engine ready.
 - Handsontable remains the default runtime engine.
-- RevoGrid is now available through the existing engine-selection plumbing only for one bounded bundled-template runtime path:
+- RevoGrid is now available through the existing engine-selection plumbing only for bounded bundled-template runtime paths:
   - `canada_covid19/CanCOGeNCovid19`
+  - `phac_dexa/PHACDexa`
 - Tabulator remains rejected for production migration based on prior spike evidence.
 
 ## 2. What Is Implemented Now
@@ -27,6 +28,7 @@
   - data retention through edit + validate
 - Engine resolution is template-scoped for RevoGrid activation:
   - enabled: `canada_covid19/CanCOGeNCovid19`
+  - enabled: `phac_dexa/PHACDexa`
   - all other template paths continue to fallback to Handsontable.
 
 ## 3. What Is Deliberately Not Implemented
@@ -51,6 +53,7 @@
 - New focused E2E runtime coverage added for:
   - Handsontable default runtime path
   - bounded RevoGrid runtime path (`canada_covid19/CanCOGeNCovid19`)
+  - bounded RevoGrid runtime path (`phac_dexa/PHACDexa`)
 
 ## 6. Remaining Migration Blockers
 

@@ -17,8 +17,10 @@
 ## Exact RevoGrid Path Now Supported
 
 - Engine: `revogrid`
-- Template path: `canada_covid19/CanCOGeNCovid19`
-- Scope: one bounded bundled-template runtime path only.
+- Template paths:
+  - `canada_covid19/CanCOGeNCovid19`
+  - `phac_dexa/PHACDexa`
+- Scope: bounded bundled-template runtime paths only.
 
 Supported for this bounded path:
 

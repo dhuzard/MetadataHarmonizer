@@ -6,8 +6,9 @@ This directory holds the migration artifacts for the spreadsheet-engine feasibil
 
 - Default runtime remains Handsontable.
 - The repo is still not dual-engine ready.
-- A first production runtime adapter seam now exists, but RevoGrid runtime support is bounded to one bundled template path:
+- A first production runtime adapter seam now exists, but RevoGrid runtime support is bounded to two bundled template paths:
   - `canada_covid19/CanCOGeNCovid19`
+  - `phac_dexa/PHACDexa`
 - A local spike can request a candidate engine with the undocumented query param:
   - `?gridEngine=tabulator`
   - `?gridEngine=revogrid`

@@ -7,8 +7,9 @@ It remains intentionally narrow and internal. It is not a claim of dual-engine r
 Current state:
 
 - Handsontable remains the default shipped runtime.
-- RevoGrid runtime support is template-scoped to one bounded bundled path:
+- RevoGrid runtime support is template-scoped to bounded bundled paths:
   - `canada_covid19/CanCOGeNCovid19`
+  - `phac_dexa/PHACDexa`
 - The repo still carries audited direct engine reach-through outside this seam.
 
 ## Behavior Buckets
