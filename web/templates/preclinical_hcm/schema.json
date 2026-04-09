@@ -1,0 +1,3826 @@
+{
+  "name": "PreclinicalHCM",
+  "description": "Normalized preclinical home-cage monitoring metadata model.",
+  "in_language": [
+    "en"
+  ],
+  "id": "https://example.com/preclinical_hcm",
+  "version": "1.0.0",
+  "prefixes": {
+    "linkml": {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    },
+    "xsd": {
+      "prefix_prefix": "xsd",
+      "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "shex": {
+      "prefix_prefix": "shex",
+      "prefix_reference": "http://www.w3.org/ns/shex#"
+    },
+    "schema": {
+      "prefix_prefix": "schema",
+      "prefix_reference": "http://schema.org/"
+    }
+  },
+  "default_prefix": "https://example.com/preclinical_hcm/",
+  "types": {
+    "WhitespaceMinimizedString": {
+      "name": "WhitespaceMinimizedString",
+      "description": "A string with normalized whitespace.",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "Provenance": {
+      "name": "Provenance",
+      "description": "MetadataHarmonizer provenance marker.",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "string": {
+      "name": "string",
+      "description": "A character string",
+      "notes": [
+        "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"."
+      ],
+      "from_schema": "https://example.com/preclinical_hcm",
+      "exact_mappings": [
+        "schema:Text"
+      ],
+      "base": "str",
+      "uri": "xsd:string"
+    },
+    "integer": {
+      "name": "integer",
+      "description": "An integer",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"integer\"."
+      ],
+      "from_schema": "https://example.com/preclinical_hcm",
+      "exact_mappings": [
+        "schema:Integer"
+      ],
+      "base": "int",
+      "uri": "xsd:integer"
+    },
+    "boolean": {
+      "name": "boolean",
+      "description": "A binary (true or false) value",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"boolean\"."
+      ],
+      "from_schema": "https://example.com/preclinical_hcm",
+      "exact_mappings": [
+        "schema:Boolean"
+      ],
+      "base": "Bool",
+      "uri": "xsd:boolean",
+      "repr": "bool"
+    },
+    "float": {
+      "name": "float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"float\"."
+      ],
+      "from_schema": "https://example.com/preclinical_hcm",
+      "exact_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:float"
+    },
+    "double": {
+      "name": "double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"double\"."
+      ],
+      "from_schema": "https://example.com/preclinical_hcm",
+      "close_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:double"
+    },
+    "decimal": {
+      "name": "decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"decimal\"."
+      ],
+      "from_schema": "https://example.com/preclinical_hcm",
+      "broad_mappings": [
+        "schema:Number"
+      ],
+      "base": "Decimal",
+      "uri": "xsd:decimal"
+    },
+    "time": {
+      "name": "time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners do not work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"time\"."
+      ],
+      "from_schema": "https://example.com/preclinical_hcm",
+      "exact_mappings": [
+        "schema:Time"
+      ],
+      "base": "XSDTime",
+      "uri": "xsd:time",
+      "repr": "str"
+    },
+    "date": {
+      "name": "date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date\"."
+      ],
+      "from_schema": "https://example.com/preclinical_hcm",
+      "exact_mappings": [
+        "schema:Date"
+      ],
+      "base": "XSDDate",
+      "uri": "xsd:date",
+      "repr": "str"
+    },
+    "datetime": {
+      "name": "datetime",
+      "description": "The combination of a date and time",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"datetime\"."
+      ],
+      "from_schema": "https://example.com/preclinical_hcm",
+      "exact_mappings": [
+        "schema:DateTime"
+      ],
+      "base": "XSDDateTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date_or_datetime": {
+      "name": "date_or_datetime",
+      "description": "Either a date or a datetime",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date_or_datetime\"."
+      ],
+      "from_schema": "https://example.com/preclinical_hcm",
+      "base": "str",
+      "uri": "linkml:DateOrDatetime",
+      "repr": "str"
+    },
+    "uriorcurie": {
+      "name": "uriorcurie",
+      "description": "a URI or a CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uriorcurie\"."
+      ],
+      "from_schema": "https://example.com/preclinical_hcm",
+      "base": "URIorCURIE",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "curie": {
+      "name": "curie",
+      "conforms_to": "https://www.w3.org/TR/curie/",
+      "description": "a compact URI",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"curie\"."
+      ],
+      "comments": [
+        "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation"
+      ],
+      "from_schema": "https://example.com/preclinical_hcm",
+      "base": "Curie",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "uri": {
+      "name": "uri",
+      "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
+      "description": "a complete URI",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uri\"."
+      ],
+      "comments": [
+        "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
+      ],
+      "from_schema": "https://example.com/preclinical_hcm",
+      "close_mappings": [
+        "schema:URL"
+      ],
+      "base": "URI",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "ncname": {
+      "name": "ncname",
+      "description": "Prefix part of CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"ncname\"."
+      ],
+      "from_schema": "https://example.com/preclinical_hcm",
+      "base": "NCName",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "objectidentifier": {
+      "name": "objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"objectidentifier\"."
+      ],
+      "comments": [
+        "Used for inheritance and type checking"
+      ],
+      "from_schema": "https://example.com/preclinical_hcm",
+      "base": "ElementIdentifier",
+      "uri": "shex:iri",
+      "repr": "str"
+    },
+    "nodeidentifier": {
+      "name": "nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"nodeidentifier\"."
+      ],
+      "from_schema": "https://example.com/preclinical_hcm",
+      "base": "NodeIdentifier",
+      "uri": "shex:nonLiteral",
+      "repr": "str"
+    },
+    "jsonpointer": {
+      "name": "jsonpointer",
+      "conforms_to": "https://datatracker.ietf.org/doc/html/rfc6901",
+      "description": "A string encoding a JSON Pointer. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to a valid object within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpointer\"."
+      ],
+      "from_schema": "https://example.com/preclinical_hcm",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "jsonpath": {
+      "name": "jsonpath",
+      "conforms_to": "https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html",
+      "description": "A string encoding a JSON Path. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpath\"."
+      ],
+      "from_schema": "https://example.com/preclinical_hcm",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "sparqlpath": {
+      "name": "sparqlpath",
+      "conforms_to": "https://www.w3.org/TR/sparql11-query/#propertypaths",
+      "description": "A string encoding a SPARQL Property Path. The value of the string MUST conform to SPARQL syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded as RDF.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"sparqlpath\"."
+      ],
+      "from_schema": "https://example.com/preclinical_hcm",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    }
+  },
+  "enums": {
+    "StudyTypeMenu": {
+      "name": "StudyTypeMenu",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "permissible_values": {
+        "home_cage_monitoring": {
+          "text": "home_cage_monitoring"
+        },
+        "intervention": {
+          "text": "intervention"
+        },
+        "observational": {
+          "text": "observational"
+        },
+        "unknown": {
+          "text": "unknown"
+        }
+      }
+    },
+    "HcmSystemMenu": {
+      "name": "HcmSystemMenu",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "permissible_values": {
+        "DVC": {
+          "text": "DVC"
+        },
+        "PhenoTyper": {
+          "text": "PhenoTyper"
+        },
+        "Other": {
+          "text": "Other"
+        },
+        "unknown": {
+          "text": "unknown"
+        }
+      }
+    },
+    "CageTypeMenu": {
+      "name": "CageTypeMenu",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "permissible_values": {
+        "standard": {
+          "text": "standard"
+        },
+        "hcm": {
+          "text": "hcm"
+        },
+        "breeding": {
+          "text": "breeding"
+        },
+        "experimental": {
+          "text": "experimental"
+        },
+        "unknown": {
+          "text": "unknown"
+        }
+      }
+    },
+    "SpeciesMenu": {
+      "name": "SpeciesMenu",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "permissible_values": {
+        "mouse": {
+          "text": "mouse"
+        },
+        "rat": {
+          "text": "rat"
+        },
+        "other": {
+          "text": "other"
+        },
+        "unknown": {
+          "text": "unknown"
+        }
+      }
+    },
+    "SexMenu": {
+      "name": "SexMenu",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "permissible_values": {
+        "female": {
+          "text": "female"
+        },
+        "male": {
+          "text": "male"
+        },
+        "unknown": {
+          "text": "unknown"
+        }
+      }
+    },
+    "YesNoUnknownMenu": {
+      "name": "YesNoUnknownMenu",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "permissible_values": {
+        "True": {
+          "text": "True"
+        },
+        "False": {
+          "text": "False"
+        },
+        "unknown": {
+          "text": "unknown"
+        }
+      }
+    },
+    "SeverityGradeMenu": {
+      "name": "SeverityGradeMenu",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "permissible_values": {
+        "none": {
+          "text": "none"
+        },
+        "mild": {
+          "text": "mild"
+        },
+        "moderate": {
+          "text": "moderate"
+        },
+        "severe": {
+          "text": "severe"
+        },
+        "subthreshold": {
+          "text": "subthreshold"
+        },
+        "unknown": {
+          "text": "unknown"
+        }
+      }
+    },
+    "ProcedureTypeMenu": {
+      "name": "ProcedureTypeMenu",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "permissible_values": {
+        "treatment": {
+          "text": "treatment"
+        },
+        "behavior": {
+          "text": "behavior"
+        },
+        "surgery": {
+          "text": "surgery"
+        },
+        "observation": {
+          "text": "observation"
+        }
+      }
+    },
+    "ProcedureStateMenu": {
+      "name": "ProcedureStateMenu",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "permissible_values": {
+        "draft": {
+          "text": "draft"
+        },
+        "planned": {
+          "text": "planned"
+        },
+        "in_progress": {
+          "text": "in_progress"
+        },
+        "completed": {
+          "text": "completed"
+        },
+        "cancelled": {
+          "text": "cancelled"
+        },
+        "unknown": {
+          "text": "unknown"
+        }
+      }
+    },
+    "TreatmentTypeMenu": {
+      "name": "TreatmentTypeMenu",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "permissible_values": {
+        "pharmacological": {
+          "text": "pharmacological"
+        },
+        "environmental": {
+          "text": "environmental"
+        },
+        "in_food": {
+          "text": "in_food"
+        },
+        "other": {
+          "text": "other"
+        },
+        "unknown": {
+          "text": "unknown"
+        }
+      }
+    },
+    "ProcedureCategoryMenu": {
+      "name": "ProcedureCategoryMenu",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "permissible_values": {
+        "acute": {
+          "text": "acute"
+        },
+        "chronic": {
+          "text": "chronic"
+        },
+        "unknown": {
+          "text": "unknown"
+        }
+      }
+    },
+    "AdministrationRouteMenu": {
+      "name": "AdministrationRouteMenu",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "permissible_values": {
+        "oral": {
+          "text": "oral"
+        },
+        "gavage": {
+          "text": "gavage"
+        },
+        "IP": {
+          "text": "IP"
+        },
+        "IV": {
+          "text": "IV"
+        },
+        "IM": {
+          "text": "IM"
+        },
+        "tailVein": {
+          "text": "tailVein"
+        },
+        "other": {
+          "text": "other"
+        },
+        "unknown": {
+          "text": "unknown"
+        }
+      }
+    },
+    "AssetTypeMenu": {
+      "name": "AssetTypeMenu",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "permissible_values": {
+        "time_series_reference": {
+          "text": "time_series_reference"
+        },
+        "derived_summary": {
+          "text": "derived_summary"
+        },
+        "external_file": {
+          "text": "external_file"
+        }
+      }
+    },
+    "ValueKindMenu": {
+      "name": "ValueKindMenu",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "permissible_values": {
+        "TimeSeries": {
+          "text": "TimeSeries"
+        },
+        "Summary": {
+          "text": "Summary"
+        }
+      }
+    }
+  },
+  "slots": {
+    "identifiers": {
+      "name": "identifiers",
+      "description": "Stable identifiers and source references.",
+      "title": "Identifiers",
+      "from_schema": "https://example.com/preclinical_hcm"
+    },
+    "study_design": {
+      "name": "study_design",
+      "description": "Experiment-level study design metadata.",
+      "title": "Study Design",
+      "from_schema": "https://example.com/preclinical_hcm"
+    },
+    "environment_housing": {
+      "name": "environment_housing",
+      "description": "Environmental and housing conditions.",
+      "title": "Environment Housing",
+      "from_schema": "https://example.com/preclinical_hcm"
+    },
+    "monitoring": {
+      "name": "monitoring",
+      "description": "Home-cage monitoring system metadata.",
+      "title": "Monitoring",
+      "from_schema": "https://example.com/preclinical_hcm"
+    },
+    "source_tracking": {
+      "name": "source_tracking",
+      "description": "Provenance and source-traceability metadata.",
+      "title": "Source Tracking",
+      "from_schema": "https://example.com/preclinical_hcm"
+    },
+    "cage_setup": {
+      "name": "cage_setup",
+      "description": "Cage structure and enrichment metadata.",
+      "title": "Cage Setup",
+      "from_schema": "https://example.com/preclinical_hcm"
+    },
+    "subject_profile": {
+      "name": "subject_profile",
+      "description": "Subject-level biological metadata.",
+      "title": "Subject Profile",
+      "from_schema": "https://example.com/preclinical_hcm"
+    },
+    "husbandry": {
+      "name": "husbandry",
+      "description": "Husbandry and welfare metadata.",
+      "title": "Husbandry",
+      "from_schema": "https://example.com/preclinical_hcm"
+    },
+    "procedure": {
+      "name": "procedure",
+      "description": "Procedure timing and descriptive metadata.",
+      "title": "Procedure",
+      "from_schema": "https://example.com/preclinical_hcm"
+    },
+    "treatment": {
+      "name": "treatment",
+      "description": "Treatment and dosing metadata.",
+      "title": "Treatment",
+      "from_schema": "https://example.com/preclinical_hcm"
+    },
+    "asset": {
+      "name": "asset",
+      "description": "Asset and outcome metadata.",
+      "title": "Observation Asset",
+      "from_schema": "https://example.com/preclinical_hcm"
+    },
+    "recording_window": {
+      "name": "recording_window",
+      "description": "Recording window and cadence metadata.",
+      "title": "Recording Window",
+      "from_schema": "https://example.com/preclinical_hcm"
+    },
+    "experiment_id": {
+      "name": "experiment_id",
+      "description": "Stable identifier for the experiment.",
+      "title": "experiment_id",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "identifier": true,
+      "domain_of": [
+        "Experiment",
+        "Cage",
+        "Subject",
+        "Procedure",
+        "ObservationAsset"
+      ],
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "name": {
+      "name": "name",
+      "description": "Human-readable experiment name.",
+      "title": "name",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment",
+        "Procedure"
+      ],
+      "range": "string",
+      "required": true
+    },
+    "collaborator": {
+      "name": "collaborator",
+      "description": "Collaborating organization.",
+      "title": "collaborator",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment"
+      ],
+      "range": "string"
+    },
+    "cohort_name": {
+      "name": "cohort_name",
+      "description": "Cohort or group label from the source dataset.",
+      "title": "cohort_name",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment"
+      ],
+      "range": "string"
+    },
+    "study_phase": {
+      "name": "study_phase",
+      "description": "Optional in-life or experimental phase label.",
+      "title": "study_phase",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment"
+      ],
+      "range": "string"
+    },
+    "goal": {
+      "name": "goal",
+      "description": "Primary study goal.",
+      "title": "goal",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment"
+      ],
+      "range": "string"
+    },
+    "study_type": {
+      "name": "study_type",
+      "description": "Study type.",
+      "title": "study_type",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment"
+      ],
+      "range": "StudyTypeMenu"
+    },
+    "protocol": {
+      "name": "protocol",
+      "description": "Protocol or SOP reference.",
+      "title": "protocol",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment",
+        "Procedure"
+      ],
+      "range": "string"
+    },
+    "start_at": {
+      "name": "start_at",
+      "description": "Start of the study or phase.",
+      "title": "start_at",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment",
+        "Procedure"
+      ],
+      "range": "date"
+    },
+    "end_at": {
+      "name": "end_at",
+      "description": "End of the study or phase.",
+      "title": "end_at",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment",
+        "Procedure"
+      ],
+      "range": "date"
+    },
+    "description": {
+      "name": "description",
+      "description": "Free-text description.",
+      "title": "description",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment",
+        "Procedure"
+      ],
+      "range": "string"
+    },
+    "repository_link": {
+      "name": "repository_link",
+      "description": "Repository link for the study.",
+      "title": "repository_link",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment"
+      ],
+      "range": "uri"
+    },
+    "testing_location": {
+      "name": "testing_location",
+      "description": "Testing or collection site.",
+      "title": "testing_location",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment"
+      ],
+      "range": "string"
+    },
+    "room": {
+      "name": "room",
+      "description": "Housing room identifier.",
+      "title": "room",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment"
+      ],
+      "range": "string"
+    },
+    "timezone": {
+      "name": "timezone",
+      "description": "Time zone.",
+      "title": "timezone",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment",
+        "Cage",
+        "ObservationAsset"
+      ],
+      "range": "string"
+    },
+    "light_cycle": {
+      "name": "light_cycle",
+      "description": "Light cycle description.",
+      "title": "light_cycle",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment",
+        "Cage"
+      ],
+      "range": "string"
+    },
+    "lights_on_at": {
+      "name": "lights_on_at",
+      "description": "Lights-on time.",
+      "title": "lights_on_at",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment",
+        "Cage"
+      ],
+      "range": "time"
+    },
+    "dawn_dusk": {
+      "name": "dawn_dusk",
+      "description": "Dawn and dusk transition flag.",
+      "title": "dawn_dusk",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment",
+        "Cage"
+      ],
+      "range": "YesNoUnknownMenu"
+    },
+    "dawn_dusk_duration": {
+      "name": "dawn_dusk_duration",
+      "description": "Dawn and dusk transition duration.",
+      "title": "dawn_dusk_duration",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment",
+        "Cage"
+      ],
+      "range": "string"
+    },
+    "temperature_celsius": {
+      "name": "temperature_celsius",
+      "description": "Temperature in Celsius.",
+      "title": "temperature_celsius",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment"
+      ],
+      "range": "decimal"
+    },
+    "humidity_percent": {
+      "name": "humidity_percent",
+      "description": "Relative humidity percentage.",
+      "title": "humidity_percent",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment"
+      ],
+      "range": "decimal"
+    },
+    "luminosity_lux": {
+      "name": "luminosity_lux",
+      "description": "Light intensity in lux.",
+      "title": "luminosity_lux",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment"
+      ],
+      "range": "decimal"
+    },
+    "pressure_hpa": {
+      "name": "pressure_hpa",
+      "description": "Pressure in hPa.",
+      "title": "pressure_hpa",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment"
+      ],
+      "range": "decimal"
+    },
+    "noise_db": {
+      "name": "noise_db",
+      "description": "Noise in dB.",
+      "title": "noise_db",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment"
+      ],
+      "range": "decimal"
+    },
+    "home_cage_monitoring_system": {
+      "name": "home_cage_monitoring_system",
+      "description": "Home-cage monitoring system name.",
+      "title": "home_cage_monitoring_system",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment"
+      ],
+      "range": "HcmSystemMenu"
+    },
+    "primary_outcome_measure": {
+      "name": "primary_outcome_measure",
+      "description": "Primary outcome measure for the study.",
+      "title": "primary_outcome_measure",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment"
+      ],
+      "range": "string"
+    },
+    "source_file_name": {
+      "name": "source_file_name",
+      "description": "Source file used for ETL.",
+      "title": "source_file_name",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment",
+        "ObservationAsset"
+      ],
+      "range": "string"
+    },
+    "source_record_count": {
+      "name": "source_record_count",
+      "description": "Number of source rows contributing to the experiment.",
+      "title": "source_record_count",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment"
+      ],
+      "range": "integer"
+    },
+    "data_use_notes": {
+      "name": "data_use_notes",
+      "description": "Curation or data-use notes.",
+      "title": "data_use_notes",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Experiment"
+      ],
+      "range": "string"
+    },
+    "cage_id": {
+      "name": "cage_id",
+      "description": "Stable identifier for the cage.",
+      "title": "cage_id",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "identifier": true,
+      "domain_of": [
+        "Cage",
+        "Subject",
+        "Procedure",
+        "ObservationAsset"
+      ],
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "source_cage_identifier": {
+      "name": "source_cage_identifier",
+      "description": "Original cage identifier from the source dataset.",
+      "title": "source_cage_identifier",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Cage"
+      ],
+      "range": "string"
+    },
+    "cage_type": {
+      "name": "cage_type",
+      "description": "Cage type.",
+      "title": "cage_type",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Cage"
+      ],
+      "range": "CageTypeMenu"
+    },
+    "cage_format": {
+      "name": "cage_format",
+      "description": "Cage format.",
+      "title": "cage_format",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Cage"
+      ],
+      "range": "string"
+    },
+    "animals_per_cage": {
+      "name": "animals_per_cage",
+      "description": "Number of animals per cage.",
+      "title": "animals_per_cage",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Cage"
+      ],
+      "range": "integer"
+    },
+    "enrichment_types": {
+      "name": "enrichment_types",
+      "description": "Enrichment types present in the cage.",
+      "title": "enrichment_types",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Cage"
+      ],
+      "range": "string",
+      "multivalued": true
+    },
+    "has_enrichments": {
+      "name": "has_enrichments",
+      "description": "Whether the cage contains enrichment.",
+      "title": "has_enrichments",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Cage"
+      ],
+      "range": "YesNoUnknownMenu"
+    },
+    "water_available": {
+      "name": "water_available",
+      "description": "Whether water was available.",
+      "title": "water_available",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Cage"
+      ],
+      "range": "YesNoUnknownMenu"
+    },
+    "food_available": {
+      "name": "food_available",
+      "description": "Whether food was available.",
+      "title": "food_available",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Cage"
+      ],
+      "range": "YesNoUnknownMenu"
+    },
+    "bedding_type": {
+      "name": "bedding_type",
+      "description": "Bedding type.",
+      "title": "bedding_type",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Cage"
+      ],
+      "range": "string"
+    },
+    "remarks": {
+      "name": "remarks",
+      "description": "Free-text remarks.",
+      "title": "remarks",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Cage",
+        "Subject",
+        "Procedure"
+      ],
+      "range": "string"
+    },
+    "subject_id": {
+      "name": "subject_id",
+      "description": "Stable identifier for the subject.",
+      "title": "subject_id",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "identifier": true,
+      "domain_of": [
+        "Subject",
+        "Procedure",
+        "ObservationAsset"
+      ],
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "source_animal_identifier": {
+      "name": "source_animal_identifier",
+      "description": "Original animal identifier from the source dataset.",
+      "title": "source_animal_identifier",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Subject"
+      ],
+      "range": "string"
+    },
+    "local_identifiers": {
+      "name": "local_identifiers",
+      "description": "Additional local identifiers for the subject.",
+      "title": "local_identifiers",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Subject"
+      ],
+      "range": "string",
+      "multivalued": true
+    },
+    "species": {
+      "name": "species",
+      "description": "Species of the subject.",
+      "title": "species",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Subject"
+      ],
+      "range": "SpeciesMenu"
+    },
+    "sex": {
+      "name": "sex",
+      "description": "Sex of the subject.",
+      "title": "sex",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Subject"
+      ],
+      "range": "SexMenu"
+    },
+    "birth_at": {
+      "name": "birth_at",
+      "description": "Birth date of the subject.",
+      "title": "birth_at",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Subject"
+      ],
+      "range": "date"
+    },
+    "strain_ilar_name": {
+      "name": "strain_ilar_name",
+      "description": "ILAR strain name.",
+      "title": "strain_ilar_name",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Subject"
+      ],
+      "range": "string"
+    },
+    "strain_short_name": {
+      "name": "strain_short_name",
+      "description": "Short strain name.",
+      "title": "strain_short_name",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Subject"
+      ],
+      "range": "string"
+    },
+    "transgenic": {
+      "name": "transgenic",
+      "description": "Transgenic status.",
+      "title": "transgenic",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Subject"
+      ],
+      "range": "YesNoUnknownMenu"
+    },
+    "genotype_information": {
+      "name": "genotype_information",
+      "description": "Genotype information.",
+      "title": "genotype_information",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Subject"
+      ],
+      "range": "string"
+    },
+    "allele_information": {
+      "name": "allele_information",
+      "description": "Allele information.",
+      "title": "allele_information",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Subject"
+      ],
+      "range": "string"
+    },
+    "vendor": {
+      "name": "vendor",
+      "description": "Animal vendor.",
+      "title": "vendor",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Subject"
+      ],
+      "range": "string"
+    },
+    "developmental_stage": {
+      "name": "developmental_stage",
+      "description": "Developmental stage.",
+      "title": "developmental_stage",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Subject"
+      ],
+      "range": "string"
+    },
+    "starting_weight": {
+      "name": "starting_weight",
+      "description": "Subject weight at the start of the study.",
+      "title": "starting_weight",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Subject"
+      ],
+      "range": "decimal"
+    },
+    "weight_unit": {
+      "name": "weight_unit",
+      "description": "Weight unit.",
+      "title": "weight_unit",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Subject"
+      ],
+      "range": "string"
+    },
+    "severity_grade": {
+      "name": "severity_grade",
+      "description": "Severity or welfare grade.",
+      "title": "severity_grade",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Subject"
+      ],
+      "range": "SeverityGradeMenu"
+    },
+    "procedure_id": {
+      "name": "procedure_id",
+      "description": "Stable identifier for the procedure.",
+      "title": "procedure_id",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "identifier": true,
+      "domain_of": [
+        "Procedure"
+      ],
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "procedure_type": {
+      "name": "procedure_type",
+      "description": "Procedure type.",
+      "title": "procedure_type",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Procedure"
+      ],
+      "range": "ProcedureTypeMenu"
+    },
+    "state": {
+      "name": "state",
+      "description": "Lifecycle state of the procedure.",
+      "title": "state",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Procedure"
+      ],
+      "range": "ProcedureStateMenu"
+    },
+    "treatment_type": {
+      "name": "treatment_type",
+      "description": "Treatment type.",
+      "title": "treatment_type",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Procedure"
+      ],
+      "range": "TreatmentTypeMenu"
+    },
+    "category": {
+      "name": "category",
+      "description": "Acute or chronic treatment category.",
+      "title": "category",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Procedure"
+      ],
+      "range": "ProcedureCategoryMenu"
+    },
+    "drug": {
+      "name": "drug",
+      "description": "Test substance or drug name.",
+      "title": "drug",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Procedure"
+      ],
+      "range": "string"
+    },
+    "cas_number": {
+      "name": "cas_number",
+      "description": "CAS number.",
+      "title": "cas_number",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Procedure"
+      ],
+      "range": "string"
+    },
+    "dose_value": {
+      "name": "dose_value",
+      "description": "Dose value.",
+      "title": "dose_value",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Procedure"
+      ],
+      "range": "decimal"
+    },
+    "dose_unit": {
+      "name": "dose_unit",
+      "description": "Dose unit.",
+      "title": "dose_unit",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Procedure"
+      ],
+      "range": "string"
+    },
+    "route": {
+      "name": "route",
+      "description": "Route of administration.",
+      "title": "route",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Procedure"
+      ],
+      "range": "AdministrationRouteMenu"
+    },
+    "administration_method": {
+      "name": "administration_method",
+      "description": "Administration method.",
+      "title": "administration_method",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Procedure"
+      ],
+      "range": "string"
+    },
+    "vehicle_composition": {
+      "name": "vehicle_composition",
+      "description": "Vehicle composition.",
+      "title": "vehicle_composition",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "Procedure"
+      ],
+      "range": "string"
+    },
+    "asset_id": {
+      "name": "asset_id",
+      "description": "Stable identifier for the observation asset.",
+      "title": "asset_id",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "identifier": true,
+      "domain_of": [
+        "ObservationAsset"
+      ],
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "asset_type": {
+      "name": "asset_type",
+      "description": "Observation asset type.",
+      "title": "asset_type",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "ObservationAsset"
+      ],
+      "range": "AssetTypeMenu"
+    },
+    "system": {
+      "name": "system",
+      "description": "Monitoring system identifier.",
+      "title": "system",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "ObservationAsset"
+      ],
+      "range": "HcmSystemMenu"
+    },
+    "outcome_measure": {
+      "name": "outcome_measure",
+      "description": "Outcome measure represented by the asset.",
+      "title": "outcome_measure",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "ObservationAsset"
+      ],
+      "range": "string"
+    },
+    "value_kind": {
+      "name": "value_kind",
+      "description": "Kind of value represented by the asset.",
+      "title": "value_kind",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "ObservationAsset"
+      ],
+      "range": "ValueKindMenu"
+    },
+    "unit": {
+      "name": "unit",
+      "description": "Unit for the observation asset.",
+      "title": "unit",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "ObservationAsset"
+      ],
+      "range": "string"
+    },
+    "recorded_start_at": {
+      "name": "recorded_start_at",
+      "description": "Recording window start.",
+      "title": "recorded_start_at",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "ObservationAsset"
+      ],
+      "range": "datetime"
+    },
+    "recorded_end_at": {
+      "name": "recorded_end_at",
+      "description": "Recording window end.",
+      "title": "recorded_end_at",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "ObservationAsset"
+      ],
+      "range": "datetime"
+    },
+    "recording_duration": {
+      "name": "recording_duration",
+      "description": "Recording duration.",
+      "title": "recording_duration",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "ObservationAsset"
+      ],
+      "range": "string"
+    },
+    "recording_frequency": {
+      "name": "recording_frequency",
+      "description": "Recording frequency.",
+      "title": "recording_frequency",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "ObservationAsset"
+      ],
+      "range": "string"
+    },
+    "source_sheet_name": {
+      "name": "source_sheet_name",
+      "description": "Source worksheet name.",
+      "title": "source_sheet_name",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "ObservationAsset"
+      ],
+      "range": "string"
+    },
+    "source_row_number": {
+      "name": "source_row_number",
+      "description": "Source row number.",
+      "title": "source_row_number",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "ObservationAsset"
+      ],
+      "range": "integer"
+    },
+    "remark": {
+      "name": "remark",
+      "description": "Observation-asset remark.",
+      "title": "remark",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "domain_of": [
+        "ObservationAsset"
+      ],
+      "range": "string"
+    }
+  },
+  "classes": {
+    "dh_interface": {
+      "name": "dh_interface",
+      "description": "A MetadataHarmonizer interface",
+      "from_schema": "https://example.com/preclinical_hcm"
+    },
+    "Experiment": {
+      "name": "Experiment",
+      "description": "Root experiment-level metadata for a preclinical home-cage monitoring study.",
+      "title": "Preclinical HCM",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "experiment_id": {
+          "name": "experiment_id",
+          "rank": 1,
+          "slot_group": "identifiers"
+        },
+        "name": {
+          "name": "name",
+          "rank": 2,
+          "slot_group": "identifiers"
+        },
+        "collaborator": {
+          "name": "collaborator",
+          "rank": 3,
+          "slot_group": "study_design"
+        },
+        "cohort_name": {
+          "name": "cohort_name",
+          "rank": 4,
+          "slot_group": "study_design"
+        },
+        "study_phase": {
+          "name": "study_phase",
+          "rank": 5,
+          "slot_group": "study_design"
+        },
+        "goal": {
+          "name": "goal",
+          "rank": 6,
+          "slot_group": "study_design"
+        },
+        "study_type": {
+          "name": "study_type",
+          "rank": 7,
+          "slot_group": "study_design"
+        },
+        "protocol": {
+          "name": "protocol",
+          "rank": 8,
+          "slot_group": "study_design"
+        },
+        "start_at": {
+          "name": "start_at",
+          "rank": 9,
+          "slot_group": "study_design"
+        },
+        "end_at": {
+          "name": "end_at",
+          "rank": 10,
+          "slot_group": "study_design"
+        },
+        "description": {
+          "name": "description",
+          "rank": 11,
+          "slot_group": "study_design"
+        },
+        "repository_link": {
+          "name": "repository_link",
+          "rank": 12,
+          "slot_group": "study_design"
+        },
+        "testing_location": {
+          "name": "testing_location",
+          "rank": 13,
+          "slot_group": "study_design"
+        },
+        "room": {
+          "name": "room",
+          "rank": 14,
+          "slot_group": "environment_housing"
+        },
+        "timezone": {
+          "name": "timezone",
+          "rank": 15,
+          "slot_group": "environment_housing"
+        },
+        "light_cycle": {
+          "name": "light_cycle",
+          "rank": 16,
+          "slot_group": "environment_housing"
+        },
+        "lights_on_at": {
+          "name": "lights_on_at",
+          "rank": 17,
+          "slot_group": "environment_housing"
+        },
+        "dawn_dusk": {
+          "name": "dawn_dusk",
+          "rank": 18,
+          "slot_group": "environment_housing"
+        },
+        "dawn_dusk_duration": {
+          "name": "dawn_dusk_duration",
+          "rank": 19,
+          "slot_group": "environment_housing"
+        },
+        "temperature_celsius": {
+          "name": "temperature_celsius",
+          "rank": 20,
+          "slot_group": "environment_housing"
+        },
+        "humidity_percent": {
+          "name": "humidity_percent",
+          "rank": 21,
+          "slot_group": "environment_housing"
+        },
+        "luminosity_lux": {
+          "name": "luminosity_lux",
+          "rank": 22,
+          "slot_group": "environment_housing"
+        },
+        "pressure_hpa": {
+          "name": "pressure_hpa",
+          "rank": 23,
+          "slot_group": "environment_housing"
+        },
+        "noise_db": {
+          "name": "noise_db",
+          "rank": 24,
+          "slot_group": "environment_housing"
+        },
+        "home_cage_monitoring_system": {
+          "name": "home_cage_monitoring_system",
+          "rank": 25,
+          "slot_group": "monitoring"
+        },
+        "primary_outcome_measure": {
+          "name": "primary_outcome_measure",
+          "rank": 26,
+          "slot_group": "monitoring"
+        },
+        "source_file_name": {
+          "name": "source_file_name",
+          "rank": 27,
+          "slot_group": "source_tracking"
+        },
+        "source_record_count": {
+          "name": "source_record_count",
+          "rank": 28,
+          "slot_group": "source_tracking"
+        },
+        "data_use_notes": {
+          "name": "data_use_notes",
+          "rank": 29,
+          "slot_group": "source_tracking"
+        }
+      },
+      "attributes": {
+        "experiment_id": {
+          "name": "experiment_id",
+          "description": "Stable identifier for the experiment.",
+          "title": "experiment_id",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 1,
+          "identifier": true,
+          "alias": "experiment_id",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment",
+            "Cage",
+            "Subject",
+            "Procedure",
+            "ObservationAsset"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "name": {
+          "name": "name",
+          "description": "Human-readable experiment name.",
+          "title": "name",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 2,
+          "alias": "name",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment",
+            "Procedure"
+          ],
+          "slot_group": "identifiers",
+          "range": "string",
+          "required": true
+        },
+        "collaborator": {
+          "name": "collaborator",
+          "description": "Collaborating organization.",
+          "title": "collaborator",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 3,
+          "alias": "collaborator",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment"
+          ],
+          "slot_group": "study_design",
+          "range": "string"
+        },
+        "cohort_name": {
+          "name": "cohort_name",
+          "description": "Cohort or group label from the source dataset.",
+          "title": "cohort_name",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 4,
+          "alias": "cohort_name",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment"
+          ],
+          "slot_group": "study_design",
+          "range": "string"
+        },
+        "study_phase": {
+          "name": "study_phase",
+          "description": "Optional in-life or experimental phase label.",
+          "title": "study_phase",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 5,
+          "alias": "study_phase",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment"
+          ],
+          "slot_group": "study_design",
+          "range": "string"
+        },
+        "goal": {
+          "name": "goal",
+          "description": "Primary study goal.",
+          "title": "goal",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 6,
+          "alias": "goal",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment"
+          ],
+          "slot_group": "study_design",
+          "range": "string"
+        },
+        "study_type": {
+          "name": "study_type",
+          "description": "Study type.",
+          "title": "study_type",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 7,
+          "alias": "study_type",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment"
+          ],
+          "slot_group": "study_design",
+          "range": "StudyTypeMenu"
+        },
+        "protocol": {
+          "name": "protocol",
+          "description": "Protocol or SOP reference.",
+          "title": "protocol",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 8,
+          "alias": "protocol",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment",
+            "Procedure"
+          ],
+          "slot_group": "study_design",
+          "range": "string"
+        },
+        "start_at": {
+          "name": "start_at",
+          "description": "Start of the study or phase.",
+          "title": "start_at",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 9,
+          "alias": "start_at",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment",
+            "Procedure"
+          ],
+          "slot_group": "study_design",
+          "range": "date"
+        },
+        "end_at": {
+          "name": "end_at",
+          "description": "End of the study or phase.",
+          "title": "end_at",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 10,
+          "alias": "end_at",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment",
+            "Procedure"
+          ],
+          "slot_group": "study_design",
+          "range": "date"
+        },
+        "description": {
+          "name": "description",
+          "description": "Free-text description.",
+          "title": "description",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 11,
+          "alias": "description",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment",
+            "Procedure"
+          ],
+          "slot_group": "study_design",
+          "range": "string"
+        },
+        "repository_link": {
+          "name": "repository_link",
+          "description": "Repository link for the study.",
+          "title": "repository_link",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 12,
+          "alias": "repository_link",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment"
+          ],
+          "slot_group": "study_design",
+          "range": "uri"
+        },
+        "testing_location": {
+          "name": "testing_location",
+          "description": "Testing or collection site.",
+          "title": "testing_location",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 13,
+          "alias": "testing_location",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment"
+          ],
+          "slot_group": "study_design",
+          "range": "string"
+        },
+        "room": {
+          "name": "room",
+          "description": "Housing room identifier.",
+          "title": "room",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 14,
+          "alias": "room",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment"
+          ],
+          "slot_group": "environment_housing",
+          "range": "string"
+        },
+        "timezone": {
+          "name": "timezone",
+          "description": "Time zone.",
+          "title": "timezone",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 15,
+          "alias": "timezone",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment",
+            "Cage",
+            "ObservationAsset"
+          ],
+          "slot_group": "environment_housing",
+          "range": "string"
+        },
+        "light_cycle": {
+          "name": "light_cycle",
+          "description": "Light cycle description.",
+          "title": "light_cycle",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 16,
+          "alias": "light_cycle",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment",
+            "Cage"
+          ],
+          "slot_group": "environment_housing",
+          "range": "string"
+        },
+        "lights_on_at": {
+          "name": "lights_on_at",
+          "description": "Lights-on time.",
+          "title": "lights_on_at",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 17,
+          "alias": "lights_on_at",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment",
+            "Cage"
+          ],
+          "slot_group": "environment_housing",
+          "range": "time"
+        },
+        "dawn_dusk": {
+          "name": "dawn_dusk",
+          "description": "Dawn and dusk transition flag.",
+          "title": "dawn_dusk",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 18,
+          "alias": "dawn_dusk",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment",
+            "Cage"
+          ],
+          "slot_group": "environment_housing",
+          "range": "YesNoUnknownMenu"
+        },
+        "dawn_dusk_duration": {
+          "name": "dawn_dusk_duration",
+          "description": "Dawn and dusk transition duration.",
+          "title": "dawn_dusk_duration",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 19,
+          "alias": "dawn_dusk_duration",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment",
+            "Cage"
+          ],
+          "slot_group": "environment_housing",
+          "range": "string"
+        },
+        "temperature_celsius": {
+          "name": "temperature_celsius",
+          "description": "Temperature in Celsius.",
+          "title": "temperature_celsius",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 20,
+          "alias": "temperature_celsius",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment"
+          ],
+          "slot_group": "environment_housing",
+          "range": "decimal"
+        },
+        "humidity_percent": {
+          "name": "humidity_percent",
+          "description": "Relative humidity percentage.",
+          "title": "humidity_percent",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 21,
+          "alias": "humidity_percent",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment"
+          ],
+          "slot_group": "environment_housing",
+          "range": "decimal"
+        },
+        "luminosity_lux": {
+          "name": "luminosity_lux",
+          "description": "Light intensity in lux.",
+          "title": "luminosity_lux",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 22,
+          "alias": "luminosity_lux",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment"
+          ],
+          "slot_group": "environment_housing",
+          "range": "decimal"
+        },
+        "pressure_hpa": {
+          "name": "pressure_hpa",
+          "description": "Pressure in hPa.",
+          "title": "pressure_hpa",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 23,
+          "alias": "pressure_hpa",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment"
+          ],
+          "slot_group": "environment_housing",
+          "range": "decimal"
+        },
+        "noise_db": {
+          "name": "noise_db",
+          "description": "Noise in dB.",
+          "title": "noise_db",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 24,
+          "alias": "noise_db",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment"
+          ],
+          "slot_group": "environment_housing",
+          "range": "decimal"
+        },
+        "home_cage_monitoring_system": {
+          "name": "home_cage_monitoring_system",
+          "description": "Home-cage monitoring system name.",
+          "title": "home_cage_monitoring_system",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 25,
+          "alias": "home_cage_monitoring_system",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment"
+          ],
+          "slot_group": "monitoring",
+          "range": "HcmSystemMenu"
+        },
+        "primary_outcome_measure": {
+          "name": "primary_outcome_measure",
+          "description": "Primary outcome measure for the study.",
+          "title": "primary_outcome_measure",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 26,
+          "alias": "primary_outcome_measure",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment"
+          ],
+          "slot_group": "monitoring",
+          "range": "string"
+        },
+        "source_file_name": {
+          "name": "source_file_name",
+          "description": "Source file used for ETL.",
+          "title": "source_file_name",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 27,
+          "alias": "source_file_name",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment",
+            "ObservationAsset"
+          ],
+          "slot_group": "source_tracking",
+          "range": "string"
+        },
+        "source_record_count": {
+          "name": "source_record_count",
+          "description": "Number of source rows contributing to the experiment.",
+          "title": "source_record_count",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 28,
+          "alias": "source_record_count",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment"
+          ],
+          "slot_group": "source_tracking",
+          "range": "integer"
+        },
+        "data_use_notes": {
+          "name": "data_use_notes",
+          "description": "Curation or data-use notes.",
+          "title": "data_use_notes",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 29,
+          "alias": "data_use_notes",
+          "owner": "Experiment",
+          "domain_of": [
+            "Experiment"
+          ],
+          "slot_group": "source_tracking",
+          "range": "string"
+        }
+      },
+      "unique_keys": {
+        "experiment_key": {
+          "unique_key_name": "experiment_key",
+          "unique_key_slots": [
+            "experiment_id"
+          ],
+          "description": "The stable identifier for the experiment."
+        }
+      }
+    },
+    "Cage": {
+      "name": "Cage",
+      "description": "Cage-level metadata for a preclinical home-cage monitoring study.",
+      "title": "Cage",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "slot_usage": {
+        "cage_id": {
+          "name": "cage_id",
+          "rank": 1,
+          "slot_group": "identifiers"
+        },
+        "experiment_id": {
+          "name": "experiment_id",
+          "annotations": {
+            "required": {
+              "tag": "required",
+              "value": true
+            },
+            "foreign_key": {
+              "tag": "foreign_key",
+              "value": "Experiment.experiment_id"
+            }
+          },
+          "rank": 2,
+          "slot_group": "identifiers"
+        },
+        "source_cage_identifier": {
+          "name": "source_cage_identifier",
+          "rank": 3,
+          "slot_group": "identifiers"
+        },
+        "cage_type": {
+          "name": "cage_type",
+          "rank": 4,
+          "slot_group": "cage_setup"
+        },
+        "cage_format": {
+          "name": "cage_format",
+          "rank": 5,
+          "slot_group": "cage_setup"
+        },
+        "animals_per_cage": {
+          "name": "animals_per_cage",
+          "rank": 6,
+          "slot_group": "cage_setup"
+        },
+        "enrichment_types": {
+          "name": "enrichment_types",
+          "rank": 7,
+          "slot_group": "cage_setup"
+        },
+        "has_enrichments": {
+          "name": "has_enrichments",
+          "rank": 8,
+          "slot_group": "cage_setup"
+        },
+        "water_available": {
+          "name": "water_available",
+          "rank": 9,
+          "slot_group": "cage_setup"
+        },
+        "food_available": {
+          "name": "food_available",
+          "rank": 10,
+          "slot_group": "cage_setup"
+        },
+        "bedding_type": {
+          "name": "bedding_type",
+          "rank": 11,
+          "slot_group": "cage_setup"
+        },
+        "light_cycle": {
+          "name": "light_cycle",
+          "rank": 12,
+          "slot_group": "environment_housing"
+        },
+        "lights_on_at": {
+          "name": "lights_on_at",
+          "rank": 13,
+          "slot_group": "environment_housing"
+        },
+        "dawn_dusk": {
+          "name": "dawn_dusk",
+          "rank": 14,
+          "slot_group": "environment_housing"
+        },
+        "dawn_dusk_duration": {
+          "name": "dawn_dusk_duration",
+          "rank": 15,
+          "slot_group": "environment_housing"
+        },
+        "timezone": {
+          "name": "timezone",
+          "rank": 16,
+          "slot_group": "environment_housing"
+        },
+        "remarks": {
+          "name": "remarks",
+          "rank": 17,
+          "slot_group": "source_tracking"
+        }
+      },
+      "attributes": {
+        "cage_id": {
+          "name": "cage_id",
+          "description": "Stable identifier for the cage.",
+          "title": "cage_id",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 1,
+          "identifier": true,
+          "alias": "cage_id",
+          "owner": "Cage",
+          "domain_of": [
+            "Cage",
+            "Subject",
+            "Procedure",
+            "ObservationAsset"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "experiment_id": {
+          "name": "experiment_id",
+          "annotations": {
+            "required": {
+              "tag": "required",
+              "value": true
+            },
+            "foreign_key": {
+              "tag": "foreign_key",
+              "value": "Experiment.experiment_id"
+            }
+          },
+          "description": "Stable identifier for the experiment.",
+          "title": "experiment_id",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 2,
+          "identifier": true,
+          "alias": "experiment_id",
+          "owner": "Cage",
+          "domain_of": [
+            "Experiment",
+            "Cage",
+            "Subject",
+            "Procedure",
+            "ObservationAsset"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "source_cage_identifier": {
+          "name": "source_cage_identifier",
+          "description": "Original cage identifier from the source dataset.",
+          "title": "source_cage_identifier",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 3,
+          "alias": "source_cage_identifier",
+          "owner": "Cage",
+          "domain_of": [
+            "Cage"
+          ],
+          "slot_group": "identifiers",
+          "range": "string"
+        },
+        "cage_type": {
+          "name": "cage_type",
+          "description": "Cage type.",
+          "title": "cage_type",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 4,
+          "alias": "cage_type",
+          "owner": "Cage",
+          "domain_of": [
+            "Cage"
+          ],
+          "slot_group": "cage_setup",
+          "range": "CageTypeMenu"
+        },
+        "cage_format": {
+          "name": "cage_format",
+          "description": "Cage format.",
+          "title": "cage_format",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 5,
+          "alias": "cage_format",
+          "owner": "Cage",
+          "domain_of": [
+            "Cage"
+          ],
+          "slot_group": "cage_setup",
+          "range": "string"
+        },
+        "animals_per_cage": {
+          "name": "animals_per_cage",
+          "description": "Number of animals per cage.",
+          "title": "animals_per_cage",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 6,
+          "alias": "animals_per_cage",
+          "owner": "Cage",
+          "domain_of": [
+            "Cage"
+          ],
+          "slot_group": "cage_setup",
+          "range": "integer"
+        },
+        "enrichment_types": {
+          "name": "enrichment_types",
+          "description": "Enrichment types present in the cage.",
+          "title": "enrichment_types",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 7,
+          "alias": "enrichment_types",
+          "owner": "Cage",
+          "domain_of": [
+            "Cage"
+          ],
+          "slot_group": "cage_setup",
+          "range": "string",
+          "multivalued": true
+        },
+        "has_enrichments": {
+          "name": "has_enrichments",
+          "description": "Whether the cage contains enrichment.",
+          "title": "has_enrichments",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 8,
+          "alias": "has_enrichments",
+          "owner": "Cage",
+          "domain_of": [
+            "Cage"
+          ],
+          "slot_group": "cage_setup",
+          "range": "YesNoUnknownMenu"
+        },
+        "water_available": {
+          "name": "water_available",
+          "description": "Whether water was available.",
+          "title": "water_available",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 9,
+          "alias": "water_available",
+          "owner": "Cage",
+          "domain_of": [
+            "Cage"
+          ],
+          "slot_group": "cage_setup",
+          "range": "YesNoUnknownMenu"
+        },
+        "food_available": {
+          "name": "food_available",
+          "description": "Whether food was available.",
+          "title": "food_available",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 10,
+          "alias": "food_available",
+          "owner": "Cage",
+          "domain_of": [
+            "Cage"
+          ],
+          "slot_group": "cage_setup",
+          "range": "YesNoUnknownMenu"
+        },
+        "bedding_type": {
+          "name": "bedding_type",
+          "description": "Bedding type.",
+          "title": "bedding_type",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 11,
+          "alias": "bedding_type",
+          "owner": "Cage",
+          "domain_of": [
+            "Cage"
+          ],
+          "slot_group": "cage_setup",
+          "range": "string"
+        },
+        "light_cycle": {
+          "name": "light_cycle",
+          "description": "Light cycle description.",
+          "title": "light_cycle",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 12,
+          "alias": "light_cycle",
+          "owner": "Cage",
+          "domain_of": [
+            "Experiment",
+            "Cage"
+          ],
+          "slot_group": "environment_housing",
+          "range": "string"
+        },
+        "lights_on_at": {
+          "name": "lights_on_at",
+          "description": "Lights-on time.",
+          "title": "lights_on_at",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 13,
+          "alias": "lights_on_at",
+          "owner": "Cage",
+          "domain_of": [
+            "Experiment",
+            "Cage"
+          ],
+          "slot_group": "environment_housing",
+          "range": "time"
+        },
+        "dawn_dusk": {
+          "name": "dawn_dusk",
+          "description": "Dawn and dusk transition flag.",
+          "title": "dawn_dusk",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 14,
+          "alias": "dawn_dusk",
+          "owner": "Cage",
+          "domain_of": [
+            "Experiment",
+            "Cage"
+          ],
+          "slot_group": "environment_housing",
+          "range": "YesNoUnknownMenu"
+        },
+        "dawn_dusk_duration": {
+          "name": "dawn_dusk_duration",
+          "description": "Dawn and dusk transition duration.",
+          "title": "dawn_dusk_duration",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 15,
+          "alias": "dawn_dusk_duration",
+          "owner": "Cage",
+          "domain_of": [
+            "Experiment",
+            "Cage"
+          ],
+          "slot_group": "environment_housing",
+          "range": "string"
+        },
+        "timezone": {
+          "name": "timezone",
+          "description": "Time zone.",
+          "title": "timezone",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 16,
+          "alias": "timezone",
+          "owner": "Cage",
+          "domain_of": [
+            "Experiment",
+            "Cage",
+            "ObservationAsset"
+          ],
+          "slot_group": "environment_housing",
+          "range": "string"
+        },
+        "remarks": {
+          "name": "remarks",
+          "description": "Free-text remarks.",
+          "title": "remarks",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 17,
+          "alias": "remarks",
+          "owner": "Cage",
+          "domain_of": [
+            "Cage",
+            "Subject",
+            "Procedure"
+          ],
+          "slot_group": "source_tracking",
+          "range": "string"
+        }
+      },
+      "unique_keys": {
+        "cage_key": {
+          "unique_key_name": "cage_key",
+          "unique_key_slots": [
+            "cage_id"
+          ],
+          "description": "Stable identifier for a cage record."
+        }
+      }
+    },
+    "Subject": {
+      "name": "Subject",
+      "description": "Subject-level metadata for a preclinical home-cage monitoring study.",
+      "title": "Subject",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "slot_usage": {
+        "subject_id": {
+          "name": "subject_id",
+          "rank": 1,
+          "slot_group": "identifiers"
+        },
+        "experiment_id": {
+          "name": "experiment_id",
+          "annotations": {
+            "required": {
+              "tag": "required",
+              "value": true
+            },
+            "foreign_key": {
+              "tag": "foreign_key",
+              "value": "Experiment.experiment_id"
+            }
+          },
+          "rank": 2,
+          "slot_group": "identifiers"
+        },
+        "cage_id": {
+          "name": "cage_id",
+          "rank": 3,
+          "slot_group": "identifiers"
+        },
+        "source_animal_identifier": {
+          "name": "source_animal_identifier",
+          "rank": 4,
+          "slot_group": "identifiers"
+        },
+        "local_identifiers": {
+          "name": "local_identifiers",
+          "rank": 5,
+          "slot_group": "identifiers"
+        },
+        "species": {
+          "name": "species",
+          "rank": 6,
+          "slot_group": "subject_profile"
+        },
+        "sex": {
+          "name": "sex",
+          "rank": 7,
+          "slot_group": "subject_profile"
+        },
+        "birth_at": {
+          "name": "birth_at",
+          "rank": 8,
+          "slot_group": "subject_profile"
+        },
+        "strain_ilar_name": {
+          "name": "strain_ilar_name",
+          "rank": 9,
+          "slot_group": "subject_profile"
+        },
+        "strain_short_name": {
+          "name": "strain_short_name",
+          "rank": 10,
+          "slot_group": "subject_profile"
+        },
+        "transgenic": {
+          "name": "transgenic",
+          "rank": 11,
+          "slot_group": "subject_profile"
+        },
+        "genotype_information": {
+          "name": "genotype_information",
+          "rank": 12,
+          "slot_group": "subject_profile"
+        },
+        "allele_information": {
+          "name": "allele_information",
+          "rank": 13,
+          "slot_group": "subject_profile"
+        },
+        "vendor": {
+          "name": "vendor",
+          "rank": 14,
+          "slot_group": "husbandry"
+        },
+        "developmental_stage": {
+          "name": "developmental_stage",
+          "rank": 15,
+          "slot_group": "husbandry"
+        },
+        "starting_weight": {
+          "name": "starting_weight",
+          "rank": 16,
+          "slot_group": "husbandry"
+        },
+        "weight_unit": {
+          "name": "weight_unit",
+          "rank": 17,
+          "slot_group": "husbandry"
+        },
+        "severity_grade": {
+          "name": "severity_grade",
+          "rank": 18,
+          "slot_group": "husbandry"
+        },
+        "remarks": {
+          "name": "remarks",
+          "rank": 19,
+          "slot_group": "source_tracking"
+        }
+      },
+      "attributes": {
+        "subject_id": {
+          "name": "subject_id",
+          "description": "Stable identifier for the subject.",
+          "title": "subject_id",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 1,
+          "identifier": true,
+          "alias": "subject_id",
+          "owner": "Subject",
+          "domain_of": [
+            "Subject",
+            "Procedure",
+            "ObservationAsset"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "experiment_id": {
+          "name": "experiment_id",
+          "annotations": {
+            "required": {
+              "tag": "required",
+              "value": true
+            },
+            "foreign_key": {
+              "tag": "foreign_key",
+              "value": "Experiment.experiment_id"
+            }
+          },
+          "description": "Stable identifier for the experiment.",
+          "title": "experiment_id",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 2,
+          "identifier": true,
+          "alias": "experiment_id",
+          "owner": "Subject",
+          "domain_of": [
+            "Experiment",
+            "Cage",
+            "Subject",
+            "Procedure",
+            "ObservationAsset"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "cage_id": {
+          "name": "cage_id",
+          "description": "Stable identifier for the cage.",
+          "title": "cage_id",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 3,
+          "identifier": true,
+          "alias": "cage_id",
+          "owner": "Subject",
+          "domain_of": [
+            "Cage",
+            "Subject",
+            "Procedure",
+            "ObservationAsset"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "source_animal_identifier": {
+          "name": "source_animal_identifier",
+          "description": "Original animal identifier from the source dataset.",
+          "title": "source_animal_identifier",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 4,
+          "alias": "source_animal_identifier",
+          "owner": "Subject",
+          "domain_of": [
+            "Subject"
+          ],
+          "slot_group": "identifiers",
+          "range": "string"
+        },
+        "local_identifiers": {
+          "name": "local_identifiers",
+          "description": "Additional local identifiers for the subject.",
+          "title": "local_identifiers",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 5,
+          "alias": "local_identifiers",
+          "owner": "Subject",
+          "domain_of": [
+            "Subject"
+          ],
+          "slot_group": "identifiers",
+          "range": "string",
+          "multivalued": true
+        },
+        "species": {
+          "name": "species",
+          "description": "Species of the subject.",
+          "title": "species",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 6,
+          "alias": "species",
+          "owner": "Subject",
+          "domain_of": [
+            "Subject"
+          ],
+          "slot_group": "subject_profile",
+          "range": "SpeciesMenu"
+        },
+        "sex": {
+          "name": "sex",
+          "description": "Sex of the subject.",
+          "title": "sex",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 7,
+          "alias": "sex",
+          "owner": "Subject",
+          "domain_of": [
+            "Subject"
+          ],
+          "slot_group": "subject_profile",
+          "range": "SexMenu"
+        },
+        "birth_at": {
+          "name": "birth_at",
+          "description": "Birth date of the subject.",
+          "title": "birth_at",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 8,
+          "alias": "birth_at",
+          "owner": "Subject",
+          "domain_of": [
+            "Subject"
+          ],
+          "slot_group": "subject_profile",
+          "range": "date"
+        },
+        "strain_ilar_name": {
+          "name": "strain_ilar_name",
+          "description": "ILAR strain name.",
+          "title": "strain_ilar_name",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 9,
+          "alias": "strain_ilar_name",
+          "owner": "Subject",
+          "domain_of": [
+            "Subject"
+          ],
+          "slot_group": "subject_profile",
+          "range": "string"
+        },
+        "strain_short_name": {
+          "name": "strain_short_name",
+          "description": "Short strain name.",
+          "title": "strain_short_name",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 10,
+          "alias": "strain_short_name",
+          "owner": "Subject",
+          "domain_of": [
+            "Subject"
+          ],
+          "slot_group": "subject_profile",
+          "range": "string"
+        },
+        "transgenic": {
+          "name": "transgenic",
+          "description": "Transgenic status.",
+          "title": "transgenic",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 11,
+          "alias": "transgenic",
+          "owner": "Subject",
+          "domain_of": [
+            "Subject"
+          ],
+          "slot_group": "subject_profile",
+          "range": "YesNoUnknownMenu"
+        },
+        "genotype_information": {
+          "name": "genotype_information",
+          "description": "Genotype information.",
+          "title": "genotype_information",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 12,
+          "alias": "genotype_information",
+          "owner": "Subject",
+          "domain_of": [
+            "Subject"
+          ],
+          "slot_group": "subject_profile",
+          "range": "string"
+        },
+        "allele_information": {
+          "name": "allele_information",
+          "description": "Allele information.",
+          "title": "allele_information",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 13,
+          "alias": "allele_information",
+          "owner": "Subject",
+          "domain_of": [
+            "Subject"
+          ],
+          "slot_group": "subject_profile",
+          "range": "string"
+        },
+        "vendor": {
+          "name": "vendor",
+          "description": "Animal vendor.",
+          "title": "vendor",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 14,
+          "alias": "vendor",
+          "owner": "Subject",
+          "domain_of": [
+            "Subject"
+          ],
+          "slot_group": "husbandry",
+          "range": "string"
+        },
+        "developmental_stage": {
+          "name": "developmental_stage",
+          "description": "Developmental stage.",
+          "title": "developmental_stage",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 15,
+          "alias": "developmental_stage",
+          "owner": "Subject",
+          "domain_of": [
+            "Subject"
+          ],
+          "slot_group": "husbandry",
+          "range": "string"
+        },
+        "starting_weight": {
+          "name": "starting_weight",
+          "description": "Subject weight at the start of the study.",
+          "title": "starting_weight",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 16,
+          "alias": "starting_weight",
+          "owner": "Subject",
+          "domain_of": [
+            "Subject"
+          ],
+          "slot_group": "husbandry",
+          "range": "decimal"
+        },
+        "weight_unit": {
+          "name": "weight_unit",
+          "description": "Weight unit.",
+          "title": "weight_unit",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 17,
+          "alias": "weight_unit",
+          "owner": "Subject",
+          "domain_of": [
+            "Subject"
+          ],
+          "slot_group": "husbandry",
+          "range": "string"
+        },
+        "severity_grade": {
+          "name": "severity_grade",
+          "description": "Severity or welfare grade.",
+          "title": "severity_grade",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 18,
+          "alias": "severity_grade",
+          "owner": "Subject",
+          "domain_of": [
+            "Subject"
+          ],
+          "slot_group": "husbandry",
+          "range": "SeverityGradeMenu"
+        },
+        "remarks": {
+          "name": "remarks",
+          "description": "Free-text remarks.",
+          "title": "remarks",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 19,
+          "alias": "remarks",
+          "owner": "Subject",
+          "domain_of": [
+            "Cage",
+            "Subject",
+            "Procedure"
+          ],
+          "slot_group": "source_tracking",
+          "range": "string"
+        }
+      },
+      "unique_keys": {
+        "subject_key": {
+          "unique_key_name": "subject_key",
+          "unique_key_slots": [
+            "subject_id"
+          ],
+          "description": "Stable identifier for a subject record."
+        }
+      }
+    },
+    "Procedure": {
+      "name": "Procedure",
+      "description": "Procedure or treatment metadata linked to a subject.",
+      "title": "Procedure",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "slot_usage": {
+        "procedure_id": {
+          "name": "procedure_id",
+          "rank": 1,
+          "slot_group": "identifiers"
+        },
+        "subject_id": {
+          "name": "subject_id",
+          "annotations": {
+            "required": {
+              "tag": "required",
+              "value": true
+            },
+            "foreign_key": {
+              "tag": "foreign_key",
+              "value": "Subject.subject_id"
+            }
+          },
+          "rank": 2,
+          "slot_group": "identifiers"
+        },
+        "experiment_id": {
+          "name": "experiment_id",
+          "rank": 3,
+          "slot_group": "identifiers"
+        },
+        "cage_id": {
+          "name": "cage_id",
+          "rank": 4,
+          "slot_group": "identifiers"
+        },
+        "procedure_type": {
+          "name": "procedure_type",
+          "rank": 5,
+          "slot_group": "procedure"
+        },
+        "name": {
+          "name": "name",
+          "rank": 6,
+          "slot_group": "procedure"
+        },
+        "protocol": {
+          "name": "protocol",
+          "rank": 7,
+          "slot_group": "procedure"
+        },
+        "start_at": {
+          "name": "start_at",
+          "rank": 8,
+          "slot_group": "procedure"
+        },
+        "end_at": {
+          "name": "end_at",
+          "rank": 9,
+          "slot_group": "procedure"
+        },
+        "state": {
+          "name": "state",
+          "rank": 10,
+          "slot_group": "procedure"
+        },
+        "treatment_type": {
+          "name": "treatment_type",
+          "rank": 11,
+          "slot_group": "treatment"
+        },
+        "category": {
+          "name": "category",
+          "rank": 12,
+          "slot_group": "treatment"
+        },
+        "drug": {
+          "name": "drug",
+          "rank": 13,
+          "slot_group": "treatment"
+        },
+        "cas_number": {
+          "name": "cas_number",
+          "rank": 14,
+          "slot_group": "treatment"
+        },
+        "dose_value": {
+          "name": "dose_value",
+          "rank": 15,
+          "slot_group": "treatment"
+        },
+        "dose_unit": {
+          "name": "dose_unit",
+          "rank": 16,
+          "slot_group": "treatment"
+        },
+        "route": {
+          "name": "route",
+          "rank": 17,
+          "slot_group": "treatment"
+        },
+        "administration_method": {
+          "name": "administration_method",
+          "rank": 18,
+          "slot_group": "treatment"
+        },
+        "vehicle_composition": {
+          "name": "vehicle_composition",
+          "rank": 19,
+          "slot_group": "treatment"
+        },
+        "description": {
+          "name": "description",
+          "rank": 20,
+          "slot_group": "procedure"
+        },
+        "remarks": {
+          "name": "remarks",
+          "rank": 21,
+          "slot_group": "source_tracking"
+        }
+      },
+      "attributes": {
+        "procedure_id": {
+          "name": "procedure_id",
+          "description": "Stable identifier for the procedure.",
+          "title": "procedure_id",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 1,
+          "identifier": true,
+          "alias": "procedure_id",
+          "owner": "Procedure",
+          "domain_of": [
+            "Procedure"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "subject_id": {
+          "name": "subject_id",
+          "annotations": {
+            "required": {
+              "tag": "required",
+              "value": true
+            },
+            "foreign_key": {
+              "tag": "foreign_key",
+              "value": "Subject.subject_id"
+            }
+          },
+          "description": "Stable identifier for the subject.",
+          "title": "subject_id",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 2,
+          "identifier": true,
+          "alias": "subject_id",
+          "owner": "Procedure",
+          "domain_of": [
+            "Subject",
+            "Procedure",
+            "ObservationAsset"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "experiment_id": {
+          "name": "experiment_id",
+          "description": "Stable identifier for the experiment.",
+          "title": "experiment_id",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 3,
+          "identifier": true,
+          "alias": "experiment_id",
+          "owner": "Procedure",
+          "domain_of": [
+            "Experiment",
+            "Cage",
+            "Subject",
+            "Procedure",
+            "ObservationAsset"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "cage_id": {
+          "name": "cage_id",
+          "description": "Stable identifier for the cage.",
+          "title": "cage_id",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 4,
+          "identifier": true,
+          "alias": "cage_id",
+          "owner": "Procedure",
+          "domain_of": [
+            "Cage",
+            "Subject",
+            "Procedure",
+            "ObservationAsset"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "procedure_type": {
+          "name": "procedure_type",
+          "description": "Procedure type.",
+          "title": "procedure_type",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 5,
+          "alias": "procedure_type",
+          "owner": "Procedure",
+          "domain_of": [
+            "Procedure"
+          ],
+          "slot_group": "procedure",
+          "range": "ProcedureTypeMenu"
+        },
+        "name": {
+          "name": "name",
+          "description": "Human-readable experiment name.",
+          "title": "name",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 6,
+          "alias": "name",
+          "owner": "Procedure",
+          "domain_of": [
+            "Experiment",
+            "Procedure"
+          ],
+          "slot_group": "procedure",
+          "range": "string",
+          "required": true
+        },
+        "protocol": {
+          "name": "protocol",
+          "description": "Protocol or SOP reference.",
+          "title": "protocol",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 7,
+          "alias": "protocol",
+          "owner": "Procedure",
+          "domain_of": [
+            "Experiment",
+            "Procedure"
+          ],
+          "slot_group": "procedure",
+          "range": "string"
+        },
+        "start_at": {
+          "name": "start_at",
+          "description": "Start of the study or phase.",
+          "title": "start_at",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 8,
+          "alias": "start_at",
+          "owner": "Procedure",
+          "domain_of": [
+            "Experiment",
+            "Procedure"
+          ],
+          "slot_group": "procedure",
+          "range": "date"
+        },
+        "end_at": {
+          "name": "end_at",
+          "description": "End of the study or phase.",
+          "title": "end_at",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 9,
+          "alias": "end_at",
+          "owner": "Procedure",
+          "domain_of": [
+            "Experiment",
+            "Procedure"
+          ],
+          "slot_group": "procedure",
+          "range": "date"
+        },
+        "state": {
+          "name": "state",
+          "description": "Lifecycle state of the procedure.",
+          "title": "state",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 10,
+          "alias": "state",
+          "owner": "Procedure",
+          "domain_of": [
+            "Procedure"
+          ],
+          "slot_group": "procedure",
+          "range": "ProcedureStateMenu"
+        },
+        "treatment_type": {
+          "name": "treatment_type",
+          "description": "Treatment type.",
+          "title": "treatment_type",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 11,
+          "alias": "treatment_type",
+          "owner": "Procedure",
+          "domain_of": [
+            "Procedure"
+          ],
+          "slot_group": "treatment",
+          "range": "TreatmentTypeMenu"
+        },
+        "category": {
+          "name": "category",
+          "description": "Acute or chronic treatment category.",
+          "title": "category",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 12,
+          "alias": "category",
+          "owner": "Procedure",
+          "domain_of": [
+            "Procedure"
+          ],
+          "slot_group": "treatment",
+          "range": "ProcedureCategoryMenu"
+        },
+        "drug": {
+          "name": "drug",
+          "description": "Test substance or drug name.",
+          "title": "drug",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 13,
+          "alias": "drug",
+          "owner": "Procedure",
+          "domain_of": [
+            "Procedure"
+          ],
+          "slot_group": "treatment",
+          "range": "string"
+        },
+        "cas_number": {
+          "name": "cas_number",
+          "description": "CAS number.",
+          "title": "cas_number",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 14,
+          "alias": "cas_number",
+          "owner": "Procedure",
+          "domain_of": [
+            "Procedure"
+          ],
+          "slot_group": "treatment",
+          "range": "string"
+        },
+        "dose_value": {
+          "name": "dose_value",
+          "description": "Dose value.",
+          "title": "dose_value",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 15,
+          "alias": "dose_value",
+          "owner": "Procedure",
+          "domain_of": [
+            "Procedure"
+          ],
+          "slot_group": "treatment",
+          "range": "decimal"
+        },
+        "dose_unit": {
+          "name": "dose_unit",
+          "description": "Dose unit.",
+          "title": "dose_unit",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 16,
+          "alias": "dose_unit",
+          "owner": "Procedure",
+          "domain_of": [
+            "Procedure"
+          ],
+          "slot_group": "treatment",
+          "range": "string"
+        },
+        "route": {
+          "name": "route",
+          "description": "Route of administration.",
+          "title": "route",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 17,
+          "alias": "route",
+          "owner": "Procedure",
+          "domain_of": [
+            "Procedure"
+          ],
+          "slot_group": "treatment",
+          "range": "AdministrationRouteMenu"
+        },
+        "administration_method": {
+          "name": "administration_method",
+          "description": "Administration method.",
+          "title": "administration_method",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 18,
+          "alias": "administration_method",
+          "owner": "Procedure",
+          "domain_of": [
+            "Procedure"
+          ],
+          "slot_group": "treatment",
+          "range": "string"
+        },
+        "vehicle_composition": {
+          "name": "vehicle_composition",
+          "description": "Vehicle composition.",
+          "title": "vehicle_composition",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 19,
+          "alias": "vehicle_composition",
+          "owner": "Procedure",
+          "domain_of": [
+            "Procedure"
+          ],
+          "slot_group": "treatment",
+          "range": "string"
+        },
+        "description": {
+          "name": "description",
+          "description": "Free-text description.",
+          "title": "description",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 20,
+          "alias": "description",
+          "owner": "Procedure",
+          "domain_of": [
+            "Experiment",
+            "Procedure"
+          ],
+          "slot_group": "procedure",
+          "range": "string"
+        },
+        "remarks": {
+          "name": "remarks",
+          "description": "Free-text remarks.",
+          "title": "remarks",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 21,
+          "alias": "remarks",
+          "owner": "Procedure",
+          "domain_of": [
+            "Cage",
+            "Subject",
+            "Procedure"
+          ],
+          "slot_group": "source_tracking",
+          "range": "string"
+        }
+      },
+      "unique_keys": {
+        "procedure_key": {
+          "unique_key_name": "procedure_key",
+          "unique_key_slots": [
+            "procedure_id"
+          ],
+          "description": "Stable identifier for a procedure record."
+        }
+      }
+    },
+    "ObservationAsset": {
+      "name": "ObservationAsset",
+      "description": "External measurement or observation asset metadata linked to an experiment.",
+      "title": "Observation Asset",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "slot_usage": {
+        "asset_id": {
+          "name": "asset_id",
+          "rank": 1,
+          "slot_group": "identifiers"
+        },
+        "experiment_id": {
+          "name": "experiment_id",
+          "annotations": {
+            "required": {
+              "tag": "required",
+              "value": true
+            },
+            "foreign_key": {
+              "tag": "foreign_key",
+              "value": "Experiment.experiment_id"
+            }
+          },
+          "rank": 2,
+          "slot_group": "identifiers"
+        },
+        "cage_id": {
+          "name": "cage_id",
+          "rank": 3,
+          "slot_group": "identifiers"
+        },
+        "subject_id": {
+          "name": "subject_id",
+          "rank": 4,
+          "slot_group": "identifiers"
+        },
+        "asset_type": {
+          "name": "asset_type",
+          "rank": 5,
+          "slot_group": "asset"
+        },
+        "system": {
+          "name": "system",
+          "rank": 6,
+          "slot_group": "asset"
+        },
+        "outcome_measure": {
+          "name": "outcome_measure",
+          "rank": 7,
+          "slot_group": "asset"
+        },
+        "value_kind": {
+          "name": "value_kind",
+          "rank": 8,
+          "slot_group": "asset"
+        },
+        "unit": {
+          "name": "unit",
+          "rank": 9,
+          "slot_group": "asset"
+        },
+        "timezone": {
+          "name": "timezone",
+          "rank": 10,
+          "slot_group": "asset"
+        },
+        "recorded_start_at": {
+          "name": "recorded_start_at",
+          "rank": 11,
+          "slot_group": "recording_window"
+        },
+        "recorded_end_at": {
+          "name": "recorded_end_at",
+          "rank": 12,
+          "slot_group": "recording_window"
+        },
+        "recording_duration": {
+          "name": "recording_duration",
+          "rank": 13,
+          "slot_group": "recording_window"
+        },
+        "recording_frequency": {
+          "name": "recording_frequency",
+          "rank": 14,
+          "slot_group": "recording_window"
+        },
+        "source_file_name": {
+          "name": "source_file_name",
+          "rank": 15,
+          "slot_group": "source_tracking"
+        },
+        "source_sheet_name": {
+          "name": "source_sheet_name",
+          "rank": 16,
+          "slot_group": "source_tracking"
+        },
+        "source_row_number": {
+          "name": "source_row_number",
+          "rank": 17,
+          "slot_group": "source_tracking"
+        },
+        "remark": {
+          "name": "remark",
+          "rank": 18,
+          "slot_group": "source_tracking"
+        }
+      },
+      "attributes": {
+        "asset_id": {
+          "name": "asset_id",
+          "description": "Stable identifier for the observation asset.",
+          "title": "asset_id",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 1,
+          "identifier": true,
+          "alias": "asset_id",
+          "owner": "ObservationAsset",
+          "domain_of": [
+            "ObservationAsset"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "experiment_id": {
+          "name": "experiment_id",
+          "annotations": {
+            "required": {
+              "tag": "required",
+              "value": true
+            },
+            "foreign_key": {
+              "tag": "foreign_key",
+              "value": "Experiment.experiment_id"
+            }
+          },
+          "description": "Stable identifier for the experiment.",
+          "title": "experiment_id",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 2,
+          "identifier": true,
+          "alias": "experiment_id",
+          "owner": "ObservationAsset",
+          "domain_of": [
+            "Experiment",
+            "Cage",
+            "Subject",
+            "Procedure",
+            "ObservationAsset"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "cage_id": {
+          "name": "cage_id",
+          "description": "Stable identifier for the cage.",
+          "title": "cage_id",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 3,
+          "identifier": true,
+          "alias": "cage_id",
+          "owner": "ObservationAsset",
+          "domain_of": [
+            "Cage",
+            "Subject",
+            "Procedure",
+            "ObservationAsset"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "subject_id": {
+          "name": "subject_id",
+          "description": "Stable identifier for the subject.",
+          "title": "subject_id",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 4,
+          "identifier": true,
+          "alias": "subject_id",
+          "owner": "ObservationAsset",
+          "domain_of": [
+            "Subject",
+            "Procedure",
+            "ObservationAsset"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "asset_type": {
+          "name": "asset_type",
+          "description": "Observation asset type.",
+          "title": "asset_type",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 5,
+          "alias": "asset_type",
+          "owner": "ObservationAsset",
+          "domain_of": [
+            "ObservationAsset"
+          ],
+          "slot_group": "asset",
+          "range": "AssetTypeMenu"
+        },
+        "system": {
+          "name": "system",
+          "description": "Monitoring system identifier.",
+          "title": "system",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 6,
+          "alias": "system",
+          "owner": "ObservationAsset",
+          "domain_of": [
+            "ObservationAsset"
+          ],
+          "slot_group": "asset",
+          "range": "HcmSystemMenu"
+        },
+        "outcome_measure": {
+          "name": "outcome_measure",
+          "description": "Outcome measure represented by the asset.",
+          "title": "outcome_measure",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 7,
+          "alias": "outcome_measure",
+          "owner": "ObservationAsset",
+          "domain_of": [
+            "ObservationAsset"
+          ],
+          "slot_group": "asset",
+          "range": "string"
+        },
+        "value_kind": {
+          "name": "value_kind",
+          "description": "Kind of value represented by the asset.",
+          "title": "value_kind",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 8,
+          "alias": "value_kind",
+          "owner": "ObservationAsset",
+          "domain_of": [
+            "ObservationAsset"
+          ],
+          "slot_group": "asset",
+          "range": "ValueKindMenu"
+        },
+        "unit": {
+          "name": "unit",
+          "description": "Unit for the observation asset.",
+          "title": "unit",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 9,
+          "alias": "unit",
+          "owner": "ObservationAsset",
+          "domain_of": [
+            "ObservationAsset"
+          ],
+          "slot_group": "asset",
+          "range": "string"
+        },
+        "timezone": {
+          "name": "timezone",
+          "description": "Time zone.",
+          "title": "timezone",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 10,
+          "alias": "timezone",
+          "owner": "ObservationAsset",
+          "domain_of": [
+            "Experiment",
+            "Cage",
+            "ObservationAsset"
+          ],
+          "slot_group": "asset",
+          "range": "string"
+        },
+        "recorded_start_at": {
+          "name": "recorded_start_at",
+          "description": "Recording window start.",
+          "title": "recorded_start_at",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 11,
+          "alias": "recorded_start_at",
+          "owner": "ObservationAsset",
+          "domain_of": [
+            "ObservationAsset"
+          ],
+          "slot_group": "recording_window",
+          "range": "datetime"
+        },
+        "recorded_end_at": {
+          "name": "recorded_end_at",
+          "description": "Recording window end.",
+          "title": "recorded_end_at",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 12,
+          "alias": "recorded_end_at",
+          "owner": "ObservationAsset",
+          "domain_of": [
+            "ObservationAsset"
+          ],
+          "slot_group": "recording_window",
+          "range": "datetime"
+        },
+        "recording_duration": {
+          "name": "recording_duration",
+          "description": "Recording duration.",
+          "title": "recording_duration",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 13,
+          "alias": "recording_duration",
+          "owner": "ObservationAsset",
+          "domain_of": [
+            "ObservationAsset"
+          ],
+          "slot_group": "recording_window",
+          "range": "string"
+        },
+        "recording_frequency": {
+          "name": "recording_frequency",
+          "description": "Recording frequency.",
+          "title": "recording_frequency",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 14,
+          "alias": "recording_frequency",
+          "owner": "ObservationAsset",
+          "domain_of": [
+            "ObservationAsset"
+          ],
+          "slot_group": "recording_window",
+          "range": "string"
+        },
+        "source_file_name": {
+          "name": "source_file_name",
+          "description": "Source file used for ETL.",
+          "title": "source_file_name",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 15,
+          "alias": "source_file_name",
+          "owner": "ObservationAsset",
+          "domain_of": [
+            "Experiment",
+            "ObservationAsset"
+          ],
+          "slot_group": "source_tracking",
+          "range": "string"
+        },
+        "source_sheet_name": {
+          "name": "source_sheet_name",
+          "description": "Source worksheet name.",
+          "title": "source_sheet_name",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 16,
+          "alias": "source_sheet_name",
+          "owner": "ObservationAsset",
+          "domain_of": [
+            "ObservationAsset"
+          ],
+          "slot_group": "source_tracking",
+          "range": "string"
+        },
+        "source_row_number": {
+          "name": "source_row_number",
+          "description": "Source row number.",
+          "title": "source_row_number",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 17,
+          "alias": "source_row_number",
+          "owner": "ObservationAsset",
+          "domain_of": [
+            "ObservationAsset"
+          ],
+          "slot_group": "source_tracking",
+          "range": "integer"
+        },
+        "remark": {
+          "name": "remark",
+          "description": "Observation-asset remark.",
+          "title": "remark",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "rank": 18,
+          "alias": "remark",
+          "owner": "ObservationAsset",
+          "domain_of": [
+            "ObservationAsset"
+          ],
+          "slot_group": "source_tracking",
+          "range": "string"
+        }
+      },
+      "unique_keys": {
+        "asset_key": {
+          "unique_key_name": "asset_key",
+          "unique_key_slots": [
+            "asset_id"
+          ],
+          "description": "Stable identifier for an observation asset."
+        }
+      }
+    },
+    "Container": {
+      "name": "Container",
+      "from_schema": "https://example.com/preclinical_hcm",
+      "attributes": {
+        "Experiments": {
+          "name": "Experiments",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "alias": "Experiments",
+          "owner": "Container",
+          "domain_of": [
+            "Container"
+          ],
+          "range": "Experiment",
+          "multivalued": true,
+          "inlined_as_list": true
+        },
+        "Cages": {
+          "name": "Cages",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "alias": "Cages",
+          "owner": "Container",
+          "domain_of": [
+            "Container"
+          ],
+          "range": "Cage",
+          "multivalued": true,
+          "inlined_as_list": true
+        },
+        "Subjects": {
+          "name": "Subjects",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "alias": "Subjects",
+          "owner": "Container",
+          "domain_of": [
+            "Container"
+          ],
+          "range": "Subject",
+          "multivalued": true,
+          "inlined_as_list": true
+        },
+        "Procedures": {
+          "name": "Procedures",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "alias": "Procedures",
+          "owner": "Container",
+          "domain_of": [
+            "Container"
+          ],
+          "range": "Procedure",
+          "multivalued": true,
+          "inlined_as_list": true
+        },
+        "ObservationAssets": {
+          "name": "ObservationAssets",
+          "from_schema": "https://example.com/preclinical_hcm",
+          "alias": "ObservationAssets",
+          "owner": "Container",
+          "domain_of": [
+            "Container"
+          ],
+          "range": "ObservationAsset",
+          "multivalued": true,
+          "inlined_as_list": true
+        }
+      },
+      "tree_root": true
+    }
+  },
+  "settings": {
+    "Title_Case": {
+      "setting_key": "Title_Case",
+      "setting_value": "(((?<=\\b)[^a-z\\W]\\w*?|[\\W])+)"
+    },
+    "UPPER_CASE": {
+      "setting_key": "UPPER_CASE",
+      "setting_value": "[A-Z\\W\\d_]*"
+    },
+    "lower_case": {
+      "setting_key": "lower_case",
+      "setting_value": "[a-z\\W\\d_]*"
+    }
+  },
+  "@type": "SchemaDefinition"
+}

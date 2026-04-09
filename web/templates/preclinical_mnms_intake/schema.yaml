@@ -1,0 +1,430 @@
+id: https://example.com/preclinical_mnms_intake
+name: PreclinicalMNMSIntake
+description: Flat intake template aligned to the MNMS spreadsheet structure.
+version: 1.0.0
+in_language:
+  - en
+imports:
+  - linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+classes:
+  dh_interface:
+    name: dh_interface
+    description: A MetadataHarmonizer interface
+    from_schema: https://example.com/preclinical_mnms_intake
+  MNMSRecord:
+    name: MNMSRecord
+    title: MNMS Intake
+    description: Source-aligned MNMS intake row.
+    is_a: dh_interface
+    from_schema: https://example.com/preclinical_mnms_intake
+    slots:
+      - xp_group
+      - collaborator
+      - unique_animal_identifier
+      - dvc_cage_identifier
+      - local_identifiers
+      - number_mice_per_cage
+      - cage_change
+      - cage_change_date
+      - species
+      - strain_ilar_name
+      - strain_short_name
+      - sex
+      - transgenic
+      - genotype_information
+      - allele_information
+      - animal_vendor
+      - date_of_birth
+      - developmental_stage
+      - animal_weight_at_start
+      - weight_unit
+      - severity_grade_of_manipulation
+      - in_life_phase_start_date
+      - in_life_phase_end_date
+      - test_substance_common_name
+      - test_substance_cas_number
+      - numerical_dose
+      - dose_unit
+      - vehicle_composition
+      - route_of_administration
+      - administration_method
+      - testing_location
+      - light_cycle
+      - enrichment
+      - outcome_measure
+      - value
+      - unit_of_measurement
+      - light_start_at
+      - dawn_and_dusk
+      - dawn_and_dusk_duration
+      - time_zone
+      - rec_start_at
+      - rec_stop_at
+      - rec_duration
+      - rec_frequency
+      - remark
+    slot_usage:
+      xp_group:
+        rank: 1
+        slot_group: study
+      collaborator:
+        rank: 2
+        slot_group: study
+      unique_animal_identifier:
+        rank: 3
+        slot_group: subject
+      dvc_cage_identifier:
+        rank: 4
+        slot_group: cage
+      local_identifiers:
+        rank: 5
+        slot_group: subject
+      number_mice_per_cage:
+        rank: 6
+        slot_group: cage
+      cage_change:
+        rank: 7
+        slot_group: cage
+      cage_change_date:
+        rank: 8
+        slot_group: cage
+      species:
+        rank: 9
+        slot_group: subject
+      strain_ilar_name:
+        rank: 10
+        slot_group: subject
+      strain_short_name:
+        rank: 11
+        slot_group: subject
+      sex:
+        rank: 12
+        slot_group: subject
+      transgenic:
+        rank: 13
+        slot_group: subject
+      genotype_information:
+        rank: 14
+        slot_group: subject
+      allele_information:
+        rank: 15
+        slot_group: subject
+      animal_vendor:
+        rank: 16
+        slot_group: subject
+      date_of_birth:
+        rank: 17
+        slot_group: subject
+      developmental_stage:
+        rank: 18
+        slot_group: subject
+      animal_weight_at_start:
+        rank: 19
+        slot_group: subject
+      weight_unit:
+        rank: 20
+        slot_group: subject
+      severity_grade_of_manipulation:
+        rank: 21
+        slot_group: subject
+      in_life_phase_start_date:
+        rank: 22
+        slot_group: study
+      in_life_phase_end_date:
+        rank: 23
+        slot_group: study
+      test_substance_common_name:
+        rank: 24
+        slot_group: treatment
+      test_substance_cas_number:
+        rank: 25
+        slot_group: treatment
+      numerical_dose:
+        rank: 26
+        slot_group: treatment
+      dose_unit:
+        rank: 27
+        slot_group: treatment
+      vehicle_composition:
+        rank: 28
+        slot_group: treatment
+      route_of_administration:
+        rank: 29
+        slot_group: treatment
+      administration_method:
+        rank: 30
+        slot_group: treatment
+      testing_location:
+        rank: 31
+        slot_group: study
+      light_cycle:
+        rank: 32
+        slot_group: recording
+      enrichment:
+        rank: 33
+        slot_group: cage
+      outcome_measure:
+        rank: 34
+        slot_group: recording
+      value:
+        rank: 35
+        slot_group: recording
+      unit_of_measurement:
+        rank: 36
+        slot_group: recording
+      light_start_at:
+        rank: 37
+        slot_group: recording
+      dawn_and_dusk:
+        rank: 38
+        slot_group: recording
+      dawn_and_dusk_duration:
+        rank: 39
+        slot_group: recording
+      time_zone:
+        rank: 40
+        slot_group: recording
+      rec_start_at:
+        rank: 41
+        slot_group: recording
+      rec_stop_at:
+        rank: 42
+        slot_group: recording
+      rec_duration:
+        rank: 43
+        slot_group: recording
+      rec_frequency:
+        rank: 44
+        slot_group: recording
+      remark:
+        rank: 45
+        slot_group: source_tracking
+  Container:
+    name: Container
+    from_schema: https://example.com/preclinical_mnms_intake
+    attributes:
+      MNMSRecords:
+        name: MNMSRecords
+        from_schema: https://example.com/preclinical_mnms_intake
+        multivalued: true
+        range: MNMSRecord
+        inlined_as_list: true
+    tree_root: true
+slots:
+  study:
+    name: study
+    title: Study
+  subject:
+    name: subject
+    title: Subject
+  cage:
+    name: cage
+    title: Cage
+  treatment:
+    name: treatment
+    title: Treatment
+  recording:
+    name: recording
+    title: Recording
+  source_tracking:
+    name: source_tracking
+    title: Source Tracking
+  xp_group:
+    name: xp_group
+    title: XP_group
+    range: string
+  collaborator:
+    name: collaborator
+    title: Collaborator
+    range: string
+  unique_animal_identifier:
+    name: unique_animal_identifier
+    title: Unique_Animal_Identifier
+    range: string
+  dvc_cage_identifier:
+    name: dvc_cage_identifier
+    title: DVC Cage Identifier
+    range: string
+  local_identifiers:
+    name: local_identifiers
+    title: Local_Identifiers
+    range: string
+  number_mice_per_cage:
+    name: number_mice_per_cage
+    title: nbr_mice_per_cage
+    range: string
+  cage_change:
+    name: cage_change
+    title: Caqge cahge (Y/N)
+    range: string
+  cage_change_date:
+    name: cage_change_date
+    title: Cage Change date
+    range: string
+  species:
+    name: species
+    title: Species
+    range: string
+  strain_ilar_name:
+    name: strain_ilar_name
+    title: Strain_ILAR_Name
+    range: string
+  strain_short_name:
+    name: strain_short_name
+    title: Strain_Short_Name
+    range: string
+  sex:
+    name: sex
+    title: Sex
+    range: string
+  transgenic:
+    name: transgenic
+    title: Transgenic
+    range: string
+  genotype_information:
+    name: genotype_information
+    title: Genotype_Information
+    range: string
+  allele_information:
+    name: allele_information
+    title: Allele_Information
+    range: string
+  animal_vendor:
+    name: animal_vendor
+    title: Animal_Vendor
+    range: string
+  date_of_birth:
+    name: date_of_birth
+    title: Date_of_Birth
+    range: string
+  developmental_stage:
+    name: developmental_stage
+    title: Developmental_Stage
+    range: string
+  animal_weight_at_start:
+    name: animal_weight_at_start
+    title: Animal_Weight_at_Start
+    range: string
+  weight_unit:
+    name: weight_unit
+    title: Weight_Unit
+    range: string
+  severity_grade_of_manipulation:
+    name: severity_grade_of_manipulation
+    title: Severity_Grade_of_Manipulation
+    range: string
+  in_life_phase_start_date:
+    name: in_life_phase_start_date
+    title: In-life_Phase_Start_Date
+    range: string
+  in_life_phase_end_date:
+    name: in_life_phase_end_date
+    title: In-life_Phase_End_Date
+    range: string
+  test_substance_common_name:
+    name: test_substance_common_name
+    title: Test_Substance_Common_Name
+    range: string
+  test_substance_cas_number:
+    name: test_substance_cas_number
+    title: Test_Substance_CAS_Number
+    range: string
+  numerical_dose:
+    name: numerical_dose
+    title: Numerical_Dose
+    range: string
+  dose_unit:
+    name: dose_unit
+    title: Dose_Unit
+    range: string
+  vehicle_composition:
+    name: vehicle_composition
+    title: Vehicle_Composition
+    range: string
+  route_of_administration:
+    name: route_of_administration
+    title: Route_of_Administration
+    range: string
+  administration_method:
+    name: administration_method
+    title: Administration_Method
+    range: string
+  testing_location:
+    name: testing_location
+    title: Testing_Location
+    range: string
+  light_cycle:
+    name: light_cycle
+    title: Light_Cycle
+    range: string
+  enrichment:
+    name: enrichment
+    title: Enrichment
+    range: string
+  outcome_measure:
+    name: outcome_measure
+    title: Outcome_Measure
+    range: string
+  value:
+    name: value
+    title: Value
+    range: string
+  unit_of_measurement:
+    name: unit_of_measurement
+    title: Unit_of_Measurement
+    range: string
+  light_start_at:
+    name: light_start_at
+    title: Light_StartAt
+    range: string
+  dawn_and_dusk:
+    name: dawn_and_dusk
+    title: Dawn-and-Dusk
+    range: string
+  dawn_and_dusk_duration:
+    name: dawn_and_dusk_duration
+    title: Dawn-and-Dusk_duration
+    range: string
+  time_zone:
+    name: time_zone
+    title: TimeZone
+    range: string
+  rec_start_at:
+    name: rec_start_at
+    title: Rec_StartAt
+    range: string
+  rec_stop_at:
+    name: rec_stop_at
+    title: Rec_StoptAt
+    range: string
+  rec_duration:
+    name: rec_duration
+    title: Rec_Dur
+    range: string
+  rec_frequency:
+    name: rec_frequency
+    title: Rec_freq
+    range: string
+  remark:
+    name: remark
+    title: Remark
+    range: string
+types:
+  WhitespaceMinimizedString:
+    name: WhitespaceMinimizedString
+    typeof: string
+    description: A string with normalized whitespace.
+    base: str
+    uri: xsd:token
+  Provenance:
+    name: Provenance
+    typeof: string
+    description: MetadataHarmonizer provenance marker.
+    base: str
+    uri: xsd:token
+settings:
+  Title_Case: (((?<=\b)[^a-z\W]\w*?|[\W])+)
+  UPPER_CASE: '[A-Z\W\d_]*'
+  lower_case: '[a-z\W\d_]*'

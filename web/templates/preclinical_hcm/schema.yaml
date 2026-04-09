@@ -1,0 +1,1202 @@
+id: https://example.com/preclinical_hcm
+name: PreclinicalHCM
+description: Normalized preclinical home-cage monitoring metadata model.
+version: 1.0.0
+in_language:
+  - en
+imports:
+  - linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+classes:
+  dh_interface:
+    name: dh_interface
+    description: A MetadataHarmonizer interface
+    from_schema: https://example.com/preclinical_hcm
+  Experiment:
+    name: Experiment
+    title: Preclinical HCM
+    description: Root experiment-level metadata for a preclinical home-cage monitoring study.
+    is_a: dh_interface
+    from_schema: https://example.com/preclinical_hcm
+    unique_keys:
+      experiment_key:
+        description: The stable identifier for the experiment.
+        unique_key_slots:
+          - experiment_id
+    slots:
+      - experiment_id
+      - name
+      - collaborator
+      - cohort_name
+      - study_phase
+      - goal
+      - study_type
+      - protocol
+      - start_at
+      - end_at
+      - description
+      - repository_link
+      - testing_location
+      - room
+      - timezone
+      - light_cycle
+      - lights_on_at
+      - dawn_dusk
+      - dawn_dusk_duration
+      - temperature_celsius
+      - humidity_percent
+      - luminosity_lux
+      - pressure_hpa
+      - noise_db
+      - home_cage_monitoring_system
+      - primary_outcome_measure
+      - source_file_name
+      - source_record_count
+      - data_use_notes
+    slot_usage:
+      experiment_id:
+        rank: 1
+        slot_group: identifiers
+      name:
+        rank: 2
+        slot_group: identifiers
+      collaborator:
+        rank: 3
+        slot_group: study_design
+      cohort_name:
+        rank: 4
+        slot_group: study_design
+      study_phase:
+        rank: 5
+        slot_group: study_design
+      goal:
+        rank: 6
+        slot_group: study_design
+      study_type:
+        rank: 7
+        slot_group: study_design
+      protocol:
+        rank: 8
+        slot_group: study_design
+      start_at:
+        rank: 9
+        slot_group: study_design
+      end_at:
+        rank: 10
+        slot_group: study_design
+      description:
+        rank: 11
+        slot_group: study_design
+      repository_link:
+        rank: 12
+        slot_group: study_design
+      testing_location:
+        rank: 13
+        slot_group: study_design
+      room:
+        rank: 14
+        slot_group: environment_housing
+      timezone:
+        rank: 15
+        slot_group: environment_housing
+      light_cycle:
+        rank: 16
+        slot_group: environment_housing
+      lights_on_at:
+        rank: 17
+        slot_group: environment_housing
+      dawn_dusk:
+        rank: 18
+        slot_group: environment_housing
+      dawn_dusk_duration:
+        rank: 19
+        slot_group: environment_housing
+      temperature_celsius:
+        rank: 20
+        slot_group: environment_housing
+      humidity_percent:
+        rank: 21
+        slot_group: environment_housing
+      luminosity_lux:
+        rank: 22
+        slot_group: environment_housing
+      pressure_hpa:
+        rank: 23
+        slot_group: environment_housing
+      noise_db:
+        rank: 24
+        slot_group: environment_housing
+      home_cage_monitoring_system:
+        rank: 25
+        slot_group: monitoring
+      primary_outcome_measure:
+        rank: 26
+        slot_group: monitoring
+      source_file_name:
+        rank: 27
+        slot_group: source_tracking
+      source_record_count:
+        rank: 28
+        slot_group: source_tracking
+      data_use_notes:
+        rank: 29
+        slot_group: source_tracking
+  Cage:
+    name: Cage
+    title: Cage
+    description: Cage-level metadata for a preclinical home-cage monitoring study.
+    from_schema: https://example.com/preclinical_hcm
+    unique_keys:
+      cage_key:
+        description: Stable identifier for a cage record.
+        unique_key_slots:
+          - cage_id
+    slots:
+      - cage_id
+      - experiment_id
+      - source_cage_identifier
+      - cage_type
+      - cage_format
+      - animals_per_cage
+      - enrichment_types
+      - has_enrichments
+      - water_available
+      - food_available
+      - bedding_type
+      - light_cycle
+      - lights_on_at
+      - dawn_dusk
+      - dawn_dusk_duration
+      - timezone
+      - remarks
+    slot_usage:
+      cage_id:
+        rank: 1
+        slot_group: identifiers
+      experiment_id:
+        rank: 2
+        slot_group: identifiers
+        annotations:
+          required:
+            tag: required
+            value: true
+          foreign_key:
+            tag: foreign_key
+            value: Experiment.experiment_id
+      source_cage_identifier:
+        rank: 3
+        slot_group: identifiers
+      cage_type:
+        rank: 4
+        slot_group: cage_setup
+      cage_format:
+        rank: 5
+        slot_group: cage_setup
+      animals_per_cage:
+        rank: 6
+        slot_group: cage_setup
+      enrichment_types:
+        rank: 7
+        slot_group: cage_setup
+      has_enrichments:
+        rank: 8
+        slot_group: cage_setup
+      water_available:
+        rank: 9
+        slot_group: cage_setup
+      food_available:
+        rank: 10
+        slot_group: cage_setup
+      bedding_type:
+        rank: 11
+        slot_group: cage_setup
+      light_cycle:
+        rank: 12
+        slot_group: environment_housing
+      lights_on_at:
+        rank: 13
+        slot_group: environment_housing
+      dawn_dusk:
+        rank: 14
+        slot_group: environment_housing
+      dawn_dusk_duration:
+        rank: 15
+        slot_group: environment_housing
+      timezone:
+        rank: 16
+        slot_group: environment_housing
+      remarks:
+        rank: 17
+        slot_group: source_tracking
+  Subject:
+    name: Subject
+    title: Subject
+    description: Subject-level metadata for a preclinical home-cage monitoring study.
+    from_schema: https://example.com/preclinical_hcm
+    unique_keys:
+      subject_key:
+        description: Stable identifier for a subject record.
+        unique_key_slots:
+          - subject_id
+    slots:
+      - subject_id
+      - experiment_id
+      - cage_id
+      - source_animal_identifier
+      - local_identifiers
+      - species
+      - sex
+      - birth_at
+      - strain_ilar_name
+      - strain_short_name
+      - transgenic
+      - genotype_information
+      - allele_information
+      - vendor
+      - developmental_stage
+      - starting_weight
+      - weight_unit
+      - severity_grade
+      - remarks
+    slot_usage:
+      subject_id:
+        rank: 1
+        slot_group: identifiers
+      experiment_id:
+        rank: 2
+        slot_group: identifiers
+        annotations:
+          required:
+            tag: required
+            value: true
+          foreign_key:
+            tag: foreign_key
+            value: Experiment.experiment_id
+      cage_id:
+        rank: 3
+        slot_group: identifiers
+      source_animal_identifier:
+        rank: 4
+        slot_group: identifiers
+      local_identifiers:
+        rank: 5
+        slot_group: identifiers
+      species:
+        rank: 6
+        slot_group: subject_profile
+      sex:
+        rank: 7
+        slot_group: subject_profile
+      birth_at:
+        rank: 8
+        slot_group: subject_profile
+      strain_ilar_name:
+        rank: 9
+        slot_group: subject_profile
+      strain_short_name:
+        rank: 10
+        slot_group: subject_profile
+      transgenic:
+        rank: 11
+        slot_group: subject_profile
+      genotype_information:
+        rank: 12
+        slot_group: subject_profile
+      allele_information:
+        rank: 13
+        slot_group: subject_profile
+      vendor:
+        rank: 14
+        slot_group: husbandry
+      developmental_stage:
+        rank: 15
+        slot_group: husbandry
+      starting_weight:
+        rank: 16
+        slot_group: husbandry
+      weight_unit:
+        rank: 17
+        slot_group: husbandry
+      severity_grade:
+        rank: 18
+        slot_group: husbandry
+      remarks:
+        rank: 19
+        slot_group: source_tracking
+  Procedure:
+    name: Procedure
+    title: Procedure
+    description: Procedure or treatment metadata linked to a subject.
+    from_schema: https://example.com/preclinical_hcm
+    unique_keys:
+      procedure_key:
+        description: Stable identifier for a procedure record.
+        unique_key_slots:
+          - procedure_id
+    slots:
+      - procedure_id
+      - subject_id
+      - experiment_id
+      - cage_id
+      - procedure_type
+      - name
+      - protocol
+      - start_at
+      - end_at
+      - state
+      - treatment_type
+      - category
+      - drug
+      - cas_number
+      - dose_value
+      - dose_unit
+      - route
+      - administration_method
+      - vehicle_composition
+      - description
+      - remarks
+    slot_usage:
+      procedure_id:
+        rank: 1
+        slot_group: identifiers
+      subject_id:
+        rank: 2
+        slot_group: identifiers
+        annotations:
+          required:
+            tag: required
+            value: true
+          foreign_key:
+            tag: foreign_key
+            value: Subject.subject_id
+      experiment_id:
+        rank: 3
+        slot_group: identifiers
+      cage_id:
+        rank: 4
+        slot_group: identifiers
+      procedure_type:
+        rank: 5
+        slot_group: procedure
+      name:
+        rank: 6
+        slot_group: procedure
+      protocol:
+        rank: 7
+        slot_group: procedure
+      start_at:
+        rank: 8
+        slot_group: procedure
+      end_at:
+        rank: 9
+        slot_group: procedure
+      state:
+        rank: 10
+        slot_group: procedure
+      treatment_type:
+        rank: 11
+        slot_group: treatment
+      category:
+        rank: 12
+        slot_group: treatment
+      drug:
+        rank: 13
+        slot_group: treatment
+      cas_number:
+        rank: 14
+        slot_group: treatment
+      dose_value:
+        rank: 15
+        slot_group: treatment
+      dose_unit:
+        rank: 16
+        slot_group: treatment
+      route:
+        rank: 17
+        slot_group: treatment
+      administration_method:
+        rank: 18
+        slot_group: treatment
+      vehicle_composition:
+        rank: 19
+        slot_group: treatment
+      description:
+        rank: 20
+        slot_group: procedure
+      remarks:
+        rank: 21
+        slot_group: source_tracking
+  ObservationAsset:
+    name: ObservationAsset
+    title: Observation Asset
+    description: External measurement or observation asset metadata linked to an experiment.
+    from_schema: https://example.com/preclinical_hcm
+    unique_keys:
+      asset_key:
+        description: Stable identifier for an observation asset.
+        unique_key_slots:
+          - asset_id
+    slots:
+      - asset_id
+      - experiment_id
+      - cage_id
+      - subject_id
+      - asset_type
+      - system
+      - outcome_measure
+      - value_kind
+      - unit
+      - timezone
+      - recorded_start_at
+      - recorded_end_at
+      - recording_duration
+      - recording_frequency
+      - source_file_name
+      - source_sheet_name
+      - source_row_number
+      - remark
+    slot_usage:
+      asset_id:
+        rank: 1
+        slot_group: identifiers
+      experiment_id:
+        rank: 2
+        slot_group: identifiers
+        annotations:
+          required:
+            tag: required
+            value: true
+          foreign_key:
+            tag: foreign_key
+            value: Experiment.experiment_id
+      cage_id:
+        rank: 3
+        slot_group: identifiers
+      subject_id:
+        rank: 4
+        slot_group: identifiers
+      asset_type:
+        rank: 5
+        slot_group: asset
+      system:
+        rank: 6
+        slot_group: asset
+      outcome_measure:
+        rank: 7
+        slot_group: asset
+      value_kind:
+        rank: 8
+        slot_group: asset
+      unit:
+        rank: 9
+        slot_group: asset
+      timezone:
+        rank: 10
+        slot_group: asset
+      recorded_start_at:
+        rank: 11
+        slot_group: recording_window
+      recorded_end_at:
+        rank: 12
+        slot_group: recording_window
+      recording_duration:
+        rank: 13
+        slot_group: recording_window
+      recording_frequency:
+        rank: 14
+        slot_group: recording_window
+      source_file_name:
+        rank: 15
+        slot_group: source_tracking
+      source_sheet_name:
+        rank: 16
+        slot_group: source_tracking
+      source_row_number:
+        rank: 17
+        slot_group: source_tracking
+      remark:
+        rank: 18
+        slot_group: source_tracking
+  Container:
+    name: Container
+    from_schema: https://example.com/preclinical_hcm
+    attributes:
+      Experiments:
+        name: Experiments
+        from_schema: https://example.com/preclinical_hcm
+        multivalued: true
+        range: Experiment
+        inlined_as_list: true
+      Cages:
+        name: Cages
+        from_schema: https://example.com/preclinical_hcm
+        multivalued: true
+        range: Cage
+        inlined_as_list: true
+      Subjects:
+        name: Subjects
+        from_schema: https://example.com/preclinical_hcm
+        multivalued: true
+        range: Subject
+        inlined_as_list: true
+      Procedures:
+        name: Procedures
+        from_schema: https://example.com/preclinical_hcm
+        multivalued: true
+        range: Procedure
+        inlined_as_list: true
+      ObservationAssets:
+        name: ObservationAssets
+        from_schema: https://example.com/preclinical_hcm
+        multivalued: true
+        range: ObservationAsset
+        inlined_as_list: true
+    tree_root: true
+slots:
+  identifiers:
+    name: identifiers
+    title: Identifiers
+    description: Stable identifiers and source references.
+  study_design:
+    name: study_design
+    title: Study Design
+    description: Experiment-level study design metadata.
+  environment_housing:
+    name: environment_housing
+    title: Environment Housing
+    description: Environmental and housing conditions.
+  monitoring:
+    name: monitoring
+    title: Monitoring
+    description: Home-cage monitoring system metadata.
+  source_tracking:
+    name: source_tracking
+    title: Source Tracking
+    description: Provenance and source-traceability metadata.
+  cage_setup:
+    name: cage_setup
+    title: Cage Setup
+    description: Cage structure and enrichment metadata.
+  subject_profile:
+    name: subject_profile
+    title: Subject Profile
+    description: Subject-level biological metadata.
+  husbandry:
+    name: husbandry
+    title: Husbandry
+    description: Husbandry and welfare metadata.
+  procedure:
+    name: procedure
+    title: Procedure
+    description: Procedure timing and descriptive metadata.
+  treatment:
+    name: treatment
+    title: Treatment
+    description: Treatment and dosing metadata.
+  asset:
+    name: asset
+    title: Observation Asset
+    description: Asset and outcome metadata.
+  recording_window:
+    name: recording_window
+    title: Recording Window
+    description: Recording window and cadence metadata.
+  experiment_id:
+    name: experiment_id
+    title: experiment_id
+    description: Stable identifier for the experiment.
+    identifier: true
+    range: WhitespaceMinimizedString
+    required: true
+  name:
+    name: name
+    title: name
+    description: Human-readable experiment name.
+    range: string
+    required: true
+  collaborator:
+    name: collaborator
+    title: collaborator
+    description: Collaborating organization.
+    range: string
+  cohort_name:
+    name: cohort_name
+    title: cohort_name
+    description: Cohort or group label from the source dataset.
+    range: string
+  study_phase:
+    name: study_phase
+    title: study_phase
+    description: Optional in-life or experimental phase label.
+    range: string
+  goal:
+    name: goal
+    title: goal
+    description: Primary study goal.
+    range: string
+  study_type:
+    name: study_type
+    title: study_type
+    description: Study type.
+    range: StudyTypeMenu
+  protocol:
+    name: protocol
+    title: protocol
+    description: Protocol or SOP reference.
+    range: string
+  start_at:
+    name: start_at
+    title: start_at
+    description: Start of the study or phase.
+    range: date
+  end_at:
+    name: end_at
+    title: end_at
+    description: End of the study or phase.
+    range: date
+  description:
+    name: description
+    title: description
+    description: Free-text description.
+    range: string
+  repository_link:
+    name: repository_link
+    title: repository_link
+    description: Repository link for the study.
+    range: uri
+  testing_location:
+    name: testing_location
+    title: testing_location
+    description: Testing or collection site.
+    range: string
+  room:
+    name: room
+    title: room
+    description: Housing room identifier.
+    range: string
+  timezone:
+    name: timezone
+    title: timezone
+    description: Time zone.
+    range: string
+  light_cycle:
+    name: light_cycle
+    title: light_cycle
+    description: Light cycle description.
+    range: string
+  lights_on_at:
+    name: lights_on_at
+    title: lights_on_at
+    description: Lights-on time.
+    range: time
+  dawn_dusk:
+    name: dawn_dusk
+    title: dawn_dusk
+    description: Dawn and dusk transition flag.
+    range: YesNoUnknownMenu
+  dawn_dusk_duration:
+    name: dawn_dusk_duration
+    title: dawn_dusk_duration
+    description: Dawn and dusk transition duration.
+    range: string
+  temperature_celsius:
+    name: temperature_celsius
+    title: temperature_celsius
+    description: Temperature in Celsius.
+    range: decimal
+  humidity_percent:
+    name: humidity_percent
+    title: humidity_percent
+    description: Relative humidity percentage.
+    range: decimal
+  luminosity_lux:
+    name: luminosity_lux
+    title: luminosity_lux
+    description: Light intensity in lux.
+    range: decimal
+  pressure_hpa:
+    name: pressure_hpa
+    title: pressure_hpa
+    description: Pressure in hPa.
+    range: decimal
+  noise_db:
+    name: noise_db
+    title: noise_db
+    description: Noise in dB.
+    range: decimal
+  home_cage_monitoring_system:
+    name: home_cage_monitoring_system
+    title: home_cage_monitoring_system
+    description: Home-cage monitoring system name.
+    range: HcmSystemMenu
+  primary_outcome_measure:
+    name: primary_outcome_measure
+    title: primary_outcome_measure
+    description: Primary outcome measure for the study.
+    range: string
+  source_file_name:
+    name: source_file_name
+    title: source_file_name
+    description: Source file used for ETL.
+    range: string
+  source_record_count:
+    name: source_record_count
+    title: source_record_count
+    description: Number of source rows contributing to the experiment.
+    range: integer
+  data_use_notes:
+    name: data_use_notes
+    title: data_use_notes
+    description: Curation or data-use notes.
+    range: string
+  cage_id:
+    name: cage_id
+    title: cage_id
+    description: Stable identifier for the cage.
+    identifier: true
+    range: WhitespaceMinimizedString
+    required: true
+  source_cage_identifier:
+    name: source_cage_identifier
+    title: source_cage_identifier
+    description: Original cage identifier from the source dataset.
+    range: string
+  cage_type:
+    name: cage_type
+    title: cage_type
+    description: Cage type.
+    range: CageTypeMenu
+  cage_format:
+    name: cage_format
+    title: cage_format
+    description: Cage format.
+    range: string
+  animals_per_cage:
+    name: animals_per_cage
+    title: animals_per_cage
+    description: Number of animals per cage.
+    range: integer
+  enrichment_types:
+    name: enrichment_types
+    title: enrichment_types
+    description: Enrichment types present in the cage.
+    range: string
+    multivalued: true
+  has_enrichments:
+    name: has_enrichments
+    title: has_enrichments
+    description: Whether the cage contains enrichment.
+    range: YesNoUnknownMenu
+  water_available:
+    name: water_available
+    title: water_available
+    description: Whether water was available.
+    range: YesNoUnknownMenu
+  food_available:
+    name: food_available
+    title: food_available
+    description: Whether food was available.
+    range: YesNoUnknownMenu
+  bedding_type:
+    name: bedding_type
+    title: bedding_type
+    description: Bedding type.
+    range: string
+  remarks:
+    name: remarks
+    title: remarks
+    description: Free-text remarks.
+    range: string
+  subject_id:
+    name: subject_id
+    title: subject_id
+    description: Stable identifier for the subject.
+    identifier: true
+    range: WhitespaceMinimizedString
+    required: true
+  source_animal_identifier:
+    name: source_animal_identifier
+    title: source_animal_identifier
+    description: Original animal identifier from the source dataset.
+    range: string
+  local_identifiers:
+    name: local_identifiers
+    title: local_identifiers
+    description: Additional local identifiers for the subject.
+    range: string
+    multivalued: true
+  species:
+    name: species
+    title: species
+    description: Species of the subject.
+    range: SpeciesMenu
+  sex:
+    name: sex
+    title: sex
+    description: Sex of the subject.
+    range: SexMenu
+  birth_at:
+    name: birth_at
+    title: birth_at
+    description: Birth date of the subject.
+    range: date
+  strain_ilar_name:
+    name: strain_ilar_name
+    title: strain_ilar_name
+    description: ILAR strain name.
+    range: string
+  strain_short_name:
+    name: strain_short_name
+    title: strain_short_name
+    description: Short strain name.
+    range: string
+  transgenic:
+    name: transgenic
+    title: transgenic
+    description: Transgenic status.
+    range: YesNoUnknownMenu
+  genotype_information:
+    name: genotype_information
+    title: genotype_information
+    description: Genotype information.
+    range: string
+  allele_information:
+    name: allele_information
+    title: allele_information
+    description: Allele information.
+    range: string
+  vendor:
+    name: vendor
+    title: vendor
+    description: Animal vendor.
+    range: string
+  developmental_stage:
+    name: developmental_stage
+    title: developmental_stage
+    description: Developmental stage.
+    range: string
+  starting_weight:
+    name: starting_weight
+    title: starting_weight
+    description: Subject weight at the start of the study.
+    range: decimal
+  weight_unit:
+    name: weight_unit
+    title: weight_unit
+    description: Weight unit.
+    range: string
+  severity_grade:
+    name: severity_grade
+    title: severity_grade
+    description: Severity or welfare grade.
+    range: SeverityGradeMenu
+  procedure_id:
+    name: procedure_id
+    title: procedure_id
+    description: Stable identifier for the procedure.
+    identifier: true
+    range: WhitespaceMinimizedString
+    required: true
+  procedure_type:
+    name: procedure_type
+    title: procedure_type
+    description: Procedure type.
+    range: ProcedureTypeMenu
+  state:
+    name: state
+    title: state
+    description: Lifecycle state of the procedure.
+    range: ProcedureStateMenu
+  treatment_type:
+    name: treatment_type
+    title: treatment_type
+    description: Treatment type.
+    range: TreatmentTypeMenu
+  category:
+    name: category
+    title: category
+    description: Acute or chronic treatment category.
+    range: ProcedureCategoryMenu
+  drug:
+    name: drug
+    title: drug
+    description: Test substance or drug name.
+    range: string
+  cas_number:
+    name: cas_number
+    title: cas_number
+    description: CAS number.
+    range: string
+  dose_value:
+    name: dose_value
+    title: dose_value
+    description: Dose value.
+    range: decimal
+  dose_unit:
+    name: dose_unit
+    title: dose_unit
+    description: Dose unit.
+    range: string
+  route:
+    name: route
+    title: route
+    description: Route of administration.
+    range: AdministrationRouteMenu
+  administration_method:
+    name: administration_method
+    title: administration_method
+    description: Administration method.
+    range: string
+  vehicle_composition:
+    name: vehicle_composition
+    title: vehicle_composition
+    description: Vehicle composition.
+    range: string
+  asset_id:
+    name: asset_id
+    title: asset_id
+    description: Stable identifier for the observation asset.
+    identifier: true
+    range: WhitespaceMinimizedString
+    required: true
+  asset_type:
+    name: asset_type
+    title: asset_type
+    description: Observation asset type.
+    range: AssetTypeMenu
+  system:
+    name: system
+    title: system
+    description: Monitoring system identifier.
+    range: HcmSystemMenu
+  outcome_measure:
+    name: outcome_measure
+    title: outcome_measure
+    description: Outcome measure represented by the asset.
+    range: string
+  value_kind:
+    name: value_kind
+    title: value_kind
+    description: Kind of value represented by the asset.
+    range: ValueKindMenu
+  unit:
+    name: unit
+    title: unit
+    description: Unit for the observation asset.
+    range: string
+  recorded_start_at:
+    name: recorded_start_at
+    title: recorded_start_at
+    description: Recording window start.
+    range: datetime
+  recorded_end_at:
+    name: recorded_end_at
+    title: recorded_end_at
+    description: Recording window end.
+    range: datetime
+  recording_duration:
+    name: recording_duration
+    title: recording_duration
+    description: Recording duration.
+    range: string
+  recording_frequency:
+    name: recording_frequency
+    title: recording_frequency
+    description: Recording frequency.
+    range: string
+  source_sheet_name:
+    name: source_sheet_name
+    title: source_sheet_name
+    description: Source worksheet name.
+    range: string
+  source_row_number:
+    name: source_row_number
+    title: source_row_number
+    description: Source row number.
+    range: integer
+  remark:
+    name: remark
+    title: remark
+    description: Observation-asset remark.
+    range: string
+enums:
+  StudyTypeMenu:
+    name: StudyTypeMenu
+    permissible_values:
+      home_cage_monitoring:
+        text: home_cage_monitoring
+      intervention:
+        text: intervention
+      observational:
+        text: observational
+      unknown:
+        text: unknown
+  HcmSystemMenu:
+    name: HcmSystemMenu
+    permissible_values:
+      DVC:
+        text: DVC
+      PhenoTyper:
+        text: PhenoTyper
+      Other:
+        text: Other
+      unknown:
+        text: unknown
+  CageTypeMenu:
+    name: CageTypeMenu
+    permissible_values:
+      standard:
+        text: standard
+      hcm:
+        text: hcm
+      breeding:
+        text: breeding
+      experimental:
+        text: experimental
+      unknown:
+        text: unknown
+  SpeciesMenu:
+    name: SpeciesMenu
+    permissible_values:
+      mouse:
+        text: mouse
+      rat:
+        text: rat
+      other:
+        text: other
+      unknown:
+        text: unknown
+  SexMenu:
+    name: SexMenu
+    permissible_values:
+      female:
+        text: female
+      male:
+        text: male
+      unknown:
+        text: unknown
+  YesNoUnknownMenu:
+    name: YesNoUnknownMenu
+    permissible_values:
+      yes:
+        text: yes
+      no:
+        text: no
+      unknown:
+        text: unknown
+  SeverityGradeMenu:
+    name: SeverityGradeMenu
+    permissible_values:
+      none:
+        text: none
+      mild:
+        text: mild
+      moderate:
+        text: moderate
+      severe:
+        text: severe
+      subthreshold:
+        text: subthreshold
+      unknown:
+        text: unknown
+  ProcedureTypeMenu:
+    name: ProcedureTypeMenu
+    permissible_values:
+      treatment:
+        text: treatment
+      behavior:
+        text: behavior
+      surgery:
+        text: surgery
+      observation:
+        text: observation
+  ProcedureStateMenu:
+    name: ProcedureStateMenu
+    permissible_values:
+      draft:
+        text: draft
+      planned:
+        text: planned
+      in_progress:
+        text: in_progress
+      completed:
+        text: completed
+      cancelled:
+        text: cancelled
+      unknown:
+        text: unknown
+  TreatmentTypeMenu:
+    name: TreatmentTypeMenu
+    permissible_values:
+      pharmacological:
+        text: pharmacological
+      environmental:
+        text: environmental
+      in_food:
+        text: in_food
+      other:
+        text: other
+      unknown:
+        text: unknown
+  ProcedureCategoryMenu:
+    name: ProcedureCategoryMenu
+    permissible_values:
+      acute:
+        text: acute
+      chronic:
+        text: chronic
+      unknown:
+        text: unknown
+  AdministrationRouteMenu:
+    name: AdministrationRouteMenu
+    permissible_values:
+      oral:
+        text: oral
+      gavage:
+        text: gavage
+      IP:
+        text: IP
+      IV:
+        text: IV
+      IM:
+        text: IM
+      tailVein:
+        text: tailVein
+      other:
+        text: other
+      unknown:
+        text: unknown
+  AssetTypeMenu:
+    name: AssetTypeMenu
+    permissible_values:
+      time_series_reference:
+        text: time_series_reference
+      derived_summary:
+        text: derived_summary
+      external_file:
+        text: external_file
+  ValueKindMenu:
+    name: ValueKindMenu
+    permissible_values:
+      TimeSeries:
+        text: TimeSeries
+      Summary:
+        text: Summary
+types:
+  WhitespaceMinimizedString:
+    name: WhitespaceMinimizedString
+    typeof: string
+    description: A string with normalized whitespace.
+    base: str
+    uri: xsd:token
+  Provenance:
+    name: Provenance
+    typeof: string
+    description: MetadataHarmonizer provenance marker.
+    base: str
+    uri: xsd:token
+settings:
+  Title_Case: (((?<=\b)[^a-z\W]\w*?|[\W])+)
+  UPPER_CASE: '[A-Z\W\d_]*'
+  lower_case: '[a-z\W\d_]*'

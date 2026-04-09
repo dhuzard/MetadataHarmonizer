@@ -1,0 +1,34 @@
+{
+  "input": "mnms_sample.csv",
+  "warningCount": 4,
+  "warnings": [
+    {
+      "row": 5,
+      "field": "In-life_Phase_Start_Date",
+      "rawValue": "14-11-23",
+      "issue": "interpreted 2-digit year date",
+      "normalizedValue": "2023-11-14"
+    },
+    {
+      "row": 5,
+      "field": "Light_Cycle",
+      "rawValue": "0.5083333333333333",
+      "issue": "converted fractional light cycle to textual representation",
+      "normalizedValue": "12:12 LD"
+    },
+    {
+      "row": 5,
+      "field": "Unique_Animal_Identifier",
+      "rawValue": "",
+      "issue": "generated synthetic subject identifier",
+      "normalizedValue": null
+    },
+    {
+      "row": null,
+      "field": "experiment_id",
+      "rawValue": null,
+      "issue": "multiple experiments detected; exported the first experiment only",
+      "normalizedValue": "exp-abbvie-6548e4ab66"
+    }
+  ]
+}

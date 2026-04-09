@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "hcmo-v1",
+  "experiment": {
+    "experimentId": "exp-abbvie-6548e4ab66",
+    "name": "AbbVie preclinical study (2025-02-25)",
+    "collaborator": "AbbVie",
+    "goal": "Metadata harmonization for preclinical home-cage monitoring data.",
+    "type": "home_cage_monitoring",
+    "startAt": "2025-02-25",
+    "endAt": "2025-06-16",
+    "testingLocation": "AbbVie Germany GmbH & Co. KG",
+    "timezone": "CET",
+    "primaryOutcomeMeasure": "Animal locomotion index smoothed"
+  },
+  "environmentHousing": {
+    "lightCycle": "12:12 LD",
+    "lightsOnAt": "06:00",
+    "timezone": "CET"
+  },
+  "homeCageMonitoring": {
+    "system": "DVC",
+    "variables": [
+      {
+        "name": "Animal locomotion index smoothed",
+        "unit": "%",
+        "dataType": "Activity"
+      }
+    ]
+  },
+  "cages": [
+    {
+      "cageId": "cage-exp-abbvie-6548e4ab66-dvc-086868-99c91e44b3",
+      "experimentId": "exp-abbvie-6548e4ab66",
+      "sourceCageIdentifier": "DVC_086868",
+      "type": "hcm",
+      "animalsPerCage": 2,
+      "hasEnrichments": "yes",
+      "lightCycle": "12:12 LD",
+      "lightsOnAt": "06:00",
+      "timezone": "CET"
+    }
+  ],
+  "subjects": [
+    {
+      "subjectId": "subject-exp-abbvie-6548e4ab66-97488-0feae7a01d",
+      "experimentId": "exp-abbvie-6548e4ab66",
+      "cageId": "cage-exp-abbvie-6548e4ab66-dvc-086868-99c91e44b3",
+      "sourceAnimalIdentifier": "97488",
+      "species": "mouse",
+      "sex": "female",
+      "birthAt": "2025-01-14",
+      "strain": "B6CBAF1",
+      "strainShortName": "C57BL/6J",
+      "transgenic": "no",
+      "genotype": "None",
+      "alleleInformation": "None",
+      "vendor": "Janvier Labs",
+      "developmentalStage": "Adult"
+    }
+  ],
+  "dataAssets": [
+    {
+      "assetId": "asset-exp-abbvie-6548e4ab66-subject-exp-abbvie-e338c57ace",
+      "experimentId": "exp-abbvie-6548e4ab66",
+      "cageId": "cage-exp-abbvie-6548e4ab66-dvc-086868-99c91e44b3",
+      "subjectId": "subject-exp-abbvie-6548e4ab66-97488-0feae7a01d",
+      "assetType": "time_series_reference",
+      "system": "DVC",
+      "outcomeMeasure": "Animal locomotion index smoothed",
+      "valueKind": "TimeSeries",
+      "unit": "%",
+      "timezone": "CET",
+      "sourceFileName": "mnms_sample.csv",
+      "sourceSheetName": "csv",
+      "sourceRowNumber": 2
+    }
+  ]
+}

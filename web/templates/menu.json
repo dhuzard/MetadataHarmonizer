@@ -218,5 +218,57 @@
     "locales": [
       "en"
     ]
+  },
+  "PreclinicalMNMSIntake": {
+    "folder": "preclinical_mnms_intake",
+    "id": "https://example.com/preclinical_mnms_intake",
+    "version": "1.0.0",
+    "templates": {
+      "MNMSRecord": {
+        "name": "MNMSRecord",
+        "display": true
+      },
+      "Container": {
+        "name": "Container",
+        "display": false
+      }
+    },
+    "locales": [
+      "en"
+    ]
+  },
+  "PreclinicalHCM": {
+    "folder": "preclinical_hcm",
+    "id": "https://example.com/preclinical_hcm",
+    "version": "1.0.0",
+    "templates": {
+      "Experiment": {
+        "name": "Experiment",
+        "display": true
+      },
+      "Cage": {
+        "name": "Cage",
+        "display": false
+      },
+      "Subject": {
+        "name": "Subject",
+        "display": false
+      },
+      "Procedure": {
+        "name": "Procedure",
+        "display": false
+      },
+      "ObservationAsset": {
+        "name": "ObservationAsset",
+        "display": false
+      },
+      "Container": {
+        "name": "Container",
+        "display": false
+      }
+    },
+    "locales": [
+      "en"
+    ]
   }
 }

@@ -1,0 +1,192 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/preclinical_hcm/hcmo-v1.schema.json",
+  "title": "HCMO v1 Preclinical Export Schema",
+  "description": "Nested export contract for normalized preclinical home-cage monitoring metadata.",
+  "type": "object",
+  "required": ["schemaVersion", "experiment"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "hcmo-v1"
+    },
+    "experiment": {
+      "type": "object",
+      "required": ["experimentId", "name"],
+      "additionalProperties": false,
+      "properties": {
+        "experimentId": { "type": "string" },
+        "name": { "type": "string" },
+        "collaborator": { "type": "string" },
+        "cohortName": { "type": "string" },
+        "goal": { "type": "string" },
+        "type": { "type": "string" },
+        "protocol": { "type": "string" },
+        "startAt": { "type": "string" },
+        "endAt": { "type": "string" },
+        "description": { "type": "string" },
+        "repositoryLink": { "type": "string" },
+        "testingLocation": { "type": "string" },
+        "timezone": { "type": "string" },
+        "primaryOutcomeMeasure": { "type": "string" }
+      }
+    },
+    "environmentHousing": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "room": { "type": "string" },
+        "temperature": { "type": ["number", "string"] },
+        "humidity": { "type": ["number", "string"] },
+        "luminosity": { "type": ["number", "string"] },
+        "pressure": { "type": ["number", "string"] },
+        "noise": { "type": ["number", "string"] },
+        "lightCycle": { "type": "string" },
+        "lightsOnAt": { "type": "string" },
+        "dawnDusk": { "type": "string" },
+        "dawnDuskDuration": { "type": "string" },
+        "timezone": { "type": "string" }
+      }
+    },
+    "homeCageMonitoring": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "system": { "type": "string" },
+        "recordingFrequency": { "type": "string" },
+        "recordedStartAt": { "type": "string" },
+        "recordedEndAt": { "type": "string" },
+        "variables": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": { "type": "string" },
+              "unit": { "type": "string" },
+              "dataType": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "cages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "cageId": { "type": "string" },
+          "experimentId": { "type": "string" },
+          "sourceCageIdentifier": { "type": "string" },
+          "type": { "type": "string" },
+          "format": { "type": "string" },
+          "animalsPerCage": { "type": ["integer", "string"] },
+          "enrichmentType": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "hasEnrichments": { "type": "string" },
+          "water": { "type": "string" },
+          "food": { "type": "string" },
+          "beddingType": { "type": "string" },
+          "lightCycle": { "type": "string" },
+          "lightsOnAt": { "type": "string" },
+          "dawnDusk": { "type": "string" },
+          "dawnDuskDuration": { "type": "string" },
+          "timezone": { "type": "string" },
+          "remarks": { "type": "string" }
+        }
+      }
+    },
+    "subjects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "subjectId": { "type": "string" },
+          "experimentId": { "type": "string" },
+          "cageId": { "type": "string" },
+          "sourceAnimalIdentifier": { "type": "string" },
+          "localIdentifiers": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "species": { "type": "string" },
+          "sex": { "type": "string" },
+          "birthAt": { "type": "string" },
+          "strain": { "type": "string" },
+          "strainShortName": { "type": "string" },
+          "transgenic": { "type": "string" },
+          "genotype": { "type": "string" },
+          "alleleInformation": { "type": "string" },
+          "vendor": { "type": "string" },
+          "developmentalStage": { "type": "string" },
+          "startingWeight": { "type": ["number", "string"] },
+          "weightUnit": { "type": "string" },
+          "severityGrade": { "type": "string" },
+          "remarks": { "type": "string" }
+        }
+      }
+    },
+    "procedures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "procedureId": { "type": "string" },
+          "subjectId": { "type": "string" },
+          "experimentId": { "type": "string" },
+          "cageId": { "type": "string" },
+          "procedureType": { "type": "string" },
+          "name": { "type": "string" },
+          "protocol": { "type": "string" },
+          "startAt": { "type": "string" },
+          "endAt": { "type": "string" },
+          "state": { "type": "string" },
+          "treatmentType": { "type": "string" },
+          "category": { "type": "string" },
+          "drug": { "type": "string" },
+          "casNumber": { "type": "string" },
+          "dose": { "type": ["number", "string"] },
+          "doseUnit": { "type": "string" },
+          "route": { "type": "string" },
+          "administrationMethod": { "type": "string" },
+          "vehicleComposition": { "type": "string" },
+          "description": { "type": "string" },
+          "remarks": { "type": "string" }
+        }
+      }
+    },
+    "dataAssets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "assetId": { "type": "string" },
+          "experimentId": { "type": "string" },
+          "cageId": { "type": "string" },
+          "subjectId": { "type": "string" },
+          "assetType": { "type": "string" },
+          "system": { "type": "string" },
+          "outcomeMeasure": { "type": "string" },
+          "valueKind": { "type": "string" },
+          "unit": { "type": "string" },
+          "timezone": { "type": "string" },
+          "recordedStartAt": { "type": "string" },
+          "recordedEndAt": { "type": "string" },
+          "recordingDuration": { "type": "string" },
+          "recordingFrequency": { "type": "string" },
+          "sourceFileName": { "type": "string" },
+          "sourceSheetName": { "type": "string" },
+          "sourceRowNumber": { "type": ["integer", "string"] },
+          "remark": { "type": "string" }
+        }
+      }
+    }
+  }
+}

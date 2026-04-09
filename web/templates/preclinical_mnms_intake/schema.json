@@ -1,0 +1,1596 @@
+{
+  "name": "PreclinicalMNMSIntake",
+  "description": "Flat intake template aligned to the MNMS spreadsheet structure.",
+  "in_language": [
+    "en"
+  ],
+  "id": "https://example.com/preclinical_mnms_intake",
+  "version": "1.0.0",
+  "prefixes": {
+    "linkml": {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    },
+    "xsd": {
+      "prefix_prefix": "xsd",
+      "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "shex": {
+      "prefix_prefix": "shex",
+      "prefix_reference": "http://www.w3.org/ns/shex#"
+    },
+    "schema": {
+      "prefix_prefix": "schema",
+      "prefix_reference": "http://schema.org/"
+    }
+  },
+  "default_prefix": "https://example.com/preclinical_mnms_intake/",
+  "types": {
+    "WhitespaceMinimizedString": {
+      "name": "WhitespaceMinimizedString",
+      "description": "A string with normalized whitespace.",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "Provenance": {
+      "name": "Provenance",
+      "description": "MetadataHarmonizer provenance marker.",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "string": {
+      "name": "string",
+      "description": "A character string",
+      "notes": [
+        "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"."
+      ],
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "exact_mappings": [
+        "schema:Text"
+      ],
+      "base": "str",
+      "uri": "xsd:string"
+    },
+    "integer": {
+      "name": "integer",
+      "description": "An integer",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"integer\"."
+      ],
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "exact_mappings": [
+        "schema:Integer"
+      ],
+      "base": "int",
+      "uri": "xsd:integer"
+    },
+    "boolean": {
+      "name": "boolean",
+      "description": "A binary (true or false) value",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"boolean\"."
+      ],
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "exact_mappings": [
+        "schema:Boolean"
+      ],
+      "base": "Bool",
+      "uri": "xsd:boolean",
+      "repr": "bool"
+    },
+    "float": {
+      "name": "float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"float\"."
+      ],
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "exact_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:float"
+    },
+    "double": {
+      "name": "double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"double\"."
+      ],
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "close_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:double"
+    },
+    "decimal": {
+      "name": "decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"decimal\"."
+      ],
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "broad_mappings": [
+        "schema:Number"
+      ],
+      "base": "Decimal",
+      "uri": "xsd:decimal"
+    },
+    "time": {
+      "name": "time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners do not work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"time\"."
+      ],
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "exact_mappings": [
+        "schema:Time"
+      ],
+      "base": "XSDTime",
+      "uri": "xsd:time",
+      "repr": "str"
+    },
+    "date": {
+      "name": "date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date\"."
+      ],
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "exact_mappings": [
+        "schema:Date"
+      ],
+      "base": "XSDDate",
+      "uri": "xsd:date",
+      "repr": "str"
+    },
+    "datetime": {
+      "name": "datetime",
+      "description": "The combination of a date and time",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"datetime\"."
+      ],
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "exact_mappings": [
+        "schema:DateTime"
+      ],
+      "base": "XSDDateTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date_or_datetime": {
+      "name": "date_or_datetime",
+      "description": "Either a date or a datetime",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date_or_datetime\"."
+      ],
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "base": "str",
+      "uri": "linkml:DateOrDatetime",
+      "repr": "str"
+    },
+    "uriorcurie": {
+      "name": "uriorcurie",
+      "description": "a URI or a CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uriorcurie\"."
+      ],
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "base": "URIorCURIE",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "curie": {
+      "name": "curie",
+      "conforms_to": "https://www.w3.org/TR/curie/",
+      "description": "a compact URI",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"curie\"."
+      ],
+      "comments": [
+        "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation"
+      ],
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "base": "Curie",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "uri": {
+      "name": "uri",
+      "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
+      "description": "a complete URI",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uri\"."
+      ],
+      "comments": [
+        "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
+      ],
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "close_mappings": [
+        "schema:URL"
+      ],
+      "base": "URI",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "ncname": {
+      "name": "ncname",
+      "description": "Prefix part of CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"ncname\"."
+      ],
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "base": "NCName",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "objectidentifier": {
+      "name": "objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"objectidentifier\"."
+      ],
+      "comments": [
+        "Used for inheritance and type checking"
+      ],
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "base": "ElementIdentifier",
+      "uri": "shex:iri",
+      "repr": "str"
+    },
+    "nodeidentifier": {
+      "name": "nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"nodeidentifier\"."
+      ],
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "base": "NodeIdentifier",
+      "uri": "shex:nonLiteral",
+      "repr": "str"
+    },
+    "jsonpointer": {
+      "name": "jsonpointer",
+      "conforms_to": "https://datatracker.ietf.org/doc/html/rfc6901",
+      "description": "A string encoding a JSON Pointer. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to a valid object within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpointer\"."
+      ],
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "jsonpath": {
+      "name": "jsonpath",
+      "conforms_to": "https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html",
+      "description": "A string encoding a JSON Path. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpath\"."
+      ],
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "sparqlpath": {
+      "name": "sparqlpath",
+      "conforms_to": "https://www.w3.org/TR/sparql11-query/#propertypaths",
+      "description": "A string encoding a SPARQL Property Path. The value of the string MUST conform to SPARQL syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded as RDF.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"sparqlpath\"."
+      ],
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    }
+  },
+  "slots": {
+    "study": {
+      "name": "study",
+      "title": "Study",
+      "from_schema": "https://example.com/preclinical_mnms_intake"
+    },
+    "subject": {
+      "name": "subject",
+      "title": "Subject",
+      "from_schema": "https://example.com/preclinical_mnms_intake"
+    },
+    "cage": {
+      "name": "cage",
+      "title": "Cage",
+      "from_schema": "https://example.com/preclinical_mnms_intake"
+    },
+    "treatment": {
+      "name": "treatment",
+      "title": "Treatment",
+      "from_schema": "https://example.com/preclinical_mnms_intake"
+    },
+    "recording": {
+      "name": "recording",
+      "title": "Recording",
+      "from_schema": "https://example.com/preclinical_mnms_intake"
+    },
+    "source_tracking": {
+      "name": "source_tracking",
+      "title": "Source Tracking",
+      "from_schema": "https://example.com/preclinical_mnms_intake"
+    },
+    "xp_group": {
+      "name": "xp_group",
+      "title": "XP_group",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "collaborator": {
+      "name": "collaborator",
+      "title": "Collaborator",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "unique_animal_identifier": {
+      "name": "unique_animal_identifier",
+      "title": "Unique_Animal_Identifier",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "dvc_cage_identifier": {
+      "name": "dvc_cage_identifier",
+      "title": "DVC Cage Identifier",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "local_identifiers": {
+      "name": "local_identifiers",
+      "title": "Local_Identifiers",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "number_mice_per_cage": {
+      "name": "number_mice_per_cage",
+      "title": "nbr_mice_per_cage",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "cage_change": {
+      "name": "cage_change",
+      "title": "Caqge cahge (Y/N)",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "cage_change_date": {
+      "name": "cage_change_date",
+      "title": "Cage Change date",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "species": {
+      "name": "species",
+      "title": "Species",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "strain_ilar_name": {
+      "name": "strain_ilar_name",
+      "title": "Strain_ILAR_Name",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "strain_short_name": {
+      "name": "strain_short_name",
+      "title": "Strain_Short_Name",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "sex": {
+      "name": "sex",
+      "title": "Sex",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "transgenic": {
+      "name": "transgenic",
+      "title": "Transgenic",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "genotype_information": {
+      "name": "genotype_information",
+      "title": "Genotype_Information",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "allele_information": {
+      "name": "allele_information",
+      "title": "Allele_Information",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "animal_vendor": {
+      "name": "animal_vendor",
+      "title": "Animal_Vendor",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "date_of_birth": {
+      "name": "date_of_birth",
+      "title": "Date_of_Birth",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "developmental_stage": {
+      "name": "developmental_stage",
+      "title": "Developmental_Stage",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "animal_weight_at_start": {
+      "name": "animal_weight_at_start",
+      "title": "Animal_Weight_at_Start",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "weight_unit": {
+      "name": "weight_unit",
+      "title": "Weight_Unit",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "severity_grade_of_manipulation": {
+      "name": "severity_grade_of_manipulation",
+      "title": "Severity_Grade_of_Manipulation",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "in_life_phase_start_date": {
+      "name": "in_life_phase_start_date",
+      "title": "In-life_Phase_Start_Date",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "in_life_phase_end_date": {
+      "name": "in_life_phase_end_date",
+      "title": "In-life_Phase_End_Date",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "test_substance_common_name": {
+      "name": "test_substance_common_name",
+      "title": "Test_Substance_Common_Name",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "test_substance_cas_number": {
+      "name": "test_substance_cas_number",
+      "title": "Test_Substance_CAS_Number",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "numerical_dose": {
+      "name": "numerical_dose",
+      "title": "Numerical_Dose",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "dose_unit": {
+      "name": "dose_unit",
+      "title": "Dose_Unit",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "vehicle_composition": {
+      "name": "vehicle_composition",
+      "title": "Vehicle_Composition",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "route_of_administration": {
+      "name": "route_of_administration",
+      "title": "Route_of_Administration",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "administration_method": {
+      "name": "administration_method",
+      "title": "Administration_Method",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "testing_location": {
+      "name": "testing_location",
+      "title": "Testing_Location",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "light_cycle": {
+      "name": "light_cycle",
+      "title": "Light_Cycle",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "enrichment": {
+      "name": "enrichment",
+      "title": "Enrichment",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "outcome_measure": {
+      "name": "outcome_measure",
+      "title": "Outcome_Measure",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "value": {
+      "name": "value",
+      "title": "Value",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "unit_of_measurement": {
+      "name": "unit_of_measurement",
+      "title": "Unit_of_Measurement",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "light_start_at": {
+      "name": "light_start_at",
+      "title": "Light_StartAt",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "dawn_and_dusk": {
+      "name": "dawn_and_dusk",
+      "title": "Dawn-and-Dusk",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "dawn_and_dusk_duration": {
+      "name": "dawn_and_dusk_duration",
+      "title": "Dawn-and-Dusk_duration",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "time_zone": {
+      "name": "time_zone",
+      "title": "TimeZone",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "rec_start_at": {
+      "name": "rec_start_at",
+      "title": "Rec_StartAt",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "rec_stop_at": {
+      "name": "rec_stop_at",
+      "title": "Rec_StoptAt",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "rec_duration": {
+      "name": "rec_duration",
+      "title": "Rec_Dur",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "rec_frequency": {
+      "name": "rec_frequency",
+      "title": "Rec_freq",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    },
+    "remark": {
+      "name": "remark",
+      "title": "Remark",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "domain_of": [
+        "MNMSRecord"
+      ],
+      "range": "string"
+    }
+  },
+  "classes": {
+    "dh_interface": {
+      "name": "dh_interface",
+      "description": "A MetadataHarmonizer interface",
+      "from_schema": "https://example.com/preclinical_mnms_intake"
+    },
+    "MNMSRecord": {
+      "name": "MNMSRecord",
+      "description": "Source-aligned MNMS intake row.",
+      "title": "MNMS Intake",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "xp_group": {
+          "name": "xp_group",
+          "rank": 1,
+          "slot_group": "study"
+        },
+        "collaborator": {
+          "name": "collaborator",
+          "rank": 2,
+          "slot_group": "study"
+        },
+        "unique_animal_identifier": {
+          "name": "unique_animal_identifier",
+          "rank": 3,
+          "slot_group": "subject"
+        },
+        "dvc_cage_identifier": {
+          "name": "dvc_cage_identifier",
+          "rank": 4,
+          "slot_group": "cage"
+        },
+        "local_identifiers": {
+          "name": "local_identifiers",
+          "rank": 5,
+          "slot_group": "subject"
+        },
+        "number_mice_per_cage": {
+          "name": "number_mice_per_cage",
+          "rank": 6,
+          "slot_group": "cage"
+        },
+        "cage_change": {
+          "name": "cage_change",
+          "rank": 7,
+          "slot_group": "cage"
+        },
+        "cage_change_date": {
+          "name": "cage_change_date",
+          "rank": 8,
+          "slot_group": "cage"
+        },
+        "species": {
+          "name": "species",
+          "rank": 9,
+          "slot_group": "subject"
+        },
+        "strain_ilar_name": {
+          "name": "strain_ilar_name",
+          "rank": 10,
+          "slot_group": "subject"
+        },
+        "strain_short_name": {
+          "name": "strain_short_name",
+          "rank": 11,
+          "slot_group": "subject"
+        },
+        "sex": {
+          "name": "sex",
+          "rank": 12,
+          "slot_group": "subject"
+        },
+        "transgenic": {
+          "name": "transgenic",
+          "rank": 13,
+          "slot_group": "subject"
+        },
+        "genotype_information": {
+          "name": "genotype_information",
+          "rank": 14,
+          "slot_group": "subject"
+        },
+        "allele_information": {
+          "name": "allele_information",
+          "rank": 15,
+          "slot_group": "subject"
+        },
+        "animal_vendor": {
+          "name": "animal_vendor",
+          "rank": 16,
+          "slot_group": "subject"
+        },
+        "date_of_birth": {
+          "name": "date_of_birth",
+          "rank": 17,
+          "slot_group": "subject"
+        },
+        "developmental_stage": {
+          "name": "developmental_stage",
+          "rank": 18,
+          "slot_group": "subject"
+        },
+        "animal_weight_at_start": {
+          "name": "animal_weight_at_start",
+          "rank": 19,
+          "slot_group": "subject"
+        },
+        "weight_unit": {
+          "name": "weight_unit",
+          "rank": 20,
+          "slot_group": "subject"
+        },
+        "severity_grade_of_manipulation": {
+          "name": "severity_grade_of_manipulation",
+          "rank": 21,
+          "slot_group": "subject"
+        },
+        "in_life_phase_start_date": {
+          "name": "in_life_phase_start_date",
+          "rank": 22,
+          "slot_group": "study"
+        },
+        "in_life_phase_end_date": {
+          "name": "in_life_phase_end_date",
+          "rank": 23,
+          "slot_group": "study"
+        },
+        "test_substance_common_name": {
+          "name": "test_substance_common_name",
+          "rank": 24,
+          "slot_group": "treatment"
+        },
+        "test_substance_cas_number": {
+          "name": "test_substance_cas_number",
+          "rank": 25,
+          "slot_group": "treatment"
+        },
+        "numerical_dose": {
+          "name": "numerical_dose",
+          "rank": 26,
+          "slot_group": "treatment"
+        },
+        "dose_unit": {
+          "name": "dose_unit",
+          "rank": 27,
+          "slot_group": "treatment"
+        },
+        "vehicle_composition": {
+          "name": "vehicle_composition",
+          "rank": 28,
+          "slot_group": "treatment"
+        },
+        "route_of_administration": {
+          "name": "route_of_administration",
+          "rank": 29,
+          "slot_group": "treatment"
+        },
+        "administration_method": {
+          "name": "administration_method",
+          "rank": 30,
+          "slot_group": "treatment"
+        },
+        "testing_location": {
+          "name": "testing_location",
+          "rank": 31,
+          "slot_group": "study"
+        },
+        "light_cycle": {
+          "name": "light_cycle",
+          "rank": 32,
+          "slot_group": "recording"
+        },
+        "enrichment": {
+          "name": "enrichment",
+          "rank": 33,
+          "slot_group": "cage"
+        },
+        "outcome_measure": {
+          "name": "outcome_measure",
+          "rank": 34,
+          "slot_group": "recording"
+        },
+        "value": {
+          "name": "value",
+          "rank": 35,
+          "slot_group": "recording"
+        },
+        "unit_of_measurement": {
+          "name": "unit_of_measurement",
+          "rank": 36,
+          "slot_group": "recording"
+        },
+        "light_start_at": {
+          "name": "light_start_at",
+          "rank": 37,
+          "slot_group": "recording"
+        },
+        "dawn_and_dusk": {
+          "name": "dawn_and_dusk",
+          "rank": 38,
+          "slot_group": "recording"
+        },
+        "dawn_and_dusk_duration": {
+          "name": "dawn_and_dusk_duration",
+          "rank": 39,
+          "slot_group": "recording"
+        },
+        "time_zone": {
+          "name": "time_zone",
+          "rank": 40,
+          "slot_group": "recording"
+        },
+        "rec_start_at": {
+          "name": "rec_start_at",
+          "rank": 41,
+          "slot_group": "recording"
+        },
+        "rec_stop_at": {
+          "name": "rec_stop_at",
+          "rank": 42,
+          "slot_group": "recording"
+        },
+        "rec_duration": {
+          "name": "rec_duration",
+          "rank": 43,
+          "slot_group": "recording"
+        },
+        "rec_frequency": {
+          "name": "rec_frequency",
+          "rank": 44,
+          "slot_group": "recording"
+        },
+        "remark": {
+          "name": "remark",
+          "rank": 45,
+          "slot_group": "source_tracking"
+        }
+      },
+      "attributes": {
+        "xp_group": {
+          "name": "xp_group",
+          "title": "XP_group",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 1,
+          "alias": "xp_group",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "study",
+          "range": "string"
+        },
+        "collaborator": {
+          "name": "collaborator",
+          "title": "Collaborator",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 2,
+          "alias": "collaborator",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "study",
+          "range": "string"
+        },
+        "unique_animal_identifier": {
+          "name": "unique_animal_identifier",
+          "title": "Unique_Animal_Identifier",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 3,
+          "alias": "unique_animal_identifier",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "subject",
+          "range": "string"
+        },
+        "dvc_cage_identifier": {
+          "name": "dvc_cage_identifier",
+          "title": "DVC Cage Identifier",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 4,
+          "alias": "dvc_cage_identifier",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "cage",
+          "range": "string"
+        },
+        "local_identifiers": {
+          "name": "local_identifiers",
+          "title": "Local_Identifiers",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 5,
+          "alias": "local_identifiers",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "subject",
+          "range": "string"
+        },
+        "number_mice_per_cage": {
+          "name": "number_mice_per_cage",
+          "title": "nbr_mice_per_cage",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 6,
+          "alias": "number_mice_per_cage",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "cage",
+          "range": "string"
+        },
+        "cage_change": {
+          "name": "cage_change",
+          "title": "Caqge cahge (Y/N)",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 7,
+          "alias": "cage_change",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "cage",
+          "range": "string"
+        },
+        "cage_change_date": {
+          "name": "cage_change_date",
+          "title": "Cage Change date",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 8,
+          "alias": "cage_change_date",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "cage",
+          "range": "string"
+        },
+        "species": {
+          "name": "species",
+          "title": "Species",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 9,
+          "alias": "species",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "subject",
+          "range": "string"
+        },
+        "strain_ilar_name": {
+          "name": "strain_ilar_name",
+          "title": "Strain_ILAR_Name",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 10,
+          "alias": "strain_ilar_name",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "subject",
+          "range": "string"
+        },
+        "strain_short_name": {
+          "name": "strain_short_name",
+          "title": "Strain_Short_Name",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 11,
+          "alias": "strain_short_name",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "subject",
+          "range": "string"
+        },
+        "sex": {
+          "name": "sex",
+          "title": "Sex",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 12,
+          "alias": "sex",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "subject",
+          "range": "string"
+        },
+        "transgenic": {
+          "name": "transgenic",
+          "title": "Transgenic",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 13,
+          "alias": "transgenic",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "subject",
+          "range": "string"
+        },
+        "genotype_information": {
+          "name": "genotype_information",
+          "title": "Genotype_Information",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 14,
+          "alias": "genotype_information",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "subject",
+          "range": "string"
+        },
+        "allele_information": {
+          "name": "allele_information",
+          "title": "Allele_Information",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 15,
+          "alias": "allele_information",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "subject",
+          "range": "string"
+        },
+        "animal_vendor": {
+          "name": "animal_vendor",
+          "title": "Animal_Vendor",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 16,
+          "alias": "animal_vendor",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "subject",
+          "range": "string"
+        },
+        "date_of_birth": {
+          "name": "date_of_birth",
+          "title": "Date_of_Birth",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 17,
+          "alias": "date_of_birth",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "subject",
+          "range": "string"
+        },
+        "developmental_stage": {
+          "name": "developmental_stage",
+          "title": "Developmental_Stage",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 18,
+          "alias": "developmental_stage",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "subject",
+          "range": "string"
+        },
+        "animal_weight_at_start": {
+          "name": "animal_weight_at_start",
+          "title": "Animal_Weight_at_Start",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 19,
+          "alias": "animal_weight_at_start",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "subject",
+          "range": "string"
+        },
+        "weight_unit": {
+          "name": "weight_unit",
+          "title": "Weight_Unit",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 20,
+          "alias": "weight_unit",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "subject",
+          "range": "string"
+        },
+        "severity_grade_of_manipulation": {
+          "name": "severity_grade_of_manipulation",
+          "title": "Severity_Grade_of_Manipulation",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 21,
+          "alias": "severity_grade_of_manipulation",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "subject",
+          "range": "string"
+        },
+        "in_life_phase_start_date": {
+          "name": "in_life_phase_start_date",
+          "title": "In-life_Phase_Start_Date",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 22,
+          "alias": "in_life_phase_start_date",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "study",
+          "range": "string"
+        },
+        "in_life_phase_end_date": {
+          "name": "in_life_phase_end_date",
+          "title": "In-life_Phase_End_Date",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 23,
+          "alias": "in_life_phase_end_date",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "study",
+          "range": "string"
+        },
+        "test_substance_common_name": {
+          "name": "test_substance_common_name",
+          "title": "Test_Substance_Common_Name",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 24,
+          "alias": "test_substance_common_name",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "treatment",
+          "range": "string"
+        },
+        "test_substance_cas_number": {
+          "name": "test_substance_cas_number",
+          "title": "Test_Substance_CAS_Number",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 25,
+          "alias": "test_substance_cas_number",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "treatment",
+          "range": "string"
+        },
+        "numerical_dose": {
+          "name": "numerical_dose",
+          "title": "Numerical_Dose",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 26,
+          "alias": "numerical_dose",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "treatment",
+          "range": "string"
+        },
+        "dose_unit": {
+          "name": "dose_unit",
+          "title": "Dose_Unit",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 27,
+          "alias": "dose_unit",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "treatment",
+          "range": "string"
+        },
+        "vehicle_composition": {
+          "name": "vehicle_composition",
+          "title": "Vehicle_Composition",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 28,
+          "alias": "vehicle_composition",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "treatment",
+          "range": "string"
+        },
+        "route_of_administration": {
+          "name": "route_of_administration",
+          "title": "Route_of_Administration",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 29,
+          "alias": "route_of_administration",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "treatment",
+          "range": "string"
+        },
+        "administration_method": {
+          "name": "administration_method",
+          "title": "Administration_Method",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 30,
+          "alias": "administration_method",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "treatment",
+          "range": "string"
+        },
+        "testing_location": {
+          "name": "testing_location",
+          "title": "Testing_Location",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 31,
+          "alias": "testing_location",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "study",
+          "range": "string"
+        },
+        "light_cycle": {
+          "name": "light_cycle",
+          "title": "Light_Cycle",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 32,
+          "alias": "light_cycle",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "recording",
+          "range": "string"
+        },
+        "enrichment": {
+          "name": "enrichment",
+          "title": "Enrichment",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 33,
+          "alias": "enrichment",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "cage",
+          "range": "string"
+        },
+        "outcome_measure": {
+          "name": "outcome_measure",
+          "title": "Outcome_Measure",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 34,
+          "alias": "outcome_measure",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "recording",
+          "range": "string"
+        },
+        "value": {
+          "name": "value",
+          "title": "Value",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 35,
+          "alias": "value",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "recording",
+          "range": "string"
+        },
+        "unit_of_measurement": {
+          "name": "unit_of_measurement",
+          "title": "Unit_of_Measurement",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 36,
+          "alias": "unit_of_measurement",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "recording",
+          "range": "string"
+        },
+        "light_start_at": {
+          "name": "light_start_at",
+          "title": "Light_StartAt",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 37,
+          "alias": "light_start_at",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "recording",
+          "range": "string"
+        },
+        "dawn_and_dusk": {
+          "name": "dawn_and_dusk",
+          "title": "Dawn-and-Dusk",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 38,
+          "alias": "dawn_and_dusk",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "recording",
+          "range": "string"
+        },
+        "dawn_and_dusk_duration": {
+          "name": "dawn_and_dusk_duration",
+          "title": "Dawn-and-Dusk_duration",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 39,
+          "alias": "dawn_and_dusk_duration",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "recording",
+          "range": "string"
+        },
+        "time_zone": {
+          "name": "time_zone",
+          "title": "TimeZone",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 40,
+          "alias": "time_zone",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "recording",
+          "range": "string"
+        },
+        "rec_start_at": {
+          "name": "rec_start_at",
+          "title": "Rec_StartAt",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 41,
+          "alias": "rec_start_at",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "recording",
+          "range": "string"
+        },
+        "rec_stop_at": {
+          "name": "rec_stop_at",
+          "title": "Rec_StoptAt",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 42,
+          "alias": "rec_stop_at",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "recording",
+          "range": "string"
+        },
+        "rec_duration": {
+          "name": "rec_duration",
+          "title": "Rec_Dur",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 43,
+          "alias": "rec_duration",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "recording",
+          "range": "string"
+        },
+        "rec_frequency": {
+          "name": "rec_frequency",
+          "title": "Rec_freq",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 44,
+          "alias": "rec_frequency",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "recording",
+          "range": "string"
+        },
+        "remark": {
+          "name": "remark",
+          "title": "Remark",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "rank": 45,
+          "alias": "remark",
+          "owner": "MNMSRecord",
+          "domain_of": [
+            "MNMSRecord"
+          ],
+          "slot_group": "source_tracking",
+          "range": "string"
+        }
+      }
+    },
+    "Container": {
+      "name": "Container",
+      "from_schema": "https://example.com/preclinical_mnms_intake",
+      "attributes": {
+        "MNMSRecords": {
+          "name": "MNMSRecords",
+          "from_schema": "https://example.com/preclinical_mnms_intake",
+          "alias": "MNMSRecords",
+          "owner": "Container",
+          "domain_of": [
+            "Container"
+          ],
+          "range": "MNMSRecord",
+          "multivalued": true,
+          "inlined_as_list": true
+        }
+      },
+      "tree_root": true
+    }
+  },
+  "settings": {
+    "Title_Case": {
+      "setting_key": "Title_Case",
+      "setting_value": "(((?<=\\b)[^a-z\\W]\\w*?|[\\W])+)"
+    },
+    "UPPER_CASE": {
+      "setting_key": "UPPER_CASE",
+      "setting_value": "[A-Z\\W\\d_]*"
+    },
+    "lower_case": {
+      "setting_key": "lower_case",
+      "setting_value": "[a-z\\W\\d_]*"
+    }
+  },
+  "@type": "SchemaDefinition"
+}

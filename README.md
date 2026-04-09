@@ -179,6 +179,10 @@ yarn test:e2e:grid:spike
 
 See [`docs/grid-engine/README.md`](./docs/grid-engine/README.md) for the spike-specific notes and rationale.
 
+### Preclinical HCM Workflow
+
+This repository now includes a source-aligned `MNMS Intake` template plus a normalized `Preclinical HCM` template for preclinical home-cage monitoring metadata. A runbook, export contract, and generated sample outputs are documented in [`docs/preclinical-hcm-pipeline.md`](./docs/preclinical-hcm-pipeline.md).
+
 ## Publishing and Releasing
 
 To bundle the canonical interface run:
