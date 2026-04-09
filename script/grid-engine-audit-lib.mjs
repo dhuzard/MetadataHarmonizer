@@ -1,12 +1,108 @@
 import { execFileSync } from 'node:child_process';
+import { readdirSync, readFileSync, statSync } from 'node:fs';
+import path from 'node:path';
 import { HOT_METHOD_BUCKETS } from './grid-engine-audit-config.mjs';
 
+const SCANNABLE_EXTENSIONS = new Set(['.js', '.mjs']);
+const SKIP_DIRS = new Set(['.git', 'node_modules', 'dist']);
+
+function toPosixPath(filePath) {
+  return filePath.split(path.sep).join('/');
+}
+
+function listScannableFiles(rootDir) {
+  const files = [];
+  const stack = [rootDir];
+
+  while (stack.length > 0) {
+    const current = stack.pop();
+    let entries;
+    try {
+      entries = readdirSync(current);
+    } catch {
+      continue;
+    }
+
+    for (const entry of entries) {
+      if (SKIP_DIRS.has(entry)) {
+        continue;
+      }
+
+      const fullPath = path.join(current, entry);
+      let stats;
+      try {
+        stats = statSync(fullPath);
+      } catch {
+        continue;
+      }
+
+      if (stats.isDirectory()) {
+        stack.push(fullPath);
+        continue;
+      }
+
+      if (!stats.isFile()) {
+        continue;
+      }
+
+      if (SCANNABLE_EXTENSIONS.has(path.extname(fullPath))) {
+        files.push(fullPath);
+      }
+    }
+  }
+
+  return files.sort();
+}
+
+function fallbackSearch(repoRoot, pattern, targetPaths) {
+  const matcher = new RegExp(pattern);
+  const matches = [];
+
+  for (const targetPath of targetPaths) {
+    const absoluteTargetPath = path.resolve(repoRoot, targetPath);
+    const files = listScannableFiles(absoluteTargetPath);
+
+    for (const filePath of files) {
+      let content;
+      try {
+        content = readFileSync(filePath, 'utf8');
+      } catch {
+        continue;
+      }
+
+      const lines = content.split(/\r?\n/);
+      const relativeFilePath = toPosixPath(path.relative(repoRoot, filePath));
+
+      for (let index = 0; index < lines.length; index += 1) {
+        if (matcher.test(lines[index])) {
+          matches.push(`${relativeFilePath}:${index + 1}:${lines[index]}`);
+        }
+      }
+    }
+  }
+
+  return matches;
+}
+
 export function runRg(repoRoot, args) {
-  const output = execFileSync('rg', args, {
-    cwd: repoRoot,
-    encoding: 'utf8',
-  }).trim();
-  return output.length > 0 ? output.split('\n') : [];
+  try {
+    const output = execFileSync('rg', args, {
+      cwd: repoRoot,
+      encoding: 'utf8',
+    }).trim();
+    return output.length > 0 ? output.split('\n') : [];
+  } catch (error) {
+    if (error?.code === 'ENOENT') {
+      const [, pattern, ...targetPaths] = args;
+      return fallbackSearch(repoRoot, pattern, targetPaths);
+    }
+
+    if (error?.status === 1) {
+      return [];
+    }
+
+    throw error;
+  }
 }
 
 export function parseMatch(line) {
