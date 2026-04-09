@@ -1,8 +1,10 @@
-# DataHarmonizer
+# MetadataHarmonizer
 
-A standardized browser-based spreadsheet editor and validator that can be run offline and locally, which works of of [LinkML](https://linkml.io/) data specifications. 
+MetadataHarmonizer is a schema-driven browser-based spreadsheet editor and validator for structured metadata. It can run locally or offline and builds its templates from [LinkML](https://linkml.io/) specifications.
 
-adapted from:
+This project is inspired by and adapted from the original DataHarmonizer work, while expanding the scope beyond the original pathogen-genomics-centered use case into a more general metadata harmonization workflow.
+
+Inspired by:
 
 **The DataHarmonizer: a tool for faster data harmonization, validation, aggregation and analysis of pathogen genomics contextual information**
 
@@ -14,28 +16,50 @@ _Ivan S. Gill, Emma J. Griffiths​, Damion Dooley​, Rhiannon Cameron​, Sara
 
 ## Installation
 
-This repository contains a full DataHarmonizer development environment including the scripts necessary to generate a code library for **API** use, as well as the stand-alone version. Instructions for setting this up is in the **Development** section below. The API is used by the https://data.microbiomedata.org/ project for data collection.  Using the API allows DataHarmonizer to be presented in a custom user interface, with a specific template pre-loaded for example, and select controls menu items constructed as desired in the interface.
+This repository contains the full MetadataHarmonizer development environment, including the scripts needed to generate both a code library for **API** use and a stand-alone browser application. Instructions for setting this up are in the **Development** section below.
 
-# Stand-Alone DataHarmonizer Functionality
+Using the API allows MetadataHarmonizer to be embedded in a custom interface, for example with a specific template preloaded and custom controls or workflow steps around it.
 
-In addition to API use, as detailed in the **Development** section, the development environment includes a script for generating a stand-alone browser-based version of DataHarmonizer that includes templates for detailing **SARS-CoV-2 and Monkeypox** sample contextual data.  More infectious disease templates will be included in the comming year. Other organizations are adopting this version of DataHarmonizer for their own data management purposes.
+# Stand-Alone MetadataHarmonizer Functionality
+
+In addition to API use, the development environment can generate a stand-alone browser-based version of MetadataHarmonizer with bundled templates and example inputs. Some bundled templates in this repository still reflect the public-health and pathogen-metadata heritage inherited from DataHarmonizer, but the application itself is intended as a more general metadata harmonization and validation tool.
+
+## Technical Divergence from DataHarmonizer
+
+MetadataHarmonizer still inherits much of the original DataHarmonizer architecture, especially the LinkML-driven template model and the Handsontable-based runtime. This fork currently diverges in a few concrete ways:
+
+- Broader metadata scope: the repository is positioned as a general metadata harmonization and validation tool rather than being centered on the original pathogen-genomics framing.
+- Local experiment bootstrapping: the app now supports focused experiment launchers such as `yarn experiment:tabular`, `yarn experiment:validation`, `yarn experiment:tabulator`, and `yarn experiment:revogrid`, along with URL-driven loading of bundled `exampleInput` files and optional automatic validation.
+- Grid-engine migration work: this repository includes explicit engine-selection plumbing, audit artifacts, and isolated spike harnesses for Tabulator and RevoGrid under `docs/grid-engine/` and `web/spikes/grid-engine/`.
+- Runtime state exposure for experiments: the app records requested versus active grid engine state on the root HTML element, which makes fallback behavior and spike mode visible to tests and manual inspection.
+- Expanded end-to-end coverage for experimentation: the repository includes focused Playwright coverage for example-input bootstrapping and the grid-engine smoke and spike paths.
+
+At the same time, this is not yet a fully engine-agnostic rewrite. The shipped runtime still defaults to Handsontable, and the candidate grid engines remain in spike or evaluation mode rather than production adapter mode.
+
+### Current Migration Status
+
+- Handsontable has not been removed from the repository.
+- Handsontable is still the active shipped runtime and the only implemented grid engine today.
+- RevoGrid is the current preferred migration target based on the spike findings, but that migration has not yet been completed.
+- The intent is to keep adapting the codebase toward a narrower engine boundary and remove the Handsontable dependency fully in a later phase, once the replacement path is production-ready.
 
 ## Select Template
 
-The default template loaded is the "CanCOGeN Covid-19" template. To change the spreadsheet template, select the white text box to the right of **Template**, it always contains the name of the template currently active, or navigated to **File** followed by **Change Template**. An in-app window will appear that allows you to select from the available templates in the drop-down menu. After selecting the desired template, click **Open** to activate the template.
+The currently bundled default template is "CanCOGeN Covid-19". To change the spreadsheet template, select the white text box to the right of **Template**, which always contains the name of the active template, or navigate to **File** followed by **Change Template**. An in-app window will appear that allows you to select from the available templates in the drop-down menu. After selecting the desired template, click **Open** to activate it.
 
 ![change template](./images/changeTemplate.gif)
 
-A second way to access templates directly, rather than by the hard-coded menu system, is to specify the DataHarmonizer template subfolder via a "template" URL parameter. This enables development and use of customized templates, or new ones, that DH doesn't have programmed in menu.  
+A second way to access templates directly, rather than by the hard-coded menu system, is to specify the MetadataHarmonizer template subfolder via a `template` URL parameter. This enables development and use of customized templates, or new ones, that are not yet exposed in the menu.
 
-For example, when running
-http://genepio.org/DataHarmonizer/main.html?template=gisaid/GISAID accesses the /template/gisaid/ subfolder's template directly.  
+For example, when running locally,
+`http://localhost:8080/?template=gisaid/GISAID`
+accesses the `/templates/gisaid/` template directly.
 
-See more on the Wiki [DataHarmonizer templates](https://github.com/cidgoh/DataHarmonizer/wiki/DataHarmonizer-Templates) page.
+For historical background on template structure, see the upstream [DataHarmonizer templates](https://github.com/cidgoh/DataHarmonizer/wiki/DataHarmonizer-Templates) documentation.
 
 ## Usage
 
-You can edit the cells manually, or upload `xlsx`, `xls`, `tsv`, `csv` and `json` files via **File** > **Open**. You can also save the spreadsheet's contents to your local hard-drive in the aforementioned formats, or **File** > **Export** your data as a document formatted for submission a specified portal, database, or repository.
+You can edit the cells manually, or upload `xlsx`, `xls`, `tsv`, `csv` and `json` files via **File** > **Open**. You can also save the spreadsheet's contents to your local drive in the same formats, or use **File** > **Export** to format data for a specific portal, repository, or downstream workflow when a template provides export targets.
 
 ![saving and exporting files](./images/exportingFiles.gif)
 
@@ -56,11 +80,11 @@ You can also automatically fill a column with a specified value, but only in row
 
 ![fill column, in rows with corresponding sample IDs, with specified value](./images/fillColumn.gif)
 
-For _more information_ on available application features, select the **Help** button followed by **Getting Started** from within the DataHarmonizer application or navigate to the [**Getting Started**](https://github.com/cidgoh/DataHarmonizer/wiki/DataHarmonizer---Getting-Started) GitHub wiki..
+For more information on available application features, select the **Help** button followed by **Getting Started** from within the MetadataHarmonizer application. Historical UI walkthrough material is also available in the upstream [**Getting Started**](https://github.com/cidgoh/DataHarmonizer/wiki/DataHarmonizer---Getting-Started) guide.
 
 ## Example Data
 
-The stand-alone version of DataHarmonizer when built is placed in the /web/dist/ folder, with the following structure.  Templates with example data testing functionalities can be found within the following folder structure leading to the "exampleInput/" folder, when available:
+The stand-alone version of MetadataHarmonizer, when built, is placed in the `/web/dist/` folder. Templates with bundled example data expose it under an `exampleInput/` directory with a structure like this:
 
 ```
 . TOP LEVEL DIRECTORY
@@ -73,21 +97,21 @@ The stand-alone version of DataHarmonizer when built is placed in the /web/dist/
 │   └── ...
 ```
 
-Note that the source of the built "template/" folder above is actually in /web/templates/, where example input data should be placed before performing the build process.  Here is an example that links to all available test data for the CanCOGeN Covid-19 template:
+Note that the source of the built `template/` folder above is actually in `/web/templates/`, where example input data should be placed before performing the build process. One bundled example directory is:
 
-- [`canada_covid19`](https://github.com/cidgoh/DataHarmonizer/tree/master/web/templates/canada_covid19/exampleInput) CanCOGeN Covid-19
+- [`canada_covid19`](./web/templates/canada_covid19/exampleInput) CanCOGeN Covid-19
 
 
 ## Version Control
 
-Versioning of templates, features, and functionality is modeled on semantic versioning (i.e. versions are expressed as “DataHarmonizer X.Y.Z”).
+Versioning of templates, features, and functionality is modeled on semantic versioning, expressed as `MetadataHarmonizer X.Y.Z`.
 Changes to vocabulary in template pick lists are updated by incremental increases to the third position in the version (i.e. “Z” position).
 Changes to fields and features are updated by incremental increases to the second position in the version (i.e. “Y” position).
 Changes to basic infrastructure or major changes to functionality are updated by incremental increases to the first position in the version (i.e. “X” position).
 
-Descriptions of updates are provided in [release notes](https://github.com/cidgoh/DataHarmonizer/releases) for every new version.
+Descriptions of updates are provided in the [release notes](https://github.com/dhuzard/MetadataHarmonizer/releases) for each new version.
 
-Discussions contributing to updates may be tracked on the DataHarmonizer GitHub issue tracker.
+Discussions contributing to updates may be tracked on the MetadataHarmonizer GitHub issue tracker.
 
 # Development
 
@@ -119,14 +143,41 @@ yarn dev
 
 This will start a [webpack development server](https://webpack.js.org/configuration/dev-server/) running locally on `localhost:8080`. You can connect to `localhost:8080` by inputing it into your browser URL bar while `yarn dev` is running. Changes to either `lib` or `web` should be loaded automatically in your browser. This serves as interface for testing and debugging the core library components (in the lib directory) and that interface itself (the web directory).
 
-For faster local experiments, there are now focused launchers:
+### Quick Experimentation
+
+For faster local experiments, there are focused launchers for the main manual flows:
 
 - `yarn experiment:tabular` preloads a bundled valid CSV into the main app.
 - `yarn experiment:validation` preloads a bundled invalid CSV and runs validation immediately.
 - `yarn experiment:tabulator` starts the dev server for the Tabulator spike path.
 - `yarn experiment:revogrid` starts the dev server for the RevoGrid spike path.
 
-See [`docs/grid-engine/README.md`](./docs/grid-engine/README.md) for the exact query-param routes as well.
+Each launcher prints the exact local URL to open.
+
+If you want to drive the same flows manually with query params, use:
+
+```text
+/?template=canada_covid19%2FCanCOGeN_Covid-19&exampleInput=validTestData_2-1-2.csv
+/?template=canada_covid19%2FCanCOGeN_Covid-19&exampleInput=invalidTestData_1-0-0.csv&validate=1
+/?template=canada_covid19%2FCanCOGeN_Covid-19&gridEngine=tabulator&gridSpike=1
+/?template=canada_covid19%2FCanCOGeN_Covid-19&gridEngine=revogrid&gridSpike=1
+```
+
+Notes:
+
+- `exampleInput` loads files from `web/templates/<schema>/exampleInput/`.
+- Supported example-input types are `csv`, `tsv`, `xls`, `xlsx`, and `json`.
+- Candidate grid engines are still spike-only. The shipped runtime remains Handsontable unless an engine is explicitly implemented.
+
+Focused end-to-end checks are also available:
+
+```shell
+yarn test:e2e:example-input
+yarn test:e2e:grid:smoke
+yarn test:e2e:grid:spike
+```
+
+See [`docs/grid-engine/README.md`](./docs/grid-engine/README.md) for the spike-specific notes and rationale.
 
 ## Publishing and Releasing
 
@@ -151,20 +202,20 @@ With a `[schema name]` of your choice, work in **`/web/templates/[schema name]/`
 // A dictionary of possible export formats
 export default {};
 ```
-- Assemble one **`schema.yaml`** file by hand. It should be a merger of a valid linkml `schema.yaml` file (your existing schema) and at least an extra **`dh_interface`** class. The `dh_interface` class signals to DH to show the given class as a template menu option. Below we are using an AMBR class as an example:
+- Assemble one **`schema.yaml`** file by hand. It should be a merger of a valid linkml `schema.yaml` file (your existing schema) and at least an extra **`dh_interface`** class. The `dh_interface` class signals to MetadataHarmonizer to show the given class as a template menu option. Below we are using an AMBR class as an example:
  
 ```
 classes:
   dh_interface:
     name: dh_interface
-    description: A DataHarmonizer interface
+    description: A MetadataHarmonizer interface
     from_schema: https://example.com/AMBR # HERE CHANGE TO [schema name] URI
   AMBR:    # HERE CHANGE TO [schema name]
     name: AMBR
     description: The AMBR Project, led by the Harrison Lab at the University of Calgary,
       is an interdisciplinary study aimed at using 16S sequencing as part of a culturomics
       platform to identify antibiotic potentiators from the natural products of microbiota.
-      The AMBR DataHarmonizer template was designed to standardize contextual data
+      The AMBR MetadataHarmonizer template was designed to standardize contextual data
       associated with the isolate repository from this work.
     is_a: dh_interface
 ```
@@ -181,7 +232,7 @@ types:
   Provenance:
     name: 'Provenance'
     typeof: string
-    description: 'A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.'
+    description: 'A field containing a MetadataHarmonizer versioning marker. It is issued by MetadataHarmonizer when validation is applied to a given row of data.'
     base: str
     uri: xsd:token
 ```
@@ -220,27 +271,32 @@ yarn build:web
 The `/web/dist/` folder can then be zipped or copied separately to wherever you want to make the app available.
 
 
-`TODO: describe how to use the DataHarmonizer javascript API.`
+`TODO: describe how to use the MetadataHarmonizer javascript API.`
 
 ## Roadmap
 
-This project is now in production, with new features being added occasionally.  The [Projects](https://github.com/cidgoh/DataHarmonizer/projects/1) tab indicates anticipated functionality.
+This project is in active development, with new features and template work added as needed for broader metadata harmonization use cases.
 
 # Support
 
-If you have any ideas for improving the application, or have encountered any problems running the application, [please open an issue for discussion][1].
+If you have ideas for improving the application, or encounter problems running it, [please open an issue for discussion][1].
 
-[1]: https://github.com/Public-Health-Bioinformatics/DataHarmonizer/issues
+[1]: https://github.com/dhuzard/MetadataHarmonizer/issues
 
 ## Additional Information
 
-For more information about the DataHarmonizer, it's templates, and how to use them, check out the [DataHarmonizer Wiki](https://github.com/Public-Health-Bioinformatics/DataHarmonizer/wiki).
+For more information about the original DataHarmonizer project and some legacy template and workflow documentation, see the upstream [DataHarmonizer Wiki](https://github.com/Public-Health-Bioinformatics/DataHarmonizer/wiki).
 
-## Acknowledgement
+## Licensing
 
-- [Handsontable](https://handsontable.com/) was used to build the grid.  DataHarmonizer is configured to reference the "non-commercial-and-evaluation" handsontable license "for purposes not intended toward monetary compensation such as, but not limited to, teaching, academic research, evaluation, testing and experimentation"; if this application is used for commercial purposes, this should be revised as per https://handsontable.com/docs/license-key/
-- [SheetJS](https://sheetjs.com/) was used to open and save local files. The community edition was used under the [Apache 2.0](https://github.com/SheetJS/sheetjs/blob/master/LICENSE) license.
+The repository source code for this fork is distributed under the [MIT](LICENSE) license. The `LICENSE` file currently retains the upstream copyright notice from the original project.
 
-## License
+Important third-party licensing notes for the current codebase:
 
-DataHarmonizer javascript, python and other code not mentioned in the Acknowledgement above is covered by the [MIT](LICENSE) license.
+- Handsontable is the active shipped grid runtime. The package in this repository declares `SEE LICENSE IN LICENSE.txt`, and the application currently instantiates Handsontable with the `non-commercial-and-evaluation` license key in code. If you intend to use MetadataHarmonizer commercially, review Handsontable's license terms separately.
+- SheetJS `xlsx` is used for spreadsheet import and export under Apache 2.0.
+- Tabulator and RevoGrid are included as candidate grid-engine spike dependencies. Their packages declare MIT licenses, but they are not the default production runtime in this repository today.
+
+As long as Handsontable remains bundled and used as the shipped runtime, its licensing terms remain relevant to this project. If and when Handsontable is fully removed in a later migration phase, this section should be revisited to reflect the new runtime dependency set.
+
+When redistributing MetadataHarmonizer, preserve this repository's MIT license notice and comply with the licenses and terms of bundled third-party dependencies. This section is only a summary of the current repository state; the actual governing terms remain the license files and upstream package terms.
