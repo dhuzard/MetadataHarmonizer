@@ -21,6 +21,28 @@ body {
 .data-harmonizer-grid td.empty-invalid-cell {
   background-color: #ff91a4 !important;
 }
+.data-harmonizer-grid .revo-grid-runtime .invalid-cell {
+  background-color: #ffcccb !important;
+}
+.data-harmonizer-grid .revo-grid-runtime .empty-invalid-cell {
+  background-color: #ff91a4 !important;
+}
+.data-harmonizer-grid .revo-grid-runtime {
+  min-height: 320px;
+}
+.data-harmonizer-grid .revo-validation-feedback {
+  display: none;
+  margin: 0 0 8px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+.data-harmonizer-grid .revo-validation-feedback.has-errors {
+  display: block;
+  color: #7f1d1d;
+  background-color: #fee2e2;
+  border: 1px solid #fca5a5;
+}
 .data-harmonizer-grid .htAutocompleteArrow {
   color: gray;
 }

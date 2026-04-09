@@ -29,5 +29,25 @@ describe('grid engine utilities', () => {
       active: 'handsontable',
       implemented: false,
     });
+
+    expect(
+      resolveGridEngine('revogrid', {
+        templatePath: 'canada_covid19/CanCOGeNCovid19',
+      })
+    ).toEqual({
+      requested: 'revogrid',
+      active: 'revogrid',
+      implemented: true,
+    });
+
+    expect(
+      resolveGridEngine('revogrid', {
+        templatePath: 'grdi/GRDI',
+      })
+    ).toEqual({
+      requested: 'revogrid',
+      active: 'handsontable',
+      implemented: false,
+    });
   });
 });

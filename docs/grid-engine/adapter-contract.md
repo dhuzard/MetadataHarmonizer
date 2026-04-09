@@ -1,14 +1,15 @@
 # Minimal Adapter Contract
 
-This is the narrow contract the migration should target from the current Handsontable audit.
+This document now describes the implemented runtime-v1 adapter seam.
 
-It is intentionally not a generic spreadsheet abstraction and it is not evidence that the repo is dual-engine ready. At this stage the repo has:
+It remains intentionally narrow and internal. It is not a claim of dual-engine readiness.
 
-- engine selection and fallback plumbing
-- a frozen audit of current raw `.hot` usage
-- a small set of behavior-level helpers already moved out of direct `dh.hot` reach-throughs
+Current state:
 
-It does not yet have a production candidate adapter.
+- Handsontable remains the default shipped runtime.
+- RevoGrid runtime support is template-scoped to one bounded bundled path:
+  - `canada_covid19/CanCOGeNCovid19`
+- The repo still carries audited direct engine reach-through outside this seam.
 
 ## Behavior Buckets
 
@@ -21,7 +22,7 @@ The current audited `.hot` usage should be treated as four behavior clusters:
 
 The migration difficulty is expected to concentrate in clusters 2-4, especially editor semantics, validation repaint timing, selection/range behavior, and hidden row/column state.
 
-## Initial Contract
+## Runtime-v1 Contract
 
 ### load/get data
 
@@ -35,7 +36,7 @@ The migration difficulty is expected to concentrate in clusters 2-4, especially 
 - Set one or more cell values.
 - Load source-data values where existing DH row-coordination logic requires it.
 - Insert and remove rows while preserving current DH semantics.
-- Support undo only where the current audited DH logic already depends on it.
+- Keep undo out of scope for RevoGrid runtime-v1.
 
 ### selection, navigation, and render lifecycle
 
@@ -50,13 +51,15 @@ The migration difficulty is expected to concentrate in clusters 2-4, especially 
 - Show and hide rows and columns.
 - Apply filtering and visibility state.
 - Update column settings and editing configuration.
-- Support header/help metadata and the narrow editor DOM/runtime hooks DH already uses.
+- Replay invalid-cell state after validation.
 - Keep any future engine-specific escape hatch explicit and temporary.
 
-## Explicit Non-Goals For The First Adapter
+## Explicit Runtime-v1 Omissions
 
 - Full Handsontable API emulation
-- Generic plugin abstraction
+- Broad plugin parity
 - New public adapter API
 - Broad engine-neutral editor inheritance
-- Expanding the audited surface before the candidate spike proves the hard behaviors
+- Full dependent-table (`1:m`) parity
+- Header double-click help hooks on RevoGrid
+- Any broad migration beyond the bounded template path above

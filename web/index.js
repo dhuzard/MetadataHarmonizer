@@ -90,8 +90,8 @@ const renderGridEngineStatus = (context) => {
   $(dhToolbarRoot).before(`
     <div id="grid-engine-status" class="alert alert-warning mb-3" role="alert">
       Grid spike mode requested <strong>${requestedGridEngine}</strong>, but the active engine is
-      <strong>${gridEngine}</strong>. This repo currently has engine-selection infrastructure only; no
-      candidate adapter is active in the default runtime yet.
+      <strong>${gridEngine}</strong>. Runtime support is currently bounded and template-scoped; the
+      default shipped runtime remains Handsontable.
       <a class="alert-link" href="/?${spikeParams.toString()}">Open the ${requestedGridEngine} spike harness</a>.
     </div>
   `);
@@ -101,6 +101,7 @@ const renderGridEngineStatus = (context) => {
 const main = async function () {
   const context = new AppContext();
   context.reload(context.appConfig.template_path).then(async (context) => {
+    window.__DATAHARMONIZER_APP_CONTEXT__ = context;
     renderGridEngineStatus(context);
     await maybeMountGridEngineSpike(context, dhNavTabs.parentElement);
 

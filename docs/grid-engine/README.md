@@ -5,15 +5,17 @@ This directory holds the migration artifacts for the spreadsheet-engine feasibil
 ## Current Non-Default Spike Path
 
 - Default runtime remains Handsontable.
-- The repo is not dual-engine ready at this stage. It only has engine-selection plumbing plus a fallback to the current Handsontable runtime.
+- The repo is still not dual-engine ready.
+- A first production runtime adapter seam now exists, but RevoGrid runtime support is bounded to one bundled template path:
+  - `canada_covid19/CanCOGeNCovid19`
 - A local spike can request a candidate engine with the undocumented query param:
   - `?gridEngine=tabulator`
   - `?gridEngine=revogrid`
-- Until a candidate adapter exists, the application records:
+- The application records:
   - `data-grid-engine-requested`
   - `data-grid-engine-active`
   - `data-grid-engine-implemented`
-  on the root HTML element and falls back to Handsontable.
+  on the root HTML element and falls back to Handsontable for unsupported engine/template combinations.
 
 ## Quick Experiment Paths
 
@@ -58,3 +60,4 @@ If later audit evidence shows `grdi_1m` no longer exercises dependent tabs meani
 
 - `grid-engine-scorecard.md` records the 8 hard-behavior verdicts for Tabulator and RevoGrid.
 - `spike-findings.md` summarizes the go/no-go decision and the recommended next migration step.
+- `adapter-contract.md` documents the runtime-v1 contract and explicit omissions for the bounded adapter path.
