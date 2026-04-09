@@ -43,6 +43,13 @@ Supported for this bounded path:
 - Header double-click help parity in RevoGrid path
 - Any claim that the repo is dual-engine ready
 
+## Runtime-v2 Checkpoint
+
+- Checkpoint scope: feasibility of immediate Handsontable-style per-cell invalid-state styling parity for bounded RevoGrid runtime paths.
+- Outcome: **no-go for now**.
+- Current bounded behavior remains runtime-v1 visible validation feedback/banner semantics.
+- Per-cell invalid styling is deferred to a dedicated runtime-v2 slice.
+
 ## Remaining Blockers
 
 - Significant Handsontable-specific logic remains outside the bounded seam.

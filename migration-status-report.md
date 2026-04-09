@@ -40,14 +40,21 @@
 - Full undo parity on RevoGrid runtime-v1.
 - Header double-click help parity on RevoGrid runtime-v1.
 
-## 4. Frozen Handsontable Surface Status
+## 4. Runtime-v2 Invalid Styling Checkpoint
+
+- Checkpoint objective: determine whether bounded RevoGrid runtime-v2 should move immediately to Handsontable-style per-cell invalid-state styling.
+- Result: **no-go for now**.
+- Evidence: bounded runtime tests confirm validation state and visible feedback are present, while per-cell invalid classes are still not exposed in the bounded runtime path.
+- Decision: retain runtime-v1 visible validation feedback/banner semantics and defer per-cell parity until a dedicated bounded runtime-v2 implementation slice is approved.
+
+## 5. Frozen Handsontable Surface Status
 
 - The raw `.hot` surface remains frozen and audited.
 - No new raw `.hot` usage should be introduced outside the existing audited surface files.
 - Guard command remains:
   - `node script/check-grid-usage.mjs`
 
-## 5. Testing Scope Added
+## 6. Testing Scope Added
 
 - Unit coverage updated for template-scoped engine resolution behavior.
 - New focused E2E runtime coverage added for:
@@ -55,13 +62,13 @@
   - bounded RevoGrid runtime path (`canada_covid19/CanCOGeNCovid19`)
   - bounded RevoGrid runtime path (`phac_dexa/PHACDexa`)
 
-## 6. Remaining Migration Blockers
+## 7. Remaining Migration Blockers
 
 - Repository still has significant Handsontable-specific coupling outside the bounded seam.
 - RevoGrid runtime support is intentionally narrow and template-scoped.
 - Dependent-table parity and broader toolbar/plugin parity remain future work.
 
-## 7. Recommended Next Step
+## 8. Recommended Next Step
 
 - Expand RevoGrid runtime support to one additional non-`1:m` bundled template path while preserving:
   - Handsontable default runtime

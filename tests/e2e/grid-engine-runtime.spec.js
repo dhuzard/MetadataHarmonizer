@@ -93,6 +93,9 @@ test('revogrid bounded runtime path supports edit and validation feedback', asyn
     const feedbackElement = document.querySelector(
       '.revo-validation-feedback.has-errors'
     );
+    const perCellInvalidElement = document.querySelector(
+      'revo-grid.revo-grid-runtime .invalid-cell, revo-grid.revo-grid-runtime .empty-invalid-cell'
+    );
     const hasInvalidCells =
       Object.keys(dh.invalid_cells || {}).length > 0 &&
       Object.values(dh.invalid_cells || {}).some(
@@ -103,6 +106,7 @@ test('revogrid bounded runtime path supports edit and validation feedback', asyn
       textValue: dh.getCellValue(0, textCol),
       controlledValue: dh.getCellValue(0, selectCol),
       hasInvalidFeedback: Boolean(feedbackElement),
+      hasPerCellInvalidClass: Boolean(perCellInvalidElement),
       hasInvalidCells,
     };
   });
@@ -111,6 +115,7 @@ test('revogrid bounded runtime path supports edit and validation feedback', asyn
   expect(result.controlledValue.length).toBeGreaterThan(0);
   expect(result.hasInvalidCells).toBe(true);
   expect(result.hasInvalidFeedback).toBe(true);
+  expect(result.hasPerCellInvalidClass).toBe(false);
 });
 
 test('revogrid second bounded runtime path supports edit and validation feedback', async ({
@@ -192,6 +197,9 @@ test('revogrid second bounded runtime path supports edit and validation feedback
     const feedbackElement = document.querySelector(
       '.revo-validation-feedback.has-errors'
     );
+    const perCellInvalidElement = document.querySelector(
+      'revo-grid.revo-grid-runtime .invalid-cell, revo-grid.revo-grid-runtime .empty-invalid-cell'
+    );
     const hasInvalidCells =
       Object.keys(dh.invalid_cells || {}).length > 0 &&
       Object.values(dh.invalid_cells || {}).some(
@@ -202,6 +210,7 @@ test('revogrid second bounded runtime path supports edit and validation feedback
       textValue: dh.getCellValue(0, textCol),
       controlledValue: dh.getCellValue(0, selectCol),
       hasInvalidFeedback: Boolean(feedbackElement),
+      hasPerCellInvalidClass: Boolean(perCellInvalidElement),
       hasInvalidCells,
     };
   });
@@ -210,4 +219,5 @@ test('revogrid second bounded runtime path supports edit and validation feedback
   expect(result.controlledValue.length).toBeGreaterThan(0);
   expect(result.hasInvalidCells).toBe(true);
   expect(result.hasInvalidFeedback).toBe(true);
+  expect(result.hasPerCellInvalidClass).toBe(false);
 });
