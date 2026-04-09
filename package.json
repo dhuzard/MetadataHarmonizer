@@ -35,9 +35,17 @@
     "build:web": "yarn clean:web && webpack --mode=production --config web/webpack.config.js && yarn build:schemas",
     "build:schemas": "yarn clean:schemas && webpack --config web/webpack.schemas.js",
     "dev": "webpack serve --mode=development --config web/webpack.config.js",
+    "experiment": "node script/dev-experiment.mjs",
+    "experiment:tabular": "node script/dev-experiment.mjs tabular",
+    "experiment:validation": "node script/dev-experiment.mjs validation",
+    "experiment:tabulator": "node script/dev-experiment.mjs tabulator",
+    "experiment:revogrid": "node script/dev-experiment.mjs revogrid",
     "flightcheck": "yarn format && yarn lint ; yarn test",
     "test": "jest tests/",
     "test:e2e": "playwright test",
+    "test:e2e:grid:smoke": "playwright test tests/e2e/grid-engine-smoke.spec.js",
+    "test:e2e:grid:spike": "playwright test tests/e2e/grid-engine-spike.spec.js",
+    "test:e2e:example-input": "playwright test tests/e2e/example-input.spec.js",
     "test:e2e:install": "playwright install chromium"
   },
   "peerDependencies": {

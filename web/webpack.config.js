@@ -122,6 +122,11 @@ module.exports = (env, argv) => {
             from: '**/*.pdf',
             to: 'templates/[path][name][ext]',
           },
+          {
+            context: 'templates',
+            from: '**/exampleInput/*.*',
+            to: 'templates/[path][name][ext]',
+          },
         ],
       })
     );

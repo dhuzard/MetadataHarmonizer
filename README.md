@@ -119,6 +119,15 @@ yarn dev
 
 This will start a [webpack development server](https://webpack.js.org/configuration/dev-server/) running locally on `localhost:8080`. You can connect to `localhost:8080` by inputing it into your browser URL bar while `yarn dev` is running. Changes to either `lib` or `web` should be loaded automatically in your browser. This serves as interface for testing and debugging the core library components (in the lib directory) and that interface itself (the web directory).
 
+For faster local experiments, there are now focused launchers:
+
+- `yarn experiment:tabular` preloads a bundled valid CSV into the main app.
+- `yarn experiment:validation` preloads a bundled invalid CSV and runs validation immediately.
+- `yarn experiment:tabulator` starts the dev server for the Tabulator spike path.
+- `yarn experiment:revogrid` starts the dev server for the RevoGrid spike path.
+
+See [`docs/grid-engine/README.md`](./docs/grid-engine/README.md) for the exact query-param routes as well.
+
 ## Publishing and Releasing
 
 To bundle the canonical interface run:
@@ -235,4 +244,3 @@ For more information about the DataHarmonizer, it's templates, and how to use th
 ## License
 
 DataHarmonizer javascript, python and other code not mentioned in the Acknowledgement above is covered by the [MIT](LICENSE) license.
-

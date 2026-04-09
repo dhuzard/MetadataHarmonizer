@@ -8,6 +8,7 @@ import { initI18n } from '../lib/utils/i18n';
 import { Template } from '../lib/utils/templates';
 import { getGettingStartedMarkup } from '../lib/toolbarGettingStarted';
 import { Footer, Toolbar, AppContext } from '../lib';
+import { maybeLoadExampleInput } from './experimentSetup';
 import { maybeMountGridEngineSpike } from './spikes/grid-engine';
 
 // Order matters: place this at bottom of imports for CSS overrides
@@ -68,6 +69,10 @@ const renderGridEngineStatus = (context) => {
 
   const { requestedGridEngine, gridEngine, gridEngineImplemented } =
     context.appConfig;
+  const spikeParams = new URLSearchParams(window.location.search);
+  spikeParams.set('gridEngine', requestedGridEngine);
+  spikeParams.set('gridSpike', '1');
+
   window.__DATAHARMONIZER_GRID_ENGINE__ = {
     requested: requestedGridEngine,
     active: gridEngine,
@@ -87,6 +92,7 @@ const renderGridEngineStatus = (context) => {
       Grid spike mode requested <strong>${requestedGridEngine}</strong>, but the active engine is
       <strong>${gridEngine}</strong>. This repo currently has engine-selection infrastructure only; no
       candidate adapter is active in the default runtime yet.
+      <a class="alert-link" href="/?${spikeParams.toString()}">Open the ${requestedGridEngine} spike harness</a>.
     </div>
   `);
 };
@@ -108,7 +114,7 @@ const main = async function () {
       $('#getting-started-carousel-container').html(getGettingStartedMarkup());
     });
 
-    new Toolbar(dhToolbarRoot, context, {
+    const toolbar = new Toolbar(dhToolbarRoot, context, {
       templatePath: context.appConfig.template_path, // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
       releasesURL:
         'https://github.com/cidgoh/pathogen-genomics-package/releases',
@@ -120,6 +126,8 @@ const main = async function () {
         Template.create(schema).then((result) => result.current.schema),
     });
 
+    await toolbar.ready;
+    await maybeLoadExampleInput(context, toolbar, dhToolbarRoot);
     new Footer(dhFooterRoot, context);
     return context;
   });
