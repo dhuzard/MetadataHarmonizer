@@ -80,10 +80,10 @@ describe('mnms_to_preclinical.py', () => {
     );
 
     const containerJson = JSON.parse(fs.readFileSync(containerPath, 'utf-8'));
-    const rocheExperiment = containerJson.Container.Experiments.find(
-      (experiment) => experiment.collaborator === 'Roche'
+    const selectedExperiment = containerJson.Container.Experiments.find(
+      (experiment) => experiment.home_cage_monitoring_system === 'Other'
     );
-    const hcmoPath = path.join(tempDir, 'roche-hcmo.json');
+    const hcmoPath = path.join(tempDir, 'selected-hcmo.json');
 
     execFileSync(
       'python3',
@@ -94,14 +94,17 @@ describe('mnms_to_preclinical.py', () => {
         '--hcmo-json',
         hcmoPath,
         '--experiment-id',
-        rocheExperiment.experiment_id,
+        selectedExperiment.experiment_id,
       ],
       { encoding: 'utf-8' }
     );
 
     const hcmoJson = JSON.parse(fs.readFileSync(hcmoPath, 'utf-8'));
     expect(hcmoJson.schemaVersion).toBe('hcmo-v1');
-    expect(hcmoJson.experiment.collaborator).toBe('Roche');
+    expect(hcmoJson.experiment.experimentId).toBe(
+      selectedExperiment.experiment_id
+    );
+    expect(hcmoJson.homeCageMonitoring.system).toBe('Other');
     expect(hcmoJson.subjects).toHaveLength(1);
     expect(hcmoJson.procedures).toHaveLength(1);
     expect(hcmoJson.dataAssets).toHaveLength(1);

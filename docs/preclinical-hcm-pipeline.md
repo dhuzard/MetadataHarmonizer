@@ -2,6 +2,8 @@
 
 This repository now includes a two-template workflow for preclinical home-cage monitoring metadata.
 
+All tracked example files in this workflow are synthetic. Keep real source workbooks and local drafts out of version control; `docs/inputs/` is intended for local-only inputs and is ignored by git.
+
 ## Templates
 
 - `preclinical_mnms_intake/MNMSRecord`
